@@ -47,6 +47,19 @@ angular.module("dashboardApp", ["ui.router"])
 				url : "/feed",
 				templateUrl: "../../views/widget-feed.html",
 			})
+			.state("media",{
+				url : "/media",
+				templateUrl: "../../views/widget-media.html",
+			})
+			.state("calendar",{
+				url : "/calendar",
+				templateUrl: "../../views/widget-calendar.html",
+			})
+			.state("health",{
+				url : "/health",
+				templateUrl: "../../views/widget-health.html",
+			})
+
 
 
 	});
