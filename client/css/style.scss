@@ -1,11 +1,12 @@
-$textColour: white;
+$textColour: rgba(255,255,255,0.9);
+$text--hover: #A9A4C9;
 
 
 html, body
 {
 	margin: 0;
 	padding: 0;
-	font-family: arial;
+	font-family: 'Lato', sans-serif;
 	color: $textColour;
 	float:left;
 	width: 100%;
@@ -29,6 +30,32 @@ html, body
 	padding: 2%;
 	font-size: 1.3em;
 }
+
+.site-name
+{
+	float: left;
+}
+
+.user-management
+{
+	float: right;
+}
+
+.user-management label
+{
+	margin-left: 3px;
+	font-size: 0.7em;
+	opacity: 0.75;
+	letter-spacing: 5px;
+}
+
+.avatar-image
+{
+	display: block;
+	width: 64px;
+}
+
+
 
 /* 	
 
@@ -91,8 +118,9 @@ html, body
 .sidebar-menu-items li:hover
 {
 	padding-left: 10%;
-	border-left: 7px solid rgba(255,255,255,0.2);
+	border-left: 7px solid $text--hover;
 	cursor: pointer;
+	color: $text--hover;
 }
 
 
