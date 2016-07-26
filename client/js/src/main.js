@@ -31,6 +31,12 @@ angular.module("dashboardApp", ["ui.router"])
 	//.service("helpersSrv", helpersSrv)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
+		console.log($stateProvider);
+		console.log($urlRouterProvider);
+		console.log($locationProvider);
+		$urlRouterProvider.otherwise('/todo');
+		$locationProvider.html5Mode(true);
+
 		$stateProvider
 			.state("todo",{
 				url : "/todo",
@@ -42,8 +48,7 @@ angular.module("dashboardApp", ["ui.router"])
 			})
 
 
-		$urlRouterProvider.otherwise('/');
-		$locationProvider.html5Mode(true);
+
 
 	});
 

@@ -10,6 +10,7 @@ const mongoose        = require('mongoose');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
 
+
 // Allow headers / datatypes etc to be set
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.urlencoded({extended: true}));               // parse application/x-www-form-urlencoded
@@ -21,15 +22,22 @@ app.use(methodOverride());
 // Routes
 // ------------------------------------------------------
 
-/*
-require('./routes.js')(app);
-*/
+//equire('./server/routes.js')(app);
+
 
 
 // Expose the jspm packages + config as well as the client front-end
 app.use('/jspm_packages',  express.static(__dirname + '/jspm_packages'));
 app.use("/config.js", express.static(__dirname + "/config.js"));
 app.use(express.static(__dirname + "/client"));
+
+// Rewriting the routes so I can at remove the # symbol from urls
+app.all("/*", (req, res, next) => {
+	res.sendFile("index.html", { root: __dirname + "/client/" });
+})
+
+
+
 
 
 // Start
