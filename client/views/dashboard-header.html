@@ -2,13 +2,12 @@
 
 	<section class="site-name">Dashboard</section>
 
-	<section class="user-management">
+	<section class="user-management" ng-click=userManager.toggleMenuOptions($event)>
 		
 		<img src="../img/detective.png" class="avatar-image">
-		<label>Guest</label>
+		<label>{{userManager.userName}}</label>
 
 	</section>
-
 
 
 </div>

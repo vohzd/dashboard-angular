@@ -3,7 +3,7 @@
 // library imports
 import angular from "angular";
 import uiRouter from "angular-ui-router";
-//import $ from "jquery";
+import $ from "jquery";
 
 // custom url endpoints for routing
 //import routeUrls from "./config/route.config.js";
