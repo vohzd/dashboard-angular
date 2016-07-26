@@ -9,6 +9,12 @@ html, body {
   background-size: cover;
   overflow: hidden; }
 
+/* 	
+	
+	header styles
+	-------------
+
+*/
 .dashboard-header {
   float: left;
   width: 96%;
@@ -16,6 +22,12 @@ html, body {
   padding: 2%;
   font-size: 1.3em; }
 
+/* 	
+
+	sidebar styles
+	--------------
+
+*/
 .dashboard-full-height-sidebar {
   float: left;
   height: 100vh;
@@ -28,19 +40,34 @@ html, body {
 
 .dashboard-full-height-sidebar li {
   list-style-type: none;
-  margin-bottom: 8%;
   float: left;
-  width: 100%; }
+  width: 90%;
+  padding: 5%; }
 
 .dashboard-full-height-sidebar li i {
-  width: 13%;
-  padding-left: 10%; }
+  width: 10%; }
 
 .dashboard-full-height-sidebar li a {
   color: white;
   text-decoration: none;
   text-align: center; }
 
+.sidebar-menu-items li {
+  transition: 0.2s all;
+  border: none;
+  color: white; }
+
+.sidebar-menu-items li:hover {
+  padding-left: 10%;
+  border-left: 7px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer; }
+
+/* 
+
+	main view styles
+	----------------
+
+*/
 .widget-view {
   float: left;
   width: 78%; }

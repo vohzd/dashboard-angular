@@ -1,25 +1,42 @@
 <div class="dashboard-full-height-sidebar">
 	<ul class="sidebar-menu-items">
-		<li>
-			<i class="fa fa-check" aria-hidden="true"></i>
-			<a ui-sref="todo">Current Todo</a>
-		</li>
-		<li>
-			<i class="fa fa-rss" aria-hidden="true"></i>
-			<a ui-sref="feed">News feed</a>
-		</li>
-		<li>
-			<i class="fa fa-youtube-play" aria-hidden="true"></i>
-			<a ui-sref="media">Media Burner</a>
-		</li>
-		<li>
-			<i class="fa fa-calendar-times-o" aria-hidden="true"></i>
-			<a ui-sref="calendar">Calendar &amp; Events</a>
-		</li>
-		<li>
-			<i class="fa fa-medkit" aria-hidden="true"></i>
-			<a ui-sref="health">Health &amp; Workout</a>
-		</li>
+
+		<!-- wrap each menu nav item in an <a> -->
+		<a ui-sref="todo">
+			<li>
+				<i class="fa fa-check" aria-hidden="true"></i>
+				<label>Current Todo</label>
+			</li>
+		</a>
+
+		<a ui-sref="feed">
+			<li>
+				<i class="fa fa-rss" aria-hidden="true"></i>
+				<label>News feed</label>
+			</li>
+		</a>
+
+		<a ui-sref="media">
+			<li>
+				<i class="fa fa-youtube-play" aria-hidden="true"></i>
+				<label>Media Burner</label>
+			</li>
+		</a>
+
+		<a ui-sref="calendar">
+			<li>
+				<i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+				<label>Calendar &amp; Events</label>
+			</li>
+		</a>
+
+		<a ui-sref="health">
+			<li>
+				<i class="fa fa-medkit" aria-hidden="true"></i>
+				<label>Health &amp; Workout</label>
+			</li>
+		</a>
+		
 	</ul>
 </div>
 
