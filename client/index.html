@@ -2,7 +2,8 @@
 <html ng-app="dashboardApp">
 <head>
 	<base href="/"></base>
-	<title></title>
+	<title>Dashboard</title>
+	<script src="https://use.fontawesome.com/c909b5fb2a.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -10,19 +11,10 @@
 <div class="main-wrapper" ng-controller="MainCtrl as main">
 
 	<dashboard-header></dashboard-header>
-
-	<div>{{ main.message }}</div>
-
-	<ul>
-		<li><a ui-sref="todo">Brainburner</a></li>
-		<li><a ui-sref="feed">Feedburner</a></li>
-	</ul>
-
-	<div data-ui-view></div>
+	<dashboard-sidebar></dashboard-sidebar>
+	<main data-ui-view></main>
 	
-
 </div>
-
 
 
 <!-- for dev, keep these uncommented   -->

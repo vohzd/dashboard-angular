@@ -22,8 +22,6 @@ app.use(methodOverride());
 // Routes
 // ------------------------------------------------------
 
-//equire('./server/routes.js')(app);
-
 
 
 // Expose the jspm packages + config as well as the client front-end

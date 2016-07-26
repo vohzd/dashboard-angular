@@ -17,6 +17,8 @@ import uiRouter from "angular-ui-router";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
+import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
+
 
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
@@ -28,12 +30,11 @@ import MainCtrl from "./controllers/main.controller.js";
 angular.module("dashboardApp", ["ui.router"])
 	.controller("MainCtrl", MainCtrl)
 	.directive("dashboardHeader", dashboardHeader)
+	.directive("dashboardSidebar", dashboardSidebar)
+
 	//.service("helpersSrv", helpersSrv)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
-		console.log($stateProvider);
-		console.log($urlRouterProvider);
-		console.log($locationProvider);
 		$urlRouterProvider.otherwise('/todo');
 		$locationProvider.html5Mode(true);
 
@@ -46,8 +47,6 @@ angular.module("dashboardApp", ["ui.router"])
 				url : "/feed",
 				templateUrl: "../../views/widget-feed.html",
 			})
-
-
 
 
 	});
