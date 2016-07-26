@@ -1,0 +1,40 @@
+{
+  "jspm": {
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.5.8",
+      "angular-router": "npm:angular-router@^0.0.2",
+      "angular-ui-router": "github:angular-ui/angular-ui-router-bower@^0.3.1",
+      "jquery": "npm:jquery@^3.1.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "name": "dashboard-angular",
+  "description": "the megadashboard written with the mean stack",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js 1337"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intheon/dashboard-angular.git"
+  },
+  "author": "ben | intheon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intheon/dashboard-angular/issues"
+  },
+  "homepage": "https://github.com/intheon/dashboard-angular#readme",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "method-override": "2.3.6",
+    "mongoose": "4.5.5",
+    "morgan": "1.7.0"
+  }
+}
