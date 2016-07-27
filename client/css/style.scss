@@ -39,6 +39,20 @@ html, body
 {
 	float: right;
 	padding: 1%;
+	transition: all 0.6s;
+	background: none;
+	padding-right: 1%;
+	margin-right:-6.5%;
+}
+
+.nudge
+{
+	padding-right: 10%;
+}
+
+.user-management div
+{
+	float: left;
 }
 
 .user-management:hover
@@ -52,6 +66,17 @@ html, body
 	font-size: 0.7em;
 	opacity: 0.75;
 	letter-spacing: 5px;
+}
+
+.user-authentication
+{
+	transition: opacity 0.5s;
+	opacity: 0;
+}
+
+.show-user-authentication
+{
+	opacity: 1;
 }
 
 .avatar-image

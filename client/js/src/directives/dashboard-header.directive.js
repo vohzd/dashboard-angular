@@ -10,19 +10,31 @@ function dashboardHeader(){
 		scope: {},
 		controller(){
 			this.userName = "guest";
-			this.toggleMenuOptions = (event) => {
-				if ($(".user-management").hasClass("expanded-menu")){
-					console.log("has menu")
-				}
-				else {
-					console.log("no menu!")
-				}
+			this.toggleMenuOptions = () => {
+				performMenuToggle();
 			}
 		},
 		controllerAs: "userManager"
 
 	}
 
+}
+
+
+function performMenuToggle(){
+	if (!$(".user-management").hasClass("nudge")){
+		$(".user-management").addClass("nudge");
+		setTimeout(function(){
+			$(".user-authentication").addClass("show-user-authentication");
+		},1000)
+	}
+	else {
+		$(".user-authentication").removeClass("show-user-authentication");
+		setTimeout(function(){
+			$(".user-management").removeClass("nudge");
+		},1000)
+	//$(".user-authentication").removeClass("expanded-menu");
+	}
 }
 
 
