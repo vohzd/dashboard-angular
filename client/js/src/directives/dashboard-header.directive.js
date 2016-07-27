@@ -15,7 +15,6 @@ function dashboardHeader(){
 			}
 		},
 		controllerAs: "userManager"
-
 	}
 
 }
@@ -33,7 +32,6 @@ function performMenuToggle(){
 		setTimeout(function(){
 			$(".user-management").removeClass("nudge");
 		},1000)
-	//$(".user-authentication").removeClass("expanded-menu");
 	}
 }
 
