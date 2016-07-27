@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 function TodoCtrl(){
 
 	this.allTodos = [
@@ -63,7 +65,15 @@ function TodoCtrl(){
 			});
 			this.addNewTodoTitle = "";
 		}
+	}
 
+
+	this.revealContextMenu = () => {
+
+		$(".all-todos-list").addClass("nudge-top");
+
+		$(".todo-revealed-options").addClass("reveal-element");
+		$(".todo-options-menu").addClass("dimmed");
 	}
 
 

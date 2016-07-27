@@ -1,10 +1,24 @@
 <div class="widget-wrapper">
 	
 	<div id="todo-app">
-		
 
 		<section class="todo-list">
-			<ol>
+
+			<section class="todo-revealed-options">
+				<div class="menu-item">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+					<label>Delete all</label>
+				</div>
+			</section>
+
+
+			<section class="todo-options-menu" ng-click="todo.revealContextMenu()">
+				<i class="fa fa-wrench" aria-hidden="true"></i>
+			</section>
+
+
+
+			<ol class="all-todos-list">
 				<li ng-repeat="todoItem in todo.allTodos">
 					<h4>{{ todoItem.title }}</h4>
 					<time>{{ todoItem.timeAdded }}</time>
