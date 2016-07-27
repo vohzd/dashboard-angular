@@ -1,3 +1,17 @@
+/*
+	------------------------------------------------------------------------------
+
+	config and vars
+	---------------
+
+*/
+/*
+	------------------------------------------------------------------------------
+
+	root styles
+	-----------
+
+*/
 html, body {
   margin: 0;
   padding: 0;
@@ -9,13 +23,9 @@ html, body {
   background-size: cover;
   overflow: hidden; }
 
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
 /* 	
+
+	-----------------------------------------------------------------------------
 	
 	header styles
 	-------------
@@ -66,6 +76,8 @@ html, body {
 
 /* 	
 
+	-----------------------------------------------------------------------------
+
 	sidebar styles
 	--------------
 
@@ -105,7 +117,8 @@ html, body {
   cursor: pointer;
   color: #A9A4C9; }
 
-/* 
+/*
+	-----------------------------------------------------------------------------
 
 	main view styles
 	----------------
@@ -126,6 +139,11 @@ html, body {
   box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55);
   color: rgba(172, 177, 209, 0.9); }
 
+/*
+	--------
+	todo app
+	--------
+*/
 #todo-app {
   display: flex;
   flex-wrap: wrap; }
@@ -136,15 +154,21 @@ html, body {
 .todo-list ol {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap; }
+  -webkit-padding-start: 0;
+  list-style-position: inside;
+  color: rgba(64, 70, 113, 0.9); }
 
 .todo-list li {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  margin: 2%;
-  margin-right: 4%;
-  float: left; }
+  padding: 0.9%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  background: rgba(160, 165, 231, 0.09);
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+  float: left;
+  wrap: nowrap; }
 
 .todo-list ol li h4 {
   font-weight: normal;
@@ -155,7 +179,8 @@ html, body {
 .todo-list ol li time {
   font-size: 0.7em;
   color: rgba(64, 70, 113, 0.9);
-  opacity: 0.7; }
+  opacity: 0.9;
+  letter-spacing: 1px; }
 
 .todo-form {
   display: flex;

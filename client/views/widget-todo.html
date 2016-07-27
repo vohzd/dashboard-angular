@@ -3,7 +3,7 @@
 	<div id="todo-app">
 		
 
-		<section class="todo-list left">
+		<section class="todo-list">
 			<ol>
 				<li ng-repeat="todoItem in todo.allTodos">
 					<h4>{{ todoItem.title }}</h4>
@@ -11,8 +11,9 @@
 				</li>
 			</ol>
 		</section>
+		
 
-		<form class="todo-form right">
+		<form class="todo-form">
 			<textarea name="todo-item-title" ></textarea>
 			<button>Add todo</button>
 		</form>
