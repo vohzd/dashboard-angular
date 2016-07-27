@@ -2,7 +2,23 @@ function TodoCtrl(){
 
 	this.allTodos = [
 		{
-			title: "One",
+			title: "One massive title",
+			timeAdded: "A while ago"
+		},
+		{
+			title: "Two",
+			timeAdded: "A day ago"
+		},
+		{
+			title: "Three sets of titles",
+			timeAdded: "A while ago"
+		},
+		{
+			title: "Different sizes",
+			timeAdded: "A year ago"
+		},
+		{
+			title: "Trying out the float effect",
 			timeAdded: "A while ago"
 		},
 		{
@@ -14,27 +30,11 @@ function TodoCtrl(){
 			timeAdded: "A while ago"
 		},
 		{
-			title: "Four",
+			title: "Go Skateboarding",
 			timeAdded: "A year ago"
 		},
 		{
-			title: "One",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Two",
-			timeAdded: "A day ago"
-		},
-		{
-			title: "Three",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Four",
-			timeAdded: "A year ago"
-		},
-		{
-			title: "One",
+			title: "http://testing.com",
 			timeAdded: "A while ago"
 		},
 		{

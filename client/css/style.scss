@@ -2,6 +2,9 @@ $textColour: rgba(107,116,172,0.9);
 $textColourDarker: darken($textColour, 20%);
 $textColourLighten: lighten($textColour, 20%);
 
+$secondaryColour: rgba(33, 39, 74, 0.79);
+
+
 $text--hover: #A9A4C9;
 
 
@@ -196,6 +199,17 @@ html, body
 
 }
 
+#todo-app
+{
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.todo-list
+{
+	width: 80%;
+}
+
 .todo-list ol
 {
 	margin: 0;
@@ -209,6 +223,7 @@ html, body
     padding-top: 2%;
     padding-bottom: 2%;
     margin: 2%;
+    margin-right: 4%;
     float: left;
 }
 
@@ -216,18 +231,20 @@ html, body
 {
 	font-weight: normal;
 	font-size: 1.2em;
-	display:inline;
+	margin: 0;
+	color: $secondaryColour;
 }
 
 .todo-list ol li time
 {
-	display:inline;
-	font-size: 0.8em;
-	float:right;
+	font-size: 0.7em;
+	color: $textColourDarker;
+	opacity: 0.7;
 }
 
 .todo-form
 {
 	display: flex;
+	width: 20%;
 }
 

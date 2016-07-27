@@ -126,6 +126,13 @@ html, body {
   box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55);
   color: rgba(172, 177, 209, 0.9); }
 
+#todo-app {
+  display: flex;
+  flex-wrap: wrap; }
+
+.todo-list {
+  width: 80%; }
+
 .todo-list ol {
   margin: 0;
   padding: 0;
@@ -136,19 +143,22 @@ html, body {
   padding-top: 2%;
   padding-bottom: 2%;
   margin: 2%;
+  margin-right: 4%;
   float: left; }
 
 .todo-list ol li h4 {
   font-weight: normal;
   font-size: 1.2em;
-  display: inline; }
+  margin: 0;
+  color: rgba(33, 39, 74, 0.79); }
 
 .todo-list ol li time {
-  display: inline;
-  font-size: 0.8em;
-  float: right; }
+  font-size: 0.7em;
+  color: rgba(64, 70, 113, 0.9);
+  opacity: 0.7; }
 
 .todo-form {
-  display: flex; }
+  display: flex;
+  width: 20%; }
 
 /*# sourceMappingURL=style.css.map */
