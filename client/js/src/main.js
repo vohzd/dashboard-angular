@@ -14,7 +14,7 @@ import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
 
 // controllers
 import MainCtrl from "./controllers/main.controller.js";
-
+import TodoCtrl from "./controllers/todo.controller.js";
 
 // GO
 angular.module("dashboardApp", ["ui.router"])
@@ -31,6 +31,8 @@ angular.module("dashboardApp", ["ui.router"])
 			.state("todo",{
 				url : "/todo",
 				templateUrl: "../../views/widget-todo.html",
+				controller: TodoCtrl,
+				controllerAs: "todo"
 			})
 			.state("feed",{
 				url : "/feed",

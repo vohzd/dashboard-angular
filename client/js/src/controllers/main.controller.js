@@ -6,8 +6,6 @@ function MainCtrl($scope, dbSrv){
 
 		let res = dbSrv.retrieveProfile("guest_account");
 
-		console.log(res);
-		
 		/*
 		dbSrv.retrieveProfile("guest_account").then((response) => {
 

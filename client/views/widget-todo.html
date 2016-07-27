@@ -1,1 +1,23 @@
-<div class="widget-wrapper">I am the todo application</div>
+<div class="widget-wrapper">
+	
+	<div id="todo-app">
+		
+
+		<section class="todo-list left">
+			<ol>
+				<li ng-repeat="todoItem in todo.allTodos">
+					<h4>{{ todoItem.title }}</h4>
+					<time>{{ todoItem.timeAdded }}</time>
+				</li>
+			</ol>
+		</section>
+
+		<form class="todo-form right">
+			<input type="text" name="todo-item-title" />
+			<button>Add todo</button>
+		</form>
+
+	</div>
+
+
+</div>

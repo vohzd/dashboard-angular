@@ -2,12 +2,18 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(107, 116, 172, 0.9);
   float: left;
   width: 100%;
   background: url("../img/dashboard-background.jpg");
   background-size: cover;
   overflow: hidden; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
 
 /* 	
 	
@@ -84,14 +90,14 @@ html, body {
   width: 10%; }
 
 .dashboard-full-height-sidebar li a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(107, 116, 172, 0.9);
   text-decoration: none;
   text-align: center; }
 
 .sidebar-menu-items li {
   transition: 0.2s all;
   border: none;
-  color: rgba(255, 255, 255, 0.9); }
+  color: rgba(107, 116, 172, 0.9); }
 
 .sidebar-menu-items li:hover {
   padding-left: 10%;
@@ -107,7 +113,7 @@ html, body {
 */
 .widget-view {
   float: left;
-  width: 78%; }
+  width: 88%; }
 
 .widget-wrapper {
   float: left;
@@ -117,6 +123,32 @@ html, body {
   border-radius: 3px;
   -webkit-box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55);
-  box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55); }
+  box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.55);
+  color: rgba(172, 177, 209, 0.9); }
+
+.todo-list ol {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; }
+
+.todo-list li {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 2%;
+  float: left; }
+
+.todo-list ol li h4 {
+  font-weight: normal;
+  font-size: 1.2em;
+  display: inline; }
+
+.todo-list ol li time {
+  display: inline;
+  font-size: 0.8em;
+  float: right; }
+
+.todo-form {
+  display: flex; }
 
 /*# sourceMappingURL=style.css.map */

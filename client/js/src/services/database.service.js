@@ -4,7 +4,7 @@ function database ($http, $q, $rootScope){
 
 	const wrapper = {
 		retrieveProfile: (profileId) => {
-			console.log("received inside service: ", profileId);
+			//console.log("received inside service: ", profileId);
 			return "message";
 		}
 	}

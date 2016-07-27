@@ -1,4 +1,7 @@
-$textColour: rgba(255,255,255,0.9);
+$textColour: rgba(107,116,172,0.9);
+$textColourDarker: darken($textColour, 20%);
+$textColourLighten: lighten($textColour, 20%);
+
 $text--hover: #A9A4C9;
 
 
@@ -13,6 +16,16 @@ html, body
     background: url("../img/dashboard-background.jpg");
     background-size: cover;
     overflow: hidden;
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
 }
 
 /* 	
@@ -165,7 +178,7 @@ html, body
 .widget-view
 {
 	float:left;
-	width: 78%;
+	width: 88%;
 }
 
 
@@ -179,5 +192,42 @@ html, body
 	-webkit-box-shadow: 0px 6px 18px -4px rgba(0,0,0,0.55);
 	-moz-box-shadow: 0px 6px 18px -4px rgba(0,0,0,0.55);
 	box-shadow: 0px 6px 18px -4px rgba(0,0,0,0.55);
+	color: $textColourLighten;
+
+}
+
+.todo-list ol
+{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.todo-list li
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: 2%;
+    float: left;
+}
+
+.todo-list ol li h4
+{
+	font-weight: normal;
+	font-size: 1.2em;
+	display:inline;
+}
+
+.todo-list ol li time
+{
+	display:inline;
+	font-size: 0.8em;
+	float:right;
+}
+
+.todo-form
+{
+	display: flex;
 }
 
