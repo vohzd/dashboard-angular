@@ -15,7 +15,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: rgba(107, 116, 172, 0.9);
   float: left;
   width: 100%;
@@ -146,7 +146,8 @@ html, body {
 */
 #todo-app {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  font-family: "Coming Soon", cursive; }
 
 .todo-list {
   width: 80%; }
@@ -156,31 +157,40 @@ html, body {
   padding: 0;
   -webkit-padding-start: 0;
   list-style-position: inside;
-  color: rgba(64, 70, 113, 0.9); }
+  white-space: nowrap;
+  color: rgba(64, 70, 113, 0.9);
+  font-size: 1em; }
 
 .todo-list li {
-  padding: 0.9%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 0.3%;
   margin-right: 2%;
   margin-bottom: 2%;
-  background: rgba(160, 165, 231, 0.09);
-  border-radius: 7px;
+  background: rgba(160, 165, 231, 0.08);
   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
   float: left;
-  wrap: nowrap; }
+  font-size: 1.45em;
+  line-height: 22px; }
 
 .todo-list ol li h4 {
   font-weight: normal;
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 0;
-  color: rgba(33, 39, 74, 0.79); }
+  color: rgba(33, 39, 74, 0.79);
+  vertical-align: top;
+  padding: 0;
+  line-height: 28px; }
 
 .todo-list ol li time {
-  font-size: 0.7em;
+  font-family: "Lato", sans-serif;
+  font-size: 0.5em;
   color: rgba(64, 70, 113, 0.9);
   opacity: 0.9;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  vertical-align: bottom; }
 
 .todo-form {
   width: 20%;
@@ -200,7 +210,9 @@ html, body {
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
   color: rgba(33, 39, 74, 0.79);
-  transition: all 0.6s; }
+  transition: all 0.6s;
+  font-family: "Coming Soon", cursive;
+  font-size: 1em; }
 
 .todo-form textarea::-webkit-input-placeholder {
   color: rgba(33, 39, 74, 0.79); }
@@ -224,6 +236,8 @@ html, body {
   box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
   color: rgba(33, 39, 74, 0.79);
   text-align: left;
-  transition: all 0.6s; }
+  transition: all 0.6s;
+  font-family: "Lato", sans-serif;
+  font-size: 1.1em; }
 
 /*# sourceMappingURL=style.css.map */

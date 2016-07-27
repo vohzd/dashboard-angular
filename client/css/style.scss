@@ -14,6 +14,9 @@ $secondaryColour: rgba(33, 39, 74, 0.79);
 
 $text--hover: #A9A4C9;
 
+$mainFont: 'Lato', sans-serif;
+$handwritingFont: 'Coming Soon', cursive;
+
 
 /*
 	------------------------------------------------------------------------------
@@ -27,7 +30,7 @@ html, body
 {
 	margin: 0;
 	padding: 0;
-	font-family: 'Lato', sans-serif;
+	font-family: $mainFont;
 	color: $textColour;
 	float:left;
 	width: 100%;
@@ -218,6 +221,7 @@ html, body
 {
 	display:flex;
 	flex-wrap:wrap;
+	font-family: $handwritingFont;
 }
 
 .todo-list
@@ -231,37 +235,47 @@ html, body
 	padding: 0;
 	-webkit-padding-start: 0;
 	list-style-position: inside;
+	white-space: nowrap;
 	color: $textColourDarker;
+	font-size: 1em;
 }
 
 .todo-list li
 {
-    padding: 0.9%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.3%;
     margin-right: 2%;
     margin-bottom: 2%;
-    background: rgba(160, 165, 231, 0.09);
-    border-radius: 7px;
+    background: rgba(160, 165, 231, 0.08);
     -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
     float: left;
-    wrap: nowrap;
+    font-size: 1.45em;
+    line-height: 22px;
+
 }
 
 .todo-list ol li h4
 {
-	font-weight: normal;
-	font-size: 1.2em;
-	margin: 0;
-	color: $secondaryColour;
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+    color: $secondaryColour;
+    vertical-align: top;
+    padding: 0;
+    line-height: 28px;
 }
 
 .todo-list ol li time
 {
-	font-size: 0.7em;
-	color: $textColourDarker;
-	opacity: 0.9;
-	letter-spacing: 1px;
+	font-family: $mainFont;
+    font-size: 0.5em;
+    color: $textColourDarker;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    vertical-align: bottom;
 }
 
 .todo-form
@@ -286,6 +300,8 @@ html, body
     box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
 	color: $secondaryColour;
 	transition: all 0.6s;
+	font-family: $handwritingFont;
+	font-size: 1em;
 
 }
 
@@ -322,5 +338,7 @@ html, body
 	color: $secondaryColour;
 	text-align: left;
 	transition: all 0.6s;
+	font-family: $mainFont;
+	font-size: 1.1em;
 }
 
