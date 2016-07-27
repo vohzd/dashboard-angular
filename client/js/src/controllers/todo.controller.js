@@ -51,6 +51,22 @@ function TodoCtrl(){
 		}
 	];
 
+	this.addNewTodoTitle = "";
+	this.addNewTodoSubmit = () => {
+		if (!this.addNewTodoTitle){
+			// todo... notfications
+		}
+		else {
+			this.allTodos.push({
+				title: this.addNewTodoTitle,
+				timeAdded: new Date()
+			});
+			this.addNewTodoTitle = "";
+		}
+
+	}
+
+
 
 }
 

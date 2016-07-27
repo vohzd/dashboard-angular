@@ -14,8 +14,8 @@
 
 
 		<form class="todo-form">
-			<textarea name="todo-item-title" placeholder="Add something next..."></textarea>
-			<button>Add todo</button>
+			<textarea name="todo-item-title" placeholder="Add something next..." ng-model=todo.addNewTodoTitle></textarea>
+			<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
 		</form>
 
 	</div>
