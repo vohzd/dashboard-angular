@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-function TodoCtrl(){
+function todoController(){
 
 	this.allTodos = [
 		{
@@ -14,42 +14,6 @@ function TodoCtrl(){
 		{
 			title: "Three sets of titles",
 			timeAdded: "A while ago"
-		},
-		{
-			title: "Different sizes",
-			timeAdded: "A year ago"
-		},
-		{
-			title: "Trying out the float effect",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Two",
-			timeAdded: "A day ago"
-		},
-		{
-			title: "Three",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Go Skateboarding",
-			timeAdded: "A year ago"
-		},
-		{
-			title: "http://testing.com",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Two",
-			timeAdded: "A day ago"
-		},
-		{
-			title: "Three",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Four",
-			timeAdded: "A year ago"
 		}
 	];
 
@@ -57,23 +21,28 @@ function TodoCtrl(){
 	this.addNewTodoSubmit = () => {
 		if (!this.addNewTodoTitle){
 			// todo... notfications
+			return;
 		}
 		else {
-			this.allTodos.push({
+
+			const newTodo = {
 				title: this.addNewTodoTitle,
 				timeAdded: new Date()
-			});
+			};
+
+			this.allTodos.push(newTodo);
 			this.addNewTodoTitle = "";
+
+			console.log("i need to add ", newTodo, " to the DB");
+
 		}
 	}
 
 
 	this.revealContextMenu = () => {
-
-		$(".all-todos-list").addClass("nudge-top");
-
-		$(".todo-revealed-options").addClass("reveal-element");
-		$(".todo-options-menu").addClass("dimmed");
+		$(".all-todos-list").toggleClass("nudge-top");
+		$(".todo-revealed-options").toggleClass("reveal-element");
+		$(".todo-options-menu").toggleClass("dimmed");
 	}
 
 
@@ -81,4 +50,4 @@ function TodoCtrl(){
 }
 
 
-export default TodoCtrl;
+export default todoController;

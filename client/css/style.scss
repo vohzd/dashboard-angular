@@ -10,6 +10,7 @@ $textColour: rgba(107,116,172,0.9);
 $textColourDarker: darken($textColour, 20%);
 $textColourLighten: lighten($textColour, 20%);
 
+$primaryColour: rgba(201, 201, 209, 0.8);
 $secondaryColour: rgba(33, 39, 74, 0.79);
 
 $text--hover: #A9A4C9;
@@ -235,6 +236,7 @@ html, body
 	box-shadow: 0px 6px 18px -4px rgba(0,0,0,0.55);
 	*/
 	color: $textColourLighten;
+	width: 100%;
 
 }
 
@@ -303,6 +305,7 @@ html, body
 	width: 76%;
 	padding: 2%;
 	position: relative;
+	min-height: 150px;
 }
 
 .todo-list ol
@@ -310,7 +313,7 @@ html, body
 	margin: 0;
 	padding: 0;
 	-webkit-padding-start: 0;
-	list-style-position: inside;
+	list-style-type: none;
 	white-space: nowrap;
 	color: $textColourDarker;
 	font-size: 1em;
@@ -331,6 +334,8 @@ html, body
     float: left;
     font-size: 1.45em;
     line-height: 22px;
+    margin-top:2.5%;
+    min-width:150px;
 }
 
 .todo-list ol li h4
@@ -338,7 +343,7 @@ html, body
     font-weight: normal;
     font-size: 1em;
     margin: 0;
-    color: $secondaryColour;
+    color: $primaryColour;
     vertical-align: top;
     padding: 0;
     line-height: 28px;
@@ -348,7 +353,7 @@ html, body
 {
 	font-family: $mainFont;
     font-size: 0.5em;
-    color: $textColourDarker;
+    color: darken($primaryColour, 20%);
     opacity: 0.9;
     letter-spacing: 1px;
     vertical-align: bottom;
@@ -371,7 +376,7 @@ html, body
     -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
-	color: $secondaryColour;
+	color: $primaryColour;
 	transition: all 0.6s;
 	font-family: $handwritingFont;
     font-size: 1.45em;
@@ -381,8 +386,9 @@ html, body
 
 .todo-form textarea::-webkit-input-placeholder
 {
-	color: $secondaryColour;
+	color: $primaryColour;
 }
+
 
 .todo-form textarea:hover
 {

@@ -6,22 +6,26 @@ import uiRouter from "angular-ui-router";
 import $ from "jquery";
 
 // services
-import dbSrv from "./services/database.service.js";
+import dbService from "./services/database.service.js";
+
+// factories
+import broadcastFactory from "./factories/broadcast.factory.js";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
 import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
 
 // controllers
-import MainCtrl from "./controllers/main.controller.js";
-import TodoCtrl from "./controllers/todo.controller.js";
+import mainController from "./controllers/main.controller.js";
+import todoController from "./controllers/todo.controller.js";
 
 // GO
 angular.module("dashboardApp", ["ui.router"])
-	.controller("MainCtrl", MainCtrl)
+	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.service("dbSrv", dbSrv)
+	.factory("broadcastFactory", broadcastFactory)
+	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
 		$urlRouterProvider.otherwise('/todo');
@@ -31,7 +35,7 @@ angular.module("dashboardApp", ["ui.router"])
 			.state("todo",{
 				url : "/todo",
 				templateUrl: "../../views/widget-todo.html",
-				controller: TodoCtrl,
+				controller: todoController,
 				controllerAs: "todo"
 			})
 			.state("feed",{
