@@ -2,13 +2,11 @@
 
 function databaseService ($http, $q, $rootScope){
 
-	const wrapper = {
+	return {
 		retrieveProfile: (profileId) => {
 			return $http.get("/userProfile/" + profileId);
 		}
 	}
-
-	return wrapper;
 
 }
 

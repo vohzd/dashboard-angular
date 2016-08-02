@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-function todoController(){
+function todoController($rootScope, subscriptionFactory){
 
 	this.allTodos = [
 		{
@@ -30,10 +30,27 @@ function todoController(){
 				timeAdded: new Date()
 			};
 
+			// push for optimistic loading
 			this.allTodos.push(newTodo);
+
+			// reset
 			this.addNewTodoTitle = "";
 
-			console.log("i need to add ", newTodo, " to the DB");
+			// request a snapshot of what the todo's currently look like
+
+			subscriptionFactory.emit({
+				"requestedAction": "requestScopeSnapshot",
+				"targetProperty": "todo",
+				"listenerCallback": "updateTodosMeta",
+				"transportedPayload": null,
+			});
+
+			// react to the above call when complete!
+			$rootScope.$on("updateTodosMeta", (event, todosPayload) => {
+				console.log("i should defffffinnnnely be firing");
+			})
+
+
 
 		}
 	}

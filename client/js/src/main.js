@@ -1,5 +1,9 @@
 /* this is the main reference point for the app, all stuff is effectively pulled into here, and then bundled with jspm */
 
+/* commenting vocabulary:
+	SST - Single Source of Truth.
+*/
+
 // library imports
 import angular from "angular";
 import uiRouter from "angular-ui-router";
@@ -9,7 +13,7 @@ import $ from "jquery";
 import dbService from "./services/database.service.js";
 
 // factories
-import broadcastFactory from "./factories/broadcast.factory.js";
+import subscriptionFactory from "./factories/subscription.factory.js";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
@@ -24,7 +28,7 @@ angular.module("dashboardApp", ["ui.router"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.factory("broadcastFactory", broadcastFactory)
+	.factory("subscriptionFactory", subscriptionFactory)
 	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
