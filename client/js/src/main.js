@@ -12,9 +12,6 @@ import $ from "jquery";
 // services
 import dbService from "./services/database.service.js";
 
-// factories
-import subscriptionFactory from "./factories/subscription.factory.js";
-
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
 import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
@@ -28,7 +25,7 @@ angular.module("dashboardApp", ["ui.router"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.factory("subscriptionFactory", subscriptionFactory)
+	.service("dataSharingService", dataSharingService)
 	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 

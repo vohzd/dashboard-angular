@@ -1,21 +1,8 @@
 import $ from "jquery";
 
-function todoController($rootScope, subscriptionFactory){
+function todoController($state, dbService){
 
-	this.allTodos = [
-		{
-			title: "One massive title",
-			timeAdded: "A while ago"
-		},
-		{
-			title: "Two",
-			timeAdded: "A day ago"
-		},
-		{
-			title: "Three sets of titles",
-			timeAdded: "A while ago"
-		}
-	];
+	this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta.todo;
 
 	this.addNewTodoTitle = "";
 	this.addNewTodoSubmit = () => {
@@ -27,34 +14,20 @@ function todoController($rootScope, subscriptionFactory){
 
 			const newTodo = {
 				title: this.addNewTodoTitle,
-				timeAdded: new Date()
+				added: new Date()
 			};
 
 			// push for optimistic loading
-			this.allTodos.push(newTodo);
+			$scope.$parent.currentUserMeta.userWidgetMeta.todo.push(newTodo)
 
 			// reset
 			this.addNewTodoTitle = "";
 
-			// request a snapshot of what the todo's currently look like
-
-			subscriptionFactory.emit({
-				"requestedAction": "requestScopeSnapshot",
-				"targetProperty": "todo",
-				"listenerCallback": "updateTodosMeta",
-				"transportedPayload": null,
-			});
-
-			// react to the above call when complete!
-			$rootScope.$on("updateTodosMeta", (event, todosPayload) => {
-				console.log("i should defffffinnnnely be firing");
-			})
-
-
+			// write master scope to db
+			dbService.writeMasterScope($scope.$parent.currentUserMeta)
 
 		}
 	}
-
 
 	this.revealContextMenu = () => {
 		$(".all-todos-list").toggleClass("nudge-top");
@@ -63,8 +36,9 @@ function todoController($rootScope, subscriptionFactory){
 	}
 
 
-
 }
+
+todoController.$inject = ["$state", "dbService"];
 
 
 export default todoController;

@@ -10,7 +10,9 @@ module.exports = function(app) {
 	*/
 
 	// Retrieve a payload of info about a users profile
-	app.get('/userProfile/:id', (req, res) => {
+	app.get("/userProfile/:id", (req, res) => {
+
+		/*
 
 		const accountId = null;
 
@@ -40,8 +42,8 @@ module.exports = function(app) {
 
 		res.json(mockData);
 
+		*/
 
-		/*
 		// Uses Mongoose schema to run the search (empty conditions)
 		const query = model.find({});
 
@@ -55,8 +57,40 @@ module.exports = function(app) {
 			res.json(userMetadata);
 		});
 
-		*/
+
 	});
+
+
+	// POST Routes
+	// --------------------------------------------------------
+	// Provides method for saving new users to the db
+	app.post('/userProfile', (req, res) => {
+
+		console.log("received a request");
+		console.log(req.body);
+
+		// Creates a new skatepark based on the Mongoose Schema
+		const newUser = new model(req.body);
+
+		console.log(newUser);
+
+		// New skatepark is saved to the db
+		newUser.save((err) => {
+			
+			// Test for errors
+			if(err) res.send(err);
+
+			// If no errors are found, it responds with the _id of the newly saved obj
+			res.json(newUser._id);
+		});
+	});
+
+	/*
+		PUT ROUTES
+	*/
+
+
+
 
 
 
