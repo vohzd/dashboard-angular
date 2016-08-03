@@ -12,7 +12,7 @@ module.exports = function(app) {
 	// Retrieve a payload of info about a users profile
 	app.get("/userProfile/:id", (req, res) => {
 
-		/*
+
 
 		const accountId = null;
 
@@ -42,8 +42,8 @@ module.exports = function(app) {
 
 		res.json(mockData);
 
-		*/
 
+		/*
 		// Uses Mongoose schema to run the search (empty conditions)
 		const query = model.find({});
 
@@ -56,15 +56,14 @@ module.exports = function(app) {
 			// If no errors are found, it responds with a JSON of all skateparks
 			res.json(userMetadata);
 		});
-
-
+		*/
 	});
 
 
 	// POST Routes
 	// --------------------------------------------------------
 	// Provides method for saving new users to the db
-	app.post('/userProfile', (req, res) => {
+	app.post("/userProfile", (req, res) => {
 
 		console.log("received a request");
 		console.log(req.body);
@@ -88,6 +87,16 @@ module.exports = function(app) {
 	/*
 		PUT ROUTES
 	*/
+
+	app.put("/userProfile", (req, res) => {
+
+		console.log("hi from the server!");
+
+		console.log(req.body);
+
+		res.json({});
+
+	});
 
 
 

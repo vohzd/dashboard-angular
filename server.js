@@ -25,7 +25,6 @@ app.use(methodOverride());
 require("./server/routes.js")(app);
 
 
-
 // DB Connection
 const dbString = "mongodb://127.0.0.1/userProfile";
 

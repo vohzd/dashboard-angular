@@ -1,4 +1,4 @@
-function mainController($scope, $rootScope, dbService, subscriptionFactory){
+function mainController($scope, $rootScope, dbService){
 
 	// ----------------------------------------------------------------
 	// BOOTSTRAPPING
@@ -27,7 +27,7 @@ function mainController($scope, $rootScope, dbService, subscriptionFactory){
 
 }
 
-mainController.$inject = ["$scope","$rootScope", "dbService", "subscriptionFactory"];
+mainController.$inject = ["$scope","$rootScope", "dbService"];
 
 
 

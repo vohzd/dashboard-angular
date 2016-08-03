@@ -25,7 +25,6 @@ angular.module("dashboardApp", ["ui.router"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.service("dataSharingService", dataSharingService)
 	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
