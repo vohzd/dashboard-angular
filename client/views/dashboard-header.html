@@ -10,8 +10,9 @@
 		</div>
 
 		<div class="user-authentication">
-			<button>Log in</button>
-			<button>Edit profile</button>
+			<div class="g-signin2" data-onsuccess="userManager.onSignIn"></div>
+			<!--<button ng-click=userManager.beginSignIn()>Log in</button>-->
+			<!--<button>Edit profile</button>-->
 		</div>
 		
 	</section>

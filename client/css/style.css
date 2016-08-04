@@ -62,17 +62,17 @@ html, body {
   padding: 1%;
   transition: all 0.6s;
   background: none;
-  padding-right: 1%;
-  margin-right: -7%; }
+  padding-right: 1%; }
 
 .nudge {
-  padding-right: 10%; }
+  padding-right: 5%; }
 
 .user-management div {
   float: left; }
 
 .user-management:hover {
-  background: rgba(255, 255, 255, 0.1); }
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer; }
 
 .user-management label {
   margin-left: 3px;
@@ -83,6 +83,18 @@ html, body {
 .user-authentication {
   transition: opacity 0.5s;
   opacity: 0; }
+
+.user-authentication button {
+  border: 0;
+  background: rgba(255, 255, 255, 0.16);
+  outline: none;
+  width: 77px;
+  height: 30px;
+  transition: 0.5s all; }
+
+.user-authentication button:hover {
+  background: rgba(255, 255, 255, 0.46);
+  cursor: pointer; }
 
 .show-user-authentication {
   opacity: 1; }

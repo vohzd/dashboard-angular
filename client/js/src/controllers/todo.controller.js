@@ -28,12 +28,7 @@ function todoController($state, $scope, $timeout, dbService){
 			// reset
 			this.addNewTodoTitle = "";
 			// write master scope to db
-			dbService.updateMasterScope($scope.$parent.currentUserMeta).success((event, response) => {
-				console.log("theoretically this should be an empty json block");
-				console.log(event);
-				console.log(response);
-			})
-
+			dbService.updateMasterScope($scope.$parent.currentUserMeta);
 		}
 	}
 
