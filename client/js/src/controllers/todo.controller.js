@@ -1,8 +1,22 @@
 import $ from "jquery";
 
-function todoController($state, $scope, dbService){
+function todoController($state, $scope, $timeout, dbService){
 
-	this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta.todo;
+	console.log("why isnt this fucking controller firing?");
+
+	console.log($scope.$parent);
+
+	this.allTodos = null;
+
+	// bloody digest cycle and promises do not play nicely
+	$timeout(() => {
+		this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta[0].todo;
+		console.log(this.allTodos);
+	}, 500)
+
+
+
+	console.log(this.allTodos)
 
 	this.addNewTodoTitle = "";
 	this.addNewTodoSubmit = () => {
@@ -41,7 +55,7 @@ function todoController($state, $scope, dbService){
 
 }
 
-todoController.$inject = ["$state", "$scope", "dbService"];
+todoController.$inject = ["$state", "$scope", "$timeout", "dbService"];
 
 
 export default todoController;

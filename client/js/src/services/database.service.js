@@ -7,6 +7,9 @@ function databaseService ($http, $q, $rootScope){
 
 
 	return {
+		authenticate: () => {
+			return $http.get("/authenticate");
+		},
 		retrieveProfile: (profileId) => {
 			return $http.get("/userProfile/" + profileId);
 		},
