@@ -14,7 +14,7 @@ function databaseService ($http, $q, $rootScope){
 			return $http.get("/userProfile/" + profileId);
 		},
 		updateMasterScope: (json) => {
-			return $http.put("/userProfile/" + json.accountId, json.userWidgetMeta);
+			return $http.put("/userProfile/" + json._id, json);
 		}
 	}
 

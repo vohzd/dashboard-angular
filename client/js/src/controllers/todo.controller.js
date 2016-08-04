@@ -2,21 +2,12 @@ import $ from "jquery";
 
 function todoController($state, $scope, $timeout, dbService){
 
-	console.log("why isnt this fucking controller firing?");
-
-	console.log($scope.$parent);
-
-	this.allTodos = null;
-
 	// bloody digest cycle and promises do not play nicely
 	$timeout(() => {
 		this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta[0].todo;
 		console.log(this.allTodos);
 	}, 500)
 
-
-
-	console.log(this.allTodos)
 
 	this.addNewTodoTitle = "";
 	this.addNewTodoSubmit = () => {
@@ -32,7 +23,7 @@ function todoController($state, $scope, $timeout, dbService){
 			};
 
 			// push for optimistic loading
-			$scope.$parent.currentUserMeta.userWidgetMeta.todo.push(newTodo)
+			$scope.$parent.currentUserMeta.userWidgetMeta[0].todo.push(newTodo)
 
 			// reset
 			this.addNewTodoTitle = "";

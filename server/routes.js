@@ -5,9 +5,10 @@ const Profile			= require('./model.js');
 // Opens App Routes
 module.exports = function(app) {
 
-	/*
-		GET Routes
-	*/
+	
+	//	GET Routes
+	//	--------------------------------------------------------
+	//
 
 	// will need work... for now return the internal db id
 	app.get("/authenticate/", (req, res) => {
@@ -30,44 +31,36 @@ module.exports = function(app) {
    		 });
 	});
 
-
 	// POST Routes
 	// --------------------------------------------------------
 	// Provides method for saving new users to the db
 	app.post("/userProfile", (req, res) => {
-
-		console.log("body:");
-		console.log(req.body);
-
-		// Creates a new skatepark based on the Mongoose Schema
 		const newUser = new Profile(req.body);
-
-		console.log("schema: " , newUser);
-
-		// New skatepark is saved to the db
 		newUser.save((err) => {
-			
-			console.log("attempting save...");
-
-			// Test for errors
 			if(err) res.send(err);
-
-			// If no errors are found, it responds with the _id of the newly saved obj
 			res.json(newUser);
 		});
 	});
 
-	/*
-		PUT ROUTES
-	*/
+	// PUT ROUTES
+	// --------------------------------------------------------
+	//
 
 	app.put("/userProfile/:id", (req, res) => {
 
+		// what is the id of the document you want to update?
+		const q = { "_id": req.params.id};
+		// what is the content you want to update the document with?
+		const b = req.body;
 
+		// call findOneAndUpdate with the info required
+		Profile.findOneAndUpdate(q, b, (err, doc) => {
 
-		console.log(req.body);
+			if (err) return res.send(500, { error: err }); // bad times
 
-		res.json({});
+			res.json(b);
+
+		});
 
 	});
 
