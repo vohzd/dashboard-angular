@@ -14,7 +14,7 @@ module.exports = function(app) {
 
 
 
-		const accountId = null;
+		let accountId = null;
 
 		if (!req.params.id){
 			accountId = 1
@@ -88,7 +88,7 @@ module.exports = function(app) {
 		PUT ROUTES
 	*/
 
-	app.put("/userProfile", (req, res) => {
+	app.put("/userProfile/:id", (req, res) => {
 
 		console.log("hi from the server!");
 

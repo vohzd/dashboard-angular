@@ -12,7 +12,7 @@ function mainController($scope, $rootScope, dbService){
 
 	// when page is loaded, grab the meta
 	if (this.authentication == "guest"){
-		dbService.retrieveProfile("guest_account").then((response) => {
+		dbService.retrieveProfile("1").then((response) => {
 			$scope.currentUserMeta = response.data;
 		})
 	}

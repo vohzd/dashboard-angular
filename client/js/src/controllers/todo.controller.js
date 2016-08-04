@@ -2,7 +2,6 @@ import $ from "jquery";
 
 function todoController($state, $scope, dbService){
 
-	console.log($scope.$parent.currentUserMeta);
 	this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta.todo;
 
 	this.addNewTodoTitle = "";
@@ -23,11 +22,10 @@ function todoController($state, $scope, dbService){
 
 			// reset
 			this.addNewTodoTitle = "";
-
-			console.log("attempting...");
 			// write master scope to db
-			dbService.updateMasterScope($scope.$parent.currentUserMeta).then((response) => {
+			dbService.updateMasterScope($scope.$parent.currentUserMeta).success((event, response) => {
 				console.log("theoretically this should be an empty json block");
+				console.log(event);
 				console.log(response);
 			})
 
