@@ -4,11 +4,11 @@ const Schema      = mongoose.Schema;
 
 // Create a schema
 const userProfile = new Schema({
-	userName: {type: String, required: false},
-	userWidgetMeta: {type: Array, required: false},
+	userName: {type: String},
+	userWidgetMeta: {type: Object},
 	createdAt: {type: Date, default: Date.now}
 });
 
-// Exports the Schema for use elsewhere. The MongoDB collection will be called 'skateparks'
+// Exports the Schema for use elsewhere. The MongoDB collection will be called 'userProfile'
 module.exports = mongoose.model("userProfile", userProfile);
 

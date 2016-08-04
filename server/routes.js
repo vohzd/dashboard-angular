@@ -1,9 +1,12 @@
 // Dependencies
 const mongoose 			= require('mongoose');
-const model				= require('./model.js');
+const Profile			= require('./model.js');
+
+
 
 // Opens App Routes
 module.exports = function(app) {
+
 
 	/*
 		GET Routes
@@ -65,22 +68,24 @@ module.exports = function(app) {
 	// Provides method for saving new users to the db
 	app.post("/userProfile", (req, res) => {
 
-		console.log("received a request");
+		console.log("body:");
 		console.log(req.body);
 
 		// Creates a new skatepark based on the Mongoose Schema
-		const newUser = new model(req.body);
+		const newUser = new Profile(req.body);
 
-		console.log(newUser);
+		console.log("schema: " , newUser);
 
 		// New skatepark is saved to the db
 		newUser.save((err) => {
 			
+			console.log("attempting save...");
+
 			// Test for errors
 			if(err) res.send(err);
 
 			// If no errors are found, it responds with the _id of the newly saved obj
-			res.json(newUser._id);
+			res.json(newUser);
 		});
 	});
 
@@ -90,7 +95,7 @@ module.exports = function(app) {
 
 	app.put("/userProfile/:id", (req, res) => {
 
-		console.log("hi from the server!");
+
 
 		console.log(req.body);
 
