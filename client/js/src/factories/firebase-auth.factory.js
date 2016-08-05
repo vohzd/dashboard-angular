@@ -1,6 +1,7 @@
 "use strict";
 
-import serverConfig from "../config/firebase.config.js";
+import serverConfig from "../config/firebase-server.config.js";
+import browserConfig from "../config/firebase-browser.config.js";
 
 function firebaseAuthFactory($firebaseAuth){
 
@@ -9,7 +10,7 @@ function firebaseAuthFactory($firebaseAuth){
 			firebase.initializeApp(serverConfig);
 		},
 		getInstance: () => {
-			return $firebaseAuth();
+			return $firebaseAuth(firebase.auth());
 		}
 	}
 
