@@ -31,6 +31,13 @@ module.exports = function(app) {
    		 });
 	});
 
+	// Redirect to the log in route
+	app.get("/login", (req, res) => {
+
+		res.sendFile("login.html", { root: __dirname + "/../client/" });
+
+	});
+
 	// POST Routes
 	// --------------------------------------------------------
 	// Provides method for saving new users to the db

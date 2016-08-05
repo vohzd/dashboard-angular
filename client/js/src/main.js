@@ -7,7 +7,14 @@
 // library imports
 import angular from "angular";
 import uiRouter from "angular-ui-router";
+import firebase from "firebase";
+//import firebaseConfig from "./config/firebase.config.js";
 import $ from "jquery";
+
+
+
+// Angular Stuff
+// -------------
 
 // services
 import dbService from "./services/database.service.js";
@@ -54,8 +61,6 @@ angular.module("dashboardApp", ["ui.router"])
 				url : "/health",
 				templateUrl: "../../views/widget-health.html",
 			})
-
-
 
 	});
 

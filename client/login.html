@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/"></base>
+	<title>Dashboard | login</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Coming+Soon" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
+	<link rel="stylesheet" type="text/css" href="css/login.style.css">
+</head>
+<body>
+
+<main class="main-wrapper" ng-controller="LoginController">
+
+	<section class="login-wrapper">
+		<h1>Sign in to Dashboard</h1>
+		<div id="firebase-auth-wrapper"></div>
+	</section>
+	
+</main>
+
+
+<!-- for dev, keep these uncommented   -->
+<script type="text/javascript" src="../jspm_packages/system.js"></script>
+<script type="text/javascript" src="../config.js"></script>
+<script type="text/javascript">
+
+	System.import("js/src/login.js").then(function(){
+		angular.element(document).ready(function(){
+			angular.bootstrap( document, [ "dashboardApp" ]);
+		});
+	});
+
+</script>
+
+<!-- for prod, comment out the 3 above and just use this
+<script type="text/javascript" src="js/dist/final.js"></script>
+-->
+
+</body>
+</html>
