@@ -1,12 +1,16 @@
-function LoginController($scope, $rootScope, $firebaseAuth, firebaseAuthFactory){
+function LoginController($scope, $rootScope, $window, $firebaseAuth, firebaseAuthFactory, currentUserService){
 
 	firebaseAuthFactory.initialise();
 
 	this.auth = firebaseAuthFactory.getInstance();
 
 	this.auth.$signInWithPopup("google").then((result) => {
-		console.log(result);
-		console.log("signed in as ", result.user.uid);
+
+		let ref = currentUserService.bindUserProfile(result);
+
+		console.log(ref);
+		//$window.redirect("/");
+
 	}).catch((error) => {
 		console.log("fail... ", error);
 	})
@@ -14,7 +18,7 @@ function LoginController($scope, $rootScope, $firebaseAuth, firebaseAuthFactory)
 
 }
 
-LoginController.$inject = ["$scope", "$rootScope", "$firebaseAuth", "firebaseAuthFactory"];
+LoginController.$inject = ["$scope", "$rootScope", "$window", "$firebaseAuth", "firebaseAuthFactory", "currentUserService"];
 
 
 export default LoginController;

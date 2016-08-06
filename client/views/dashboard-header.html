@@ -2,7 +2,7 @@
 
 	<section class="site-name">Dashboard</section>
 
-	<section class="user-management" ng-click=userManager.toggleMenuOptions()>
+	<section class="user-management" ng-click="userManager.toggleMenuOptions()">
 
 		<div class="user-avatar">
 			<img src="../img/detective.png" class="avatar-image">
@@ -10,9 +10,7 @@
 		</div>
 
 		<div class="user-authentication">
-			<div class="g-signin2" data-onsuccess="userManager.onSignIn"></div>
-			<!--<button ng-click=userManager.beginSignIn()>Log in</button>-->
-			<!--<button>Edit profile</button>-->
+			<button ng-click="userManager.toggleSignIn()">Log in</button>
 		</div>
 		
 	</section>
