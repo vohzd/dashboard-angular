@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-function dashboardHeader(){
+function dashboardHeader($rootScope){
 	
 	return {
 
@@ -13,8 +13,8 @@ function dashboardHeader(){
 			this.toggleMenuOptions = () => {
 				performMenuToggle();
 			},
-			this.toggleSignIn = () => {
-				
+			this.signUserIn = () => {
+				$rootScope.$emit("signUserIn");
 			}
 
 		},
@@ -22,6 +22,9 @@ function dashboardHeader(){
 	}
 
 }
+
+dashboardHeader.$inject = ["$rootScope"];
+
 
 
 function performMenuToggle(){
@@ -38,5 +41,6 @@ function performMenuToggle(){
 		},1000)
 	}
 }
+
 
 export default dashboardHeader;

@@ -5,19 +5,21 @@
 */
 
 // library imports
+import $ from "jquery";
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import firebase from "firebase";
-//import firebaseConfig from "./config/firebase.config.js";
-import $ from "jquery";
-
-
+import angularFire from "angularfire";
 
 // Angular Stuff
 // -------------
 
 // services
+import currentUserService from "./services/current-user.service.js";
 import dbService from "./services/database.service.js";
+
+// a factory that allows config sharing
+import firebaseAuthFactory from "./factories/firebase-auth.factory.js";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
@@ -28,10 +30,12 @@ import mainController from "./controllers/main.controller.js";
 import todoController from "./controllers/todo.controller.js";
 
 // GO
-angular.module("dashboardApp", ["ui.router"])
+angular.module("dashboardApp", ["ui.router", "firebase"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
+	.factory("firebaseAuthFactory", firebaseAuthFactory)
+	.service("currentUserService", currentUserService)
 	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
