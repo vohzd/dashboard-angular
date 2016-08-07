@@ -10,6 +10,19 @@ module.exports = function(app) {
 	//	--------------------------------------------------------
 	//
 
+	// Will be pretty commonly called
+	// Just exposes an unauthenticated endpoint to return a chunk of json
+	// for the guest profile
+	app.get("/getGuestProfileId", (req, res) => {
+		const query = { "userName": "guest"};
+		Profile.findOne(query, (err, doc) => {
+			if (err) return res.send(500, { error: err });
+			// If no errors are found, return matching record
+			res.json(doc._id);
+   		 });
+
+	});
+
 	// will need work... for now return the internal db id
 	app.get("/authenticate/", (req, res) => {
 		const query = { "userName": "guest"};

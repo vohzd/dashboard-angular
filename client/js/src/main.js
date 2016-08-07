@@ -15,8 +15,8 @@ import angularFire from "angularfire";
 // -------------
 
 // services
-import currentUserService from "./services/current-user.service.js";
 import dbService from "./services/database.service.js";
+import userAuthService from "./services/user-auth.service.js";
 
 // a factory that allows config sharing
 import firebaseAuthFactory from "./factories/firebase-auth.factory.js";
@@ -35,7 +35,7 @@ angular.module("dashboardApp", ["ui.router", "firebase"])
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
 	.factory("firebaseAuthFactory", firebaseAuthFactory)
-	.service("currentUserService", currentUserService)
+	.service("userAuthService", userAuthService)
 	.service("dbService", dbService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
