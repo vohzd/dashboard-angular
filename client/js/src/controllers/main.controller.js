@@ -36,23 +36,18 @@ function mainController(
 			.then((response) => {
 				createUserPromise(response);
 				userMeta = response;
+				this.username = response.user.displayName;
+
 			})
 			.then(() => getWidgetPromise(userMeta))
-			.then((widgetsMeta) => {
-				$scope.userWidgetMeta = $firebaseObject(widgetsMeta);
-				console.log($scope.userWidgetMeta);
-			})
+			.then((widgetsMeta) => $scope.userWidgetMeta = $firebaseObject(widgetsMeta))
 
 	});
 
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
 
 		let writePromise = firebaseService.updateWidget;
-
 		writePromise(whatToWrite, payload, userMeta)
-			.then((res) => {
-				console.log($scope.userWidgetMeta);
-			})
 
 	});
 
