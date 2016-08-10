@@ -16,18 +16,25 @@ function mainController(
 	// -----------------------------------------------------------------
 	// PROMISES
 	// --------
-
-	firebaseService.logInAsGuest().then((response) => {
-		console.log(response)
-		this.username = "guest"
-	}).catch((error) => {
-		console.log("error: ", error);
-	})
-
+	firebaseService.logInAsGuest()
+		.then((response) => {
+			this.username = "guest";
+		});
 
 	// ----------------------------------------------------------------------
-	// ASYNC EVENTS
+	// LISTENING EVENTS
 	// ------------
+	$rootScope.$on("signUserIn", () => {
+
+		let googlePromise = firebaseService.logInWithGoogle;
+		let createUserPromise = firebaseService.createUser;
+		let getWidgetPromise = firebaseService.getWidgets;
+
+		googlePromise()
+			.then((response) => createUserPromise(response))
+			.then((userDetails) => getWidgetPromise(userDetails));
+
+	});
 
 }
 

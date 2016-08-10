@@ -18,6 +18,25 @@ function firebaseService($firebaseAuth){
 			return $firebaseAuth().$signInWithEmailAndPassword("guestaccount@intheon.uk", "guest123456").then((user) => {
 				return user;
 			});
+		},
+		logInWithGoogle: () => {
+			return $firebaseAuth().$signInWithPopup("google").then((user) => {
+				return user;
+			});
+		},
+		createUser: (googleMeta) => {
+
+			console.log(googleMeta);
+			/*
+			return firebase.database().ref("profiles/" + googleMeta.uid).set({
+				fullName: googleMeta.displayName,
+				email: googleMeta.email,
+				photo : googleMeta.photoURL,
+				widgetsInUse: []
+			});*/
+		},
+		getWidgets: (param) => {
+			console.log("im amazed you made it this far?!")
 		}
 	}
 
