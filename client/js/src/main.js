@@ -15,11 +15,8 @@ import angularFire from "angularfire";
 // -------------
 
 // services
-import dbService from "./services/database.service.js";
-import userAuthService from "./services/user-auth.service.js";
-
-// a factory that allows config sharing
-import firebaseAuthFactory from "./factories/firebase-auth.factory.js";
+import databaseService from "./services/database.service.js";
+import firebaseService from "./factories/firebase.service.js";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
@@ -34,9 +31,8 @@ angular.module("dashboardApp", ["ui.router", "firebase"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.factory("firebaseAuthFactory", firebaseAuthFactory)
-	.service("userAuthService", userAuthService)
-	.service("dbService", dbService)
+	.service("firebaseService", firebaseService)
+	.service("databaseService", databaseService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
 		$urlRouterProvider.otherwise('/todo');

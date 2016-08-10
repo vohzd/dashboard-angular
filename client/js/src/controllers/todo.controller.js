@@ -1,8 +1,10 @@
 import $ from "jquery";
 
-function todoController($state, $scope, $timeout, dbService){
+function todoController($state, $scope){
 
 	// bloody digest cycle and promises do not play nicely
+
+	/*
 	$timeout(() => {
 		this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta[0].todo;
 		console.log(this.allTodos);
@@ -37,11 +39,12 @@ function todoController($state, $scope, $timeout, dbService){
 		$(".todo-revealed-options").toggleClass("reveal-element");
 		$(".todo-options-menu").toggleClass("dimmed");
 	}
+	*/
 
 
 }
 
-todoController.$inject = ["$state", "$scope", "$timeout", "dbService"];
+todoController.$inject = ["$state", "$scope"];
 
 
 export default todoController;
