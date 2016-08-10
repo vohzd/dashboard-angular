@@ -26,17 +26,18 @@ function firebaseService($firebaseAuth){
 		},
 		createUser: (googleMeta) => {
 
-			console.log(googleMeta);
-			/*
-			return firebase.database().ref("profiles/" + googleMeta.uid).set({
-				fullName: googleMeta.displayName,
-				email: googleMeta.email,
-				photo : googleMeta.photoURL,
+			return firebase.database().ref("profiles/" + googleMeta.user.uid).set({
+				fullName: googleMeta.user.displayName,
+				email: googleMeta.user.email,
+				photo : googleMeta.user.photoURL,
 				widgetsInUse: []
-			});*/
+			}).then(() => {
+				return true;
+			})
+
 		},
-		getWidgets: (param) => {
-			console.log("im amazed you made it this far?!")
+		getWidgets: (userDetails) => {
+			return firebase.database().ref("profiles/" + userDetails.user.uid + "/widgets");
 		}
 	}
 

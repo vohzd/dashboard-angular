@@ -12,6 +12,7 @@ function mainController(
 	// -------------
 	firebaseService.initialise();
 	this.username = "unknown";
+	this.userWidgetMeta = null;
 
 	// -----------------------------------------------------------------
 	// PROMISES
@@ -29,10 +30,15 @@ function mainController(
 		let googlePromise = firebaseService.logInWithGoogle;
 		let createUserPromise = firebaseService.createUser;
 		let getWidgetPromise = firebaseService.getWidgets;
+		let userMeta = null;
 
 		googlePromise()
-			.then((response) => createUserPromise(response))
-			.then((userDetails) => getWidgetPromise(userDetails));
+			.then((response) => {
+				createUserPromise(response);
+				userMeta = response;
+			})
+			.then(() => getWidgetPromise(userMeta))
+			.then((widgetsMeta) => this.userWidgetMeta = $firebaseObject(widgetsMeta))
 
 	});
 
