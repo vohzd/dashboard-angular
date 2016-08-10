@@ -1,7 +1,6 @@
 "use strict";
 
 import serverConfig from "../config/firebase-server.config.js";
-import browserConfig from "../config/firebase-browser.config.js";
 
 function firebaseAuthFactory($firebaseAuth){
 
@@ -9,8 +8,13 @@ function firebaseAuthFactory($firebaseAuth){
 		initialise: () => {
 			firebase.initializeApp(serverConfig);
 		},
-		getInstance: () => {
+		getAuth: () => {
 			return $firebaseAuth(firebase.auth());
+		},
+		logInAsGuest: () => {
+			return $firebaseAuth().$logInWithUsernameAndPassword("guestaccount@intheon.uk", "guest123456").then((user) => {
+				return user;
+			});
 		}
 	}
 

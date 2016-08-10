@@ -8,8 +8,10 @@ function dashboardHeader($rootScope){
 		templateUrl: "../../../views/dashboard-header.html",
 		replace: true,
 		scope: {},
+		bindToController: {
+			username: "="
+		},
 		controller(){
-			this.userName = "guest";
 			this.toggleMenuOptions = () => {
 				performMenuToggle();
 			},

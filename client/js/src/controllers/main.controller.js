@@ -16,7 +16,16 @@ function mainController(
 	// ----------------------------------------------------------------
 	// BOOTSTRAPPING
 	// -------------
+	firebaseService.initialise();
 
+	if (!firebaseService.getAuth()){
+		firebaseService.logInAsGuest().then((response) => {
+			console.log(response);
+			this.username = "guest";
+		}).catch((error) => {
+			console.log("error: ", error);
+		})
+	}
 
 	// ----------------------------------------------------------------------
 	// ASYNC EVENTS
