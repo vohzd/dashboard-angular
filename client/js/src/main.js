@@ -16,7 +16,7 @@ import angularFire from "angularfire";
 
 // services
 import databaseService from "./services/database.service.js";
-import firebaseService from "./factories/firebase.service.js";
+import firebaseService from "./services/firebase.service.js";
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";

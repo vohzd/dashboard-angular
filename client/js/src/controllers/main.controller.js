@@ -8,24 +8,22 @@ function mainController(
 	){
 
 	// ----------------------------------------------------------------
-	// VARS
-	// ----
-
-	this.username = "unknown";
-
-	// ----------------------------------------------------------------
-	// BOOTSTRAPPING
+	// BOOTSTRAPPING + VARS
 	// -------------
 	firebaseService.initialise();
+	this.username = "unknown";
 
-	if (!firebaseService.getAuth()){
-		firebaseService.logInAsGuest().then((response) => {
-			console.log(response);
-			this.username = "guest";
-		}).catch((error) => {
-			console.log("error: ", error);
-		})
-	}
+	// -----------------------------------------------------------------
+	// PROMISES
+	// --------
+
+	firebaseService.logInAsGuest().then((response) => {
+		console.log(response)
+		this.username = "guest"
+	}).catch((error) => {
+		console.log("error: ", error);
+	})
+
 
 	// ----------------------------------------------------------------------
 	// ASYNC EVENTS
@@ -40,7 +38,7 @@ mainController.$inject = [
 "$firebaseAuth",
 "$firebaseObject",
 "firebaseService",
-"databseService",
+"databaseService"
 ];
 
 // send to main.js

@@ -8,11 +8,11 @@ function firebaseAuthFactory($firebaseAuth){
 		initialise: () => {
 			firebase.initializeApp(serverConfig);
 		},
-		getAuth: () => {
-			return $firebaseAuth(firebase.auth());
+		getMethods: () => {
+			return $firebaseAuth();
 		},
 		logInAsGuest: () => {
-			return $firebaseAuth().$logInWithUsernameAndPassword("guestaccount@intheon.uk", "guest123456").then((user) => {
+			return $firebaseAuth().$signInWithEmailAndPassword("guestaccount@intheon.uk", "guest123456").then((user) => {
 				return user;
 			});
 		}
