@@ -20,7 +20,7 @@
 			<ol class="all-todos-list">
 				<li ng-repeat="todoItem in userWidgetMeta.todo">
 					<h4>{{ todoItem.title }}</h4>
-					<time>{{ todoItem.added }}</time>
+					<time>{{ todoItem.added | date }}</time>
 				</li>
 			</ol>
 		</section>
