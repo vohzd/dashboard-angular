@@ -12,7 +12,8 @@ function mainController(
 	// -------------
 	firebaseService.initialise();
 	this.username = "unknown";
-	this.userWidgetMeta = null;
+	$scope.userWidgetMeta = null;
+	let userMeta = null;
 
 	// -----------------------------------------------------------------
 	// PROMISES
@@ -30,7 +31,6 @@ function mainController(
 		let googlePromise = firebaseService.logInWithGoogle;
 		let createUserPromise = firebaseService.createUser;
 		let getWidgetPromise = firebaseService.getWidgets;
-		let userMeta = null;
 
 		googlePromise()
 			.then((response) => {
@@ -38,7 +38,21 @@ function mainController(
 				userMeta = response;
 			})
 			.then(() => getWidgetPromise(userMeta))
-			.then((widgetsMeta) => this.userWidgetMeta = $firebaseObject(widgetsMeta))
+			.then((widgetsMeta) => {
+				$scope.userWidgetMeta = $firebaseObject(widgetsMeta);
+				console.log($scope.userWidgetMeta);
+			})
+
+	});
+
+	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
+
+		let writePromise = firebaseService.updateWidget;
+
+		writePromise(whatToWrite, payload, userMeta)
+			.then((res) => {
+				console.log($scope.userWidgetMeta);
+			})
 
 	});
 

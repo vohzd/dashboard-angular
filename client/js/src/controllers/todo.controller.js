@@ -1,50 +1,54 @@
 import $ from "jquery";
 
-function todoController($state, $scope){
+function todoController($scope, $rootScope, $firebaseObject){
 
-	// bloody digest cycle and promises do not play nicely
-
-	/*
-	$timeout(() => {
-		this.allTodos = $scope.$parent.currentUserMeta.userWidgetMeta[0].todo;
-		console.log(this.allTodos);
-	}, 500)
-
+	// ------------
+	// INIT
+	// ----
 
 	this.addNewTodoTitle = "";
+
+	$scope.allTodos = $scope.$parent.userWidgetMeta.todo;
+
+	console.log($scope.allTodos)
+
+
+	// ------------
+	// EVENTS
+	// ------
+	
 	this.addNewTodoSubmit = () => {
+
 		if (!this.addNewTodoTitle){
-			// todo... notfications
-			return;
-		}
+			// todo notifications
+		} 
 		else {
 
 			const newTodo = {
 				title: this.addNewTodoTitle,
-				added: new Date()
+				added: Date.now()
 			};
-
-			// push for optimistic loading
-			$scope.$parent.currentUserMeta.userWidgetMeta[0].todo.push(newTodo)
 
 			// reset
 			this.addNewTodoTitle = "";
-			// write master scope to db
-			dbService.updateMasterScope($scope.$parent.currentUserMeta);
-		}
-	}
 
+			// write todo to db, angularfire will take care of the rest
+			$rootScope.$emit("writeToFirebase", "todo", newTodo);
+
+		}
+
+	};
+
+	// make the little toolbar icon clickable
 	this.revealContextMenu = () => {
 		$(".all-todos-list").toggleClass("nudge-top");
 		$(".todo-revealed-options").toggleClass("reveal-element");
 		$(".todo-options-menu").toggleClass("dimmed");
 	}
-	*/
-
 
 }
 
-todoController.$inject = ["$state", "$scope"];
+todoController.$inject = ["$scope", "$rootScope", "$firebaseObject"];
 
 
 export default todoController;
