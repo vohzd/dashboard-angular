@@ -5,7 +5,7 @@
 	<section class="user-management" ng-click="userManager.toggleMenuOptions()">
 
 		<div class="user-avatar">
-			<img src="../img/detective.png" class="avatar-image">
+			<img ng-src="{{userManager.displayImgSrc}}" class="avatar-image"/>
 			<label>{{userManager.username}}</label>
 		</div>
 

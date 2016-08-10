@@ -12,6 +12,7 @@ function mainController(
 	// -------------
 	firebaseService.initialise();
 	this.username = "unknown";
+	this.displayImgSrc = "img/detective.png";
 	$scope.userWidgetMeta = null;
 	let userMeta = null;
 
@@ -34,13 +35,18 @@ function mainController(
 
 		googlePromise()
 			.then((response) => {
+				console.log(response);
 				createUserPromise(response);
 				userMeta = response;
-				this.username = response.user.displayName;
+				this.username = response.user.displayName.split(" ")[0];
+				this.displayImgSrc = response.user.photoURL;
 
 			})
 			.then(() => getWidgetPromise(userMeta))
 			.then((widgetsMeta) => $scope.userWidgetMeta = $firebaseObject(widgetsMeta))
+			.catch((error) => {
+				console.log(error);
+			})
 
 	});
 

@@ -9,7 +9,8 @@ function dashboardHeader($rootScope){
 		replace: true,
 		scope: {},
 		bindToController: {
-			username: "="
+			displayImgSrc: "=",
+			username: "=",
 		},
 		controller(){
 			this.toggleMenuOptions = () => {
