@@ -2,7 +2,7 @@
 
 import serverConfig from "../config/firebase-server.config.js";
 
-function firebaseAuthFactory($firebaseAuth){
+function firebaseService($firebaseAuth){
 
 	return {
 		initialise: () => {
@@ -10,6 +10,9 @@ function firebaseAuthFactory($firebaseAuth){
 		},
 		getMethods: () => {
 			return $firebaseAuth();
+		},
+		getReference: (url) => {
+			return firebase.database().ref(url);
 		},
 		logInAsGuest: () => {
 			return $firebaseAuth().$signInWithEmailAndPassword("guestaccount@intheon.uk", "guest123456").then((user) => {
@@ -20,7 +23,7 @@ function firebaseAuthFactory($firebaseAuth){
 
 }
 
-firebaseAuthFactory.$inject = ["$firebaseAuth"];
+firebaseService.$inject = ["$firebaseAuth"];
 
 
-export default firebaseAuthFactory;
+export default firebaseService;
