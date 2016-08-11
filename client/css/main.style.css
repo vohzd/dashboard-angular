@@ -342,5 +342,38 @@ html, body {
 
   html, body {
     height: 100%; } }
+@media (max-width: 950px) {
+  .sidebar-menu-items li label {
+    margin-left: 5px;
+    font-size: 0.8em; } }
+@media (max-width: 750px) {
+  .sidebar-menu-items li label {
+    font-size: 0.6em; }
+
+  .todo-list ol li h4 {
+    font-size: 0.7em; }
+
+  .sidebar-menu-items li label {
+    margin-left: 5px;
+    font-size: 0.8em; }
+
+  .todo-form {
+    width: 100%;
+    float: left;
+    display: block; }
+
+  .todo-form textarea {
+    height: 100%;
+    width: 80%;
+    float: left;
+    font-family: 1.15em; }
+
+  .todo-form button {
+    height: 100%;
+    width: 20%;
+    float: left; } }
+@media (max-width: 650px) {
+  .sidebar-menu-items li label {
+    display: none; } }
 
 /*# sourceMappingURL=main.style.css.map */
