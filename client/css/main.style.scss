@@ -58,7 +58,7 @@ html, body
 .reveal-element
 {
 	opacity: 1 !important;
-	transition: 2s all;
+	transition: 1s all;
 	height: 9%;
 }
 
@@ -89,9 +89,9 @@ html, body
 {
 	float: right;
 	padding: 1%;
-	transition: all 0.6s;
+	transition: all 0.3s;
 	background: none;
-	padding-right: 1%;
+	margin-right: -4%;
 }
 
 .nudge
@@ -112,15 +112,14 @@ html, body
 
 .user-management label
 {
-	margin-left: 3px;
+	margin-left: 11px;
 	font-size: 0.7em;
-	opacity: 0.75;
 	letter-spacing: 5px;
 }
 
 .user-authentication
 {
-	transition: opacity 0.5s;
+	transition: opacity 0.3s;
 	opacity: 0;
 }
 
@@ -148,6 +147,7 @@ html, body
 {
 	display: block;
 	width: 64px;
+	border-radius: 50%;
 }
 
 
@@ -436,4 +436,45 @@ html, body
 {
 	background: rgba(0,0,0,0.3);
 	cursor: pointer;
+}
+
+@media ( max-width: 1450px )
+{
+	.dashboard-full-height-sidebar
+	{
+		height: 6vh;
+		width: 100%;
+	}
+
+	.dashboard-full-height-sidebar ul
+	{
+		text-align: center;
+		display: inline;
+		float: left;
+		width: 100%;
+	}
+
+	.dashboard-full-height-sidebar a
+	{
+		float: left;
+		width: 18.5%;
+	}
+
+
+	.sidebar-menu-items li:hover
+	{
+		border-left: 0px solid $text--hover;
+		cursor: pointer;
+		color: $text--hover;
+	}
+
+	.widget-view
+	{
+		width: 100%
+	}
+
+	html, body
+	{
+		height: 100%;
+	}
 }

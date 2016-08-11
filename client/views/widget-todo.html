@@ -18,6 +18,11 @@
 
 			<!-- the rendered todos -->
 			<ol class="all-todos-list">
+
+				<li ng-hide="userWidgetMeta.todo">
+					<h4>Nothing here!</h4>
+				</li>
+
 				<li ng-repeat="todoItem in userWidgetMeta.todo">
 					<h4>{{ todoItem.title }}</h4>
 					<time>{{ todoItem.added | date }}</time>
