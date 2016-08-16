@@ -17,6 +17,8 @@ import angularFire from "angularfire";
 // services
 import backendService from "./services/backend.service.js";
 import firebaseService from "./services/firebase.service.js";
+import userService from "./services/user.service.js";
+
 
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
@@ -33,6 +35,7 @@ angular.module("dashboardApp", ["ui.router", "firebase"])
 	.directive("dashboardSidebar", dashboardSidebar)
 	.service("firebaseService", firebaseService)
 	.service("backendService", backendService)
+	.service("userService", userService)
 	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
 		$urlRouterProvider.otherwise('/todo');

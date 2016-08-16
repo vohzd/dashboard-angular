@@ -9,8 +9,6 @@ const morgan          = require("morgan");
 const mongoose        = require("mongoose");
 const bodyParser      = require("body-parser");
 const methodOverride  = require("method-override");
-const firebase	      = require("firebase");
-
 
 // Allow headers / datatypes etc to be set
 app.use(bodyParser.json());                                     // parse application/json
@@ -19,6 +17,8 @@ app.use(bodyParser.text());                                     // allows bodyPa
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));  // parse application/vnd.api+json as json
 app.use(methodOverride());
 
+// Connect to Firebase backend
+//let fire = require("./backend/firebase-connect.js");
 
 // Routes
 require("./backend/routes.js")(app);

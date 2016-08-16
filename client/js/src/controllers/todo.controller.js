@@ -10,6 +10,8 @@ function todoController($scope, $rootScope, $firebaseObject){
 
 	$scope.allTodos = $scope.$parent.userWidgetMeta.todo;
 
+	console.log($scope.allTodos)
+
 	// ------------
 	// EVENTS
 	// ------

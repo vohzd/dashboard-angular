@@ -11,21 +11,21 @@ function backendService (
 	return {
 
 		authenticateToken: (accessToken) => {
+
 			let payload = {
 				"accessToken": accessToken
 			};
 
-			$http.post("/authenticateToken", payload)
+
+			return $http.post("/authenticateToken", accessToken)
 				.then((response) => {
-					console.log("yep");
-					console.log(response);
-					return response;
+					return response.data;
 				})
 				.catch((error) => {
-					console.log("nope");
+					console.log("or here");
 					console.log(error);
+					return false;
 				})
-
 		}
 
 	}

@@ -3,21 +3,23 @@ function mainController(
 	$rootScope,
 	$firebaseAuth,
 	$firebaseObject,
+	$firebaseArray,
 	firebaseService,
-	backendService
+	backendService,
+	userService
 	){
 
 	// ----------------------------------------------------------------
 	// BOOTSTRAPPING + VARS
 	// -------------
 	firebaseService.initialise();
-	this.username = "unknown";
-	this.displayImgSrc = "img/detective.png";
+	this.username = userService.currentUsername();
+	this.displayImgSrc = userService.currentAvatar();
+	this.userUid = userService.currentUid();
 	$scope.userWidgetMeta = null;
-	let userMeta = null;
 
 	// -----------------------------------------------------------------
-	// CHECK FOR PRIOR COOKIE/LOG IN
+	// CHECK AND LOG IN PRIOR SESSION
 	// -----------------------------
 	this.auth = firebaseService.getAuth();
 
@@ -25,32 +27,64 @@ function mainController(
 	this.auth.$onAuthStateChanged((userDetails) => {
 
 		if (userDetails){
-			console.log("user logged in");
-			firebase.auth().getToken(true).then((idToken) => {
-				// send access token to backend
-				backendService.authenticateToken(idToken.accessToken);
 
-			}).catch((error) => {
-				console.log("here is an error");
-				console.log(error);
-			})
+			let firebaseAuthPromise = firebase.auth().getToken(true);
+			let authTokenPromise = backendService.authenticateToken;
+			let returningWidgetsPromise = firebaseService.getWidgets;
+
+			// promises are s w e e t !
+			firebaseAuthPromise
+				.then((idToken) => backendService.authenticateToken(idToken))
+				.then((userCreds) => {
+					this.username = userService.currentUsername(userCreds.name.split(" ")[0]);
+					this.displayImgSrc = userService.currentAvatar(userCreds.picture);
+					this.userUid = userService.currentUid(userCreds.uid);
+				})
+				.then(() => {
+					return returningWidgetsPromise(this.userUid)
+				})
+				.then((snapshot) => {
+					console.log(snapshot.val())
+					$scope.userWidgetMeta = $firebaseObject(snapshot.val());
+					console.log($scope.userWidgetMeta);
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+
+
+				/*
+				.then(() => {
+					returningWidgetsPromise(this.userUid)
+						.then((mini) => {
+							console.log("ffs");
+							console.log(mini)
+						});
+				})
+				.then((snapshot) => {
+					console.log("hello!");
+					console.log(snapshot)
+					console.log(snapshot.val())
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+				/*
+				.then((widgetsMeta) => {
+					console.log("this would have broken");
+					console.log(widgetsMeta);
+					$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
+				})
+				.then(() => {
+					console.log($scope.userWidgetMeta);
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+				*/
+
 		}
-		else {
-			console.log("user not logged in");
-		}
-		console.log(userDetails);
 	});
-
-	// -----------------------------------------------------------------
-	// PROMISES
-	// --------
-
-	/*
-	firebaseService.logInAsGuest()
-		.then((response) => {
-			this.username = "guest";
-		});
-*/
 
 
 	// ----------------------------------------------------------------------
@@ -67,6 +101,7 @@ function mainController(
 				console.log(response);
 				createUserPromise(response);
 				userMeta = response;
+				console.log(response);
 				this.username = response.user.displayName.split(" ")[0];
 				this.displayImgSrc = response.user.photoURL;
 
@@ -94,8 +129,10 @@ mainController.$inject = [
 "$rootScope",
 "$firebaseAuth",
 "$firebaseObject",
+"$firebaseArray",
 "firebaseService",
-"backendService"
+"backendService",
+"userService"
 ];
 
 // send to main.js

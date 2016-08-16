@@ -34,8 +34,19 @@ function firebaseService($firebaseAuth){
 			})
 
 		},
-		getWidgets: (userDetails) => {
-			return firebase.database().ref("userWidgets/" + userDetails.user.uid);
+		getWidgets: (uid) => {
+			return firebase.database().ref("/userWidgets/" + uid).once("value");
+			/*firebase.database().ref("/userWidgets/" + uid).once("value")
+				.then((snapshot) => {
+					returnVal = snapshot.val();
+					console.log("about to return");
+					return returnVal;
+				})
+				.catch((error) => {
+					console.log("hlep");
+					console.log(error)
+				})
+				*/
 		},
 		updateWidget: (widgetName, payload, userMeta) => {
 			if (userMeta){

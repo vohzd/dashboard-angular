@@ -1,4 +1,7 @@
 // Dependencies
+// set up firebase
+
+const Firebase 			= require("./firebase-connect.js");
 const mongoose 			= require('mongoose');
 const Profile			= require('./model.js');
 
@@ -10,12 +13,13 @@ module.exports = function(app) {
 
 	app.post("/authenticateToken", (req, res) => {
 
-	
-		console.log("hello!!!");
-
-		console.log(req.body);
-
-		res.json(req.body)
+		Firebase.auth().verifyIdToken(req.body.accessToken)
+			.then((decodedToken) => {
+				res.json(decodedToken);
+			})
+			.catch((error) => {
+				res.send(false);
+			})
 
 	});
 
