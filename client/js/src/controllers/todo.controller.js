@@ -8,9 +8,13 @@ function todoController($scope, $rootScope, $firebaseObject){
 
 	this.addNewTodoTitle = "";
 
-	$scope.allTodos = $scope.$parent.userWidgetMeta.todo;
 
-	console.log($scope.allTodos)
+	$rootScope.$on("userWidgetMeta", (event, payload) => {
+		$scope.allTodos = $firebaseObject(payload.todo);
+		//$scope.$apply;
+		console.log($scope.allTodos);
+	});
+
 
 	// ------------
 	// EVENTS

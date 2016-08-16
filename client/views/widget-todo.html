@@ -23,10 +23,12 @@
 					<h4>Nothing here!</h4>
 				</li>
 
-				<li ng-repeat="todoItem in userWidgetMeta.todo">
+				<li  ng-repeat="todoItem in userWidgetMeta.todo">
 					<h4>{{ todoItem.title }}</h4>
 					<time>{{ todoItem.added | date }}</time>
 				</li>
+
+
 			</ol>
 		</section>
 

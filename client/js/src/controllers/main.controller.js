@@ -44,45 +44,12 @@ function mainController(
 					return returningWidgetsPromise(this.userUid)
 				})
 				.then((snapshot) => {
-					console.log(snapshot.val())
-					$scope.userWidgetMeta = $firebaseObject(snapshot.val());
-					console.log($scope.userWidgetMeta);
+					$scope.userWidgetMeta = snapshot.val();
+					$rootScope.$broadcast("userWidgetMeta", $scope.userWidgetMeta)
 				})
 				.catch((error) => {
 					console.log(error);
 				})
-
-
-				/*
-				.then(() => {
-					returningWidgetsPromise(this.userUid)
-						.then((mini) => {
-							console.log("ffs");
-							console.log(mini)
-						});
-				})
-				.then((snapshot) => {
-					console.log("hello!");
-					console.log(snapshot)
-					console.log(snapshot.val())
-				})
-				.catch((error) => {
-					console.log(error);
-				})
-				/*
-				.then((widgetsMeta) => {
-					console.log("this would have broken");
-					console.log(widgetsMeta);
-					$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
-				})
-				.then(() => {
-					console.log($scope.userWidgetMeta);
-				})
-				.catch((error) => {
-					console.log(error);
-				})
-				*/
-
 		}
 	});
 
@@ -107,7 +74,10 @@ function mainController(
 
 			})
 			.then(() => getWidgetPromise(userMeta))
-			.then((widgetsMeta) => $scope.userWidgetMeta = $firebaseObject(widgetsMeta))
+			.then((widgetsMeta) => {
+				console.log(widgetsMeta);
+				$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
+			})
 			.catch((error) => {
 				console.log(error);
 			})
