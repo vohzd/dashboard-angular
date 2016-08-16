@@ -5,11 +5,51 @@ const Profile			= require('./model.js');
 // Opens App Routes
 module.exports = function(app) {
 
+	// POST
+	// ----
+
+	app.post("/authenticateToken", (req, res) => {
+
+	
+		console.log("hello!!!");
+
+		console.log(req.body);
+
+		res.json(req.body)
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	//	GET Routes
 	//	--------------------------------------------------------
 	//
 
+	/*
 	// Will be pretty commonly called
 	// Just exposes an unauthenticated endpoint to return a chunk of json
 	// for the guest profile
@@ -83,6 +123,8 @@ module.exports = function(app) {
 		});
 
 	});
+
+	*/
 
 
 

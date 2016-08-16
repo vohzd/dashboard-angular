@@ -4,7 +4,7 @@ function mainController(
 	$firebaseAuth,
 	$firebaseObject,
 	firebaseService,
-	databaseService
+	backendService
 	){
 
 	// ----------------------------------------------------------------
@@ -17,12 +17,41 @@ function mainController(
 	let userMeta = null;
 
 	// -----------------------------------------------------------------
+	// CHECK FOR PRIOR COOKIE/LOG IN
+	// -----------------------------
+	this.auth = firebaseService.getAuth();
+
+	// listener which fires when the users state changes from null, guest, or logged in
+	this.auth.$onAuthStateChanged((userDetails) => {
+
+		if (userDetails){
+			console.log("user logged in");
+			firebase.auth().getToken(true).then((idToken) => {
+				// send access token to backend
+				backendService.authenticateToken(idToken.accessToken);
+
+			}).catch((error) => {
+				console.log("here is an error");
+				console.log(error);
+			})
+		}
+		else {
+			console.log("user not logged in");
+		}
+		console.log(userDetails);
+	});
+
+	// -----------------------------------------------------------------
 	// PROMISES
 	// --------
+
+	/*
 	firebaseService.logInAsGuest()
 		.then((response) => {
 			this.username = "guest";
 		});
+*/
+
 
 	// ----------------------------------------------------------------------
 	// LISTENING EVENTS
@@ -66,7 +95,7 @@ mainController.$inject = [
 "$firebaseAuth",
 "$firebaseObject",
 "firebaseService",
-"databaseService"
+"backendService"
 ];
 
 // send to main.js

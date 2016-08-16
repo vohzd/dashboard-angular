@@ -8,7 +8,7 @@ function firebaseService($firebaseAuth){
 		initialise: () => {
 			firebase.initializeApp(serverConfig);
 		},
-		getMethods: () => {
+		getAuth: () => {
 			return $firebaseAuth();
 		},
 		getReference: (url) => {
