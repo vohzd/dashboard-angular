@@ -47,8 +47,8 @@ function mainController(
 					return returningWidgetsPromise(this.userUid)
 				})
 				.then((snapshot) => {
-					//toastr.success("HELLLLLOOOOOOO", "subheading");
 					$scope.userWidgetMeta = $firebaseObject(snapshot);
+					toastr.success("Welcome back  " + this.username, "Signed in");
 				})
 				.catch((error) => {
 					console.log(error);
@@ -94,7 +94,6 @@ function mainController(
 			.then(() => getWidgetPromise(this.userUid))
 			.then((widgetsMeta) => {
 				$scope.userWidgetMeta = $firebaseObject(widgetsMeta);
-				toastr.success("message");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -103,6 +102,7 @@ function mainController(
 	});
 
 	$rootScope.$on("signUserOut", () => {
+		toastr.info("Signing out...");
 		this.auth.$signOut();
 	});
 

@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-function todoController($scope, $rootScope, $firebaseObject){
+function todoController($scope, $rootScope, $firebaseObject, toastr){
 
 	// ------------
 	// INIT
@@ -15,7 +15,7 @@ function todoController($scope, $rootScope, $firebaseObject){
 	this.addNewTodoSubmit = () => {
 
 		if (!this.addNewTodoTitle){
-			// todo notifications
+			toastr.info("Please enter something :)", "Empty");
 		} 
 		else {
 
@@ -49,7 +49,7 @@ function todoController($scope, $rootScope, $firebaseObject){
 
 }
 
-todoController.$inject = ["$scope", "$rootScope", "$firebaseObject"];
+todoController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];
 
 
 export default todoController;

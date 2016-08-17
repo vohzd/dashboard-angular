@@ -14,8 +14,6 @@ import angularFire from "angularfire";
 import toastr from "toastr";
 import toastrTemplate from "toastr/angular-toastr.tpls.js"
 
-console.log(toastr);
-
 // Angular Stuff
 // -------------
 
@@ -41,11 +39,13 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
 	.service("firebaseService", firebaseService)
 	.service("backendService", backendService)
 	.service("userService", userService)
-	.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+	.config(($stateProvider, $urlRouterProvider, $locationProvider, toastrConfig) => {
 
+		// allow that annoying hashbang to be removed
 		$urlRouterProvider.otherwise('/todo');
 		$locationProvider.html5Mode(true);
 
+		// routes
 		$stateProvider
 			.state("todo",{
 				url : "/todo",
@@ -69,6 +69,17 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
 				url : "/health",
 				templateUrl: "../../views/widget-health.html",
 			})
+
+		// configuration for my toast notifications
+		angular.extend(toastrConfig, {
+
+			progressBar: true,
+			timeOut: 800,
+			maxOpended: 1,
+			preventDuplicates: true,
+			positionClass: "toast-bottom-left"
+
+		});
 
 	});
 
