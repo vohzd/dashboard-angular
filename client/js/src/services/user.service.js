@@ -9,14 +9,14 @@ function userService (
 		// could probably do with making these a little bit more composable....
 		// use a high-order function (TODO)
 		currentUsername: (newVal) => {
-			let name = "unknown";
+			let name = "guest";
 			if (!newVal){
 				return name;
 			}
 			else
 			{
 				name = newVal;
-				return name;
+				return name.split(" ")[0];
 			}
 		},
 

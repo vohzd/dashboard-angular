@@ -39,8 +39,9 @@ function mainController(
 			firebaseAuthPromise
 				.then((idToken) => backendService.authenticateToken(idToken))
 				.then((userCreds) => {
-					this.userSignedIn = true;
-					this.username = userService.currentUsername(userCreds.name.split(" ")[0]);
+					console.log(userCreds);
+					this.userSignedIn = userCreds.name ? true : false;
+					this.username = userService.currentUsername(userCreds.name);
 					this.displayImgSrc = userService.currentAvatar(userCreds.picture);
 					this.userUid = userService.currentUid(userCreds.uid);
 				})
@@ -49,6 +50,25 @@ function mainController(
 				})
 				.then((snapshot) => {
 					$scope.userWidgetMeta = $firebaseObject(snapshot);
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+		}
+
+		if (userDetails === null){
+			let guestPromise = firebaseService.logInAsGuest;
+			let getWidgetPromise = firebaseService.getWidgets;
+			guestPromise()
+				.then((response) => {
+					console.log("get here");
+					this.username = "guest"
+					this.displayImgSrc = "../../../img/detective.png";
+				})
+				.then(() => getWidgetPromise(userMeta))
+				.then((widgetsMeta) => {
+					console.log(widgetsMeta);
+					$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
 				})
 				.catch((error) => {
 					console.log(error);
