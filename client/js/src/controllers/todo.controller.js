@@ -5,7 +5,6 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 	// ------------
 	// INIT
 	// ----
-
 	this.addNewTodoTitle = "";
 
 	// ------------

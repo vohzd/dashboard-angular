@@ -12,6 +12,7 @@ function dashboardHeader($rootScope){
 			displayImgSrc: "=",
 			username: "=",
 			userSignedIn: "="
+			userWidgetMeta: "="
 		},
 		controller(){
 			this.toggleMenuOptions = () => {
