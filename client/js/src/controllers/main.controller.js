@@ -27,8 +27,6 @@ function mainController(
 	// listener which fires when the users state changes from null, guest, or logged in
 	this.auth.$onAuthStateChanged((userDetails) => {
 
-		console.log("here with");
-		console.log(userDetails);
 		if (userDetails){
 
 			let firebaseAuthPromise = firebase.auth().getToken(true);
@@ -39,7 +37,6 @@ function mainController(
 			firebaseAuthPromise
 				.then((idToken) => backendService.authenticateToken(idToken))
 				.then((userCreds) => {
-					console.log(userCreds);
 					this.userSignedIn = userCreds.name ? true : false;
 					this.username = userService.currentUsername(userCreds.name);
 					this.displayImgSrc = userService.currentAvatar(userCreds.picture);
@@ -61,13 +58,11 @@ function mainController(
 			let getWidgetPromise = firebaseService.getWidgets;
 			guestPromise()
 				.then((response) => {
-					console.log("get here");
-					this.username = "guest"
-					this.displayImgSrc = "../../../img/detective.png";
+					this.username = userService.currentUsername()
+					this.displayImgSrc = userService.currentAvatar();
 				})
-				.then(() => getWidgetPromise(userMeta))
+				.then(() => getWidgetPromise(this.userUid))
 				.then((widgetsMeta) => {
-					console.log(widgetsMeta);
 					$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
 				})
 				.catch((error) => {
@@ -88,17 +83,14 @@ function mainController(
 
 		googlePromise()
 			.then((response) => {
-				console.log(response);
 				createUserPromise(response);
-				userMeta = response;
-				console.log(response);
-				this.username = response.user.displayName.split(" ")[0];
-				this.displayImgSrc = response.user.photoURL;
+				this.username = userService.currentUsername(response.user.displayName);
+				this.displayImgSrc = userService.currentUsername(response.user.photoURL);
+				this.userUid = userService.currentUsername(response.user.uid);
 
 			})
-			.then(() => getWidgetPromise(userMeta))
+			.then(() => getWidgetPromise(this.userUid))
 			.then((widgetsMeta) => {
-				console.log(widgetsMeta);
 				$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
 			})
 			.catch((error) => {

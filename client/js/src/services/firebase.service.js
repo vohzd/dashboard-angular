@@ -36,17 +36,6 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 		},
 		getWidgets: (uid) => {
 			return firebase.database().ref("/userWidgets/" + uid)
-			/*firebase.database().ref("/userWidgets/" + uid).once("value")
-				.then((snapshot) => {
-					returnVal = snapshot.val();
-					console.log("about to return");
-					return returnVal;
-				})
-				.catch((error) => {
-					console.log("hlep");
-					console.log(error)
-				})
-				*/
 		},
 		updateWidget: (widgetName, payload, userId) => {
 
