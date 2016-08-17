@@ -55,7 +55,8 @@ html, body {
   font-size: 1.3em; }
 
 .site-name {
-  float: left; }
+  float: left;
+  padding-top: 0.5%; }
 
 .user-management {
   float: right;
@@ -102,6 +103,12 @@ html, body {
   display: block;
   width: 64px;
   border-radius: 50%; }
+
+.colour-1 {
+  color: rgba(172, 177, 209, 0.9); }
+
+.colour-2 {
+  color: rgba(82, 91, 146, 0.9); }
 
 /* 	
 

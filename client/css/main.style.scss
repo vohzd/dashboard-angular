@@ -82,7 +82,8 @@ html, body
 
 .site-name
 {
-	float: left;
+    float: left;
+    padding-top: 0.5%;
 }
 
 .user-management
@@ -149,6 +150,17 @@ html, body
 	width: 64px;
 	border-radius: 50%;
 }
+
+.colour-1
+{
+	color: $textColourLighten;
+}
+
+.colour-2
+{
+	color: darken($textColourLighten, 30%);
+}
+
 
 
 
