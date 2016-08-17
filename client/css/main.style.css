@@ -351,6 +351,35 @@ html, body {
   background: rgba(0, 0, 0, 0.3);
   cursor: pointer; }
 
+/*
+	------------
+	calendar app
+	------------
+*/
+.calendar-app {
+  overflow-x: scroll;
+  width: 3120px; }
+
+.interactive-calendar-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  float: left; }
+
+.interactive-calendar-wrapper:nth-child(7n+1) {
+  clear: left; }
+
+.calendar-cell {
+  display: inline-block;
+  border: 1px solid;
+  width: 60px;
+  height: 60px;
+  float: left; }
+
+/*
+	--------------------------
+	responsive media selectors
+	--------------------------
+*/
 @media (max-width: 1450px) {
   .dashboard-full-height-sidebar {
     height: 6vh;

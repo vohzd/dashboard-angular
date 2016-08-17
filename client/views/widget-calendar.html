@@ -1,1 +1,16 @@
-<div class="widget-wrapper">I am the calendar application</div>
+<div class="widget-wrapper">
+	
+	<div id="calendar-app" class="center-padding calendar-app">
+
+
+		<div class="interactive-calendar-wrapper">
+
+			<div class="calendar-cell" ng-repeat="day in calendar.thisMonth track by $index">{{$index}}</div>
+
+		</div>
+
+
+	</div>
+
+
+</div>

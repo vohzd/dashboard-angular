@@ -8,6 +8,7 @@
       "angularfire": "github:firebase/angularfire@^2.0.1",
       "firebase": "github:firebase/firebase-bower@^3.2.1",
       "jquery": "npm:jquery@^3.1.0",
+      "moment": "npm:moment@^2.14.1",
       "toastr": "github:Foxandxss/angular-toastr@^2.0.0"
     },
     "devDependencies": {

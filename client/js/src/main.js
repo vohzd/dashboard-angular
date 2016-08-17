@@ -30,6 +30,7 @@ import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
 // controllers
 import mainController from "./controllers/main.controller.js";
 import todoController from "./controllers/todo.controller.js";
+import calendarController from "./controllers/calendar.controller.js";
 
 // GO
 angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
@@ -64,13 +65,15 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
 			.state("calendar",{
 				url : "/calendar",
 				templateUrl: "../../views/widget-calendar.html",
+				controller: calendarController,
+				controllerAs: "calendar"
 			})
 			.state("health",{
 				url : "/health",
 				templateUrl: "../../views/widget-health.html",
 			})
 
-		// configuration for my toast notifications
+		// configuration for toast notifications
 		angular.extend(toastrConfig, {
 
 			progressBar: true,
