@@ -6,17 +6,22 @@
 		<span class="colour-2">board</span>
 	</section>
 
+
+	<div class="user-stats">
+			
+		<div class="stat-item" ng-show="userManager.userWidgetMeta.todo">
+
+			{{ userManager.getObjectLength(userManager.userWidgetMeta.todo) }}
+
+		</div>			
+
+	</div>
+
 	<section class="user-management" ng-click="userManager.toggleMenuOptions()">
 
 		<div class="user-avatar">
 			<img ng-src="{{userManager.displayImgSrc}}" class="avatar-image"/>
 			<label>{{userManager.username}}</label>
-		</div>
-
-		<div class="user-stats">
-			
-			
-
 		</div>
 
 		<div class="user-authentication">

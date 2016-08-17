@@ -22,6 +22,7 @@ function mainController(
 	this.username = userService.currentUsername();
 	this.displayImgSrc = userService.currentAvatar();
 	this.userUid = userService.currentUid();
+	this.userWidgetMeta = null;
 	$scope.userWidgetMeta = null;
 
 	// grab an instance of the firebase getAuth method
@@ -53,7 +54,7 @@ function mainController(
 					return returningWidgetsPromise(this.userUid)
 				})
 				.then((snapshot) => {
-					$scope.userWidgetMeta = $firebaseObject(snapshot);
+					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(snapshot);
 					toastr.success("Welcome back  " + this.username, "Signed in");
 				})
 				.catch((error) => {
@@ -75,7 +76,7 @@ function mainController(
 				})
 				.then(() => getWidgetPromise(this.userUid))
 				.then((widgetsMeta) => {
-					$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
+					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(widgetsMeta)
 				})
 				.catch((error) => {
 					console.log(error);
@@ -105,7 +106,7 @@ function mainController(
 			})
 			.then(() => getWidgetPromise(this.userUid))
 			.then((widgetsMeta) => {
-				$scope.userWidgetMeta = $firebaseObject(widgetsMeta);
+				this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(widgetsMeta);
 			})
 			.catch((error) => {
 				console.log(error);

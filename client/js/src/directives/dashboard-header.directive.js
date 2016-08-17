@@ -11,7 +11,7 @@ function dashboardHeader($rootScope){
 		bindToController: {
 			displayImgSrc: "=",
 			username: "=",
-			userSignedIn: "="
+			userSignedIn: "=",
 			userWidgetMeta: "="
 		},
 		controller(){
@@ -23,7 +23,14 @@ function dashboardHeader($rootScope){
 			},
 			this.signUserOut = () => {
 				$rootScope.$emit("signUserOut");
+			},
+			this.getObjectLength = (obj) => {
+				if (obj){
+					return Object.keys(obj).length;
+				}
 			}
+
+
 		},
 		controllerAs: "userManager"
 	}
