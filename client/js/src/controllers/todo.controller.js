@@ -10,9 +10,12 @@ function todoController($scope, $rootScope, $firebaseObject){
 
 
 	$rootScope.$on("userWidgetMeta", (event, payload) => {
-		$scope.allTodos = $firebaseObject(payload.todo);
+
+		console.log(payload);
+		console.log(payload.todo);
+		$scope.allTodos = payload.todo;
+
 		//$scope.$apply;
-		console.log($scope.allTodos);
 	});
 
 

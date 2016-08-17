@@ -44,8 +44,7 @@ function mainController(
 					return returningWidgetsPromise(this.userUid)
 				})
 				.then((snapshot) => {
-					$scope.userWidgetMeta = snapshot.val();
-					$rootScope.$broadcast("userWidgetMeta", $scope.userWidgetMeta)
+					$scope.userWidgetMeta = $firebaseObject(snapshot);
 				})
 				.catch((error) => {
 					console.log(error);

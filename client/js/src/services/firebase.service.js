@@ -35,7 +35,7 @@ function firebaseService($firebaseAuth){
 
 		},
 		getWidgets: (uid) => {
-			return firebase.database().ref("/userWidgets/" + uid).once("value");
+			return firebase.database().ref("/userWidgets/" + uid)
 			/*firebase.database().ref("/userWidgets/" + uid).once("value")
 				.then((snapshot) => {
 					returnVal = snapshot.val();
