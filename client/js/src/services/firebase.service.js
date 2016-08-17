@@ -62,17 +62,11 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 
 		deleteWidget: (widgetName, userId) => {
 
-			let ref = $firebaseObject(firebase.database().ref("userWidgets/" + userId + "/" + widgetName));
+			let userWidgets = $firebaseObject(firebase.database().ref("userWidgets/" + userId + "/" + widgetName));
+			let widgetsMeta = $firebaseObject(firebase.database().ref(widgetName + "Meta/" + userId));
 
-			ref.$remove()
-				.then((res) => {
-					console.log(res);
-					return res;
-				})
-				.catch((err) => {
-					console.log(err);
-				})
-
+			userWidgets.$remove();
+			widgetsMeta.$remove();
 
 
 		}
