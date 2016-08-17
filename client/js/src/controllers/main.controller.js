@@ -86,7 +86,7 @@ function mainController(
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
 
 		let writePromise = firebaseService.updateWidget;
-		writePromise(whatToWrite, payload, userMeta)
+		writePromise(whatToWrite, payload, this.userUid)
 
 	});
 
