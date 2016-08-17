@@ -14,7 +14,8 @@
 		</div>
 
 		<div class="user-authentication">
-			<button ng-click="userManager.signUserIn()">Log in</button>
+			<button ng-hide="userManager.userSignedIn" ng-click="userManager.signUserIn()">Sign in</button>
+			<button ng-show="userManager.userSignedIn" ng-click="userManager.signUserOut()">Sign Out</button>
 		</div>
 		
 	</section>

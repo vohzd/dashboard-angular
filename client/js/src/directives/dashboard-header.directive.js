@@ -11,6 +11,7 @@ function dashboardHeader($rootScope){
 		bindToController: {
 			displayImgSrc: "=",
 			username: "=",
+			userSignedIn: "="
 		},
 		controller(){
 			this.toggleMenuOptions = () => {
@@ -18,8 +19,10 @@ function dashboardHeader($rootScope){
 			},
 			this.signUserIn = () => {
 				$rootScope.$emit("signUserIn");
+			},
+			this.signUserOut = () => {
+				$rootScope.$emit("signUserOut");
 			}
-
 		},
 		controllerAs: "userManager"
 	}

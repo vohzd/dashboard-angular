@@ -11,7 +11,12 @@
 
 <div class="main-wrapper" ng-controller="mainController as main">
 
-	<dashboard-header username="main.username" display-img-src="main.displayImgSrc"></dashboard-header>
+	<dashboard-header 
+		username="main.username"
+		display-img-src="main.displayImgSrc"
+		user-signed-in="main.userSignedIn"
+	></dashboard-header>
+	
 	<dashboard-sidebar></dashboard-sidebar>
 	<main data-ui-view class="widget-view"></main>
 	

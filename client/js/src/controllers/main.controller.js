@@ -13,6 +13,7 @@ function mainController(
 	// BOOTSTRAPPING + VARS
 	// -------------
 	firebaseService.initialise();
+	this.userSignedIn = null;
 	this.username = userService.currentUsername();
 	this.displayImgSrc = userService.currentAvatar();
 	this.userUid = userService.currentUid();
@@ -26,6 +27,8 @@ function mainController(
 	// listener which fires when the users state changes from null, guest, or logged in
 	this.auth.$onAuthStateChanged((userDetails) => {
 
+		console.log("here with");
+		console.log(userDetails);
 		if (userDetails){
 
 			let firebaseAuthPromise = firebase.auth().getToken(true);
@@ -36,6 +39,7 @@ function mainController(
 			firebaseAuthPromise
 				.then((idToken) => backendService.authenticateToken(idToken))
 				.then((userCreds) => {
+					this.userSignedIn = true;
 					this.username = userService.currentUsername(userCreds.name.split(" ")[0]);
 					this.displayImgSrc = userService.currentAvatar(userCreds.picture);
 					this.userUid = userService.currentUid(userCreds.uid);
@@ -81,6 +85,10 @@ function mainController(
 				console.log(error);
 			})
 
+	});
+
+	$rootScope.$on("signUserOut", () => {
+		this.auth.$signOut();
 	});
 
 	// adds in a new widget record to db

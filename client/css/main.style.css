@@ -72,8 +72,8 @@ html, body {
   float: left; }
 
 .user-management:hover {
-  background: rgba(255, 255, 255, 0.1);
-  cursor: pointer; }
+  cursor: pointer;
+  opacity: 0.6; }
 
 .user-management label {
   margin-left: 11px;
@@ -86,11 +86,14 @@ html, body {
 
 .user-authentication button {
   border: 0;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(33, 39, 74, 0.79);
   outline: none;
   width: 77px;
   height: 30px;
-  transition: 0.5s all; }
+  transition: 0.5s all;
+  margin: 19px;
+  font-family: "Lato", sans-serif;
+  color: rgba(172, 177, 209, 0.9); }
 
 .user-authentication button:hover {
   background: rgba(255, 255, 255, 0.46);
@@ -266,7 +269,7 @@ html, body {
 
 .todo-list ol li h4 {
   font-weight: normal;
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0;
   color: rgba(201, 201, 209, 0.8);
   vertical-align: top;
