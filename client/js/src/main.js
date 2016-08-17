@@ -7,9 +7,14 @@
 // library imports
 import $ from "jquery";
 import angular from "angular";
+import animate from "angular-animate";
 import uiRouter from "angular-ui-router";
 import firebase from "firebase";
 import angularFire from "angularfire";
+import toastr from "toastr";
+import toastrTemplate from "toastr/angular-toastr.tpls.js"
+
+console.log(toastr);
 
 // Angular Stuff
 // -------------
@@ -29,7 +34,7 @@ import mainController from "./controllers/main.controller.js";
 import todoController from "./controllers/todo.controller.js";
 
 // GO
-angular.module("dashboardApp", ["ui.router", "firebase"])
+angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)

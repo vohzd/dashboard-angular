@@ -6,7 +6,8 @@ function mainController(
 	$firebaseArray,
 	firebaseService,
 	backendService,
-	userService
+	userService,
+	toastr
 	){
 
 	// ----------------------------------------------------------------
@@ -46,6 +47,7 @@ function mainController(
 					return returningWidgetsPromise(this.userUid)
 				})
 				.then((snapshot) => {
+					//toastr.success("HELLLLLOOOOOOO", "subheading");
 					$scope.userWidgetMeta = $firebaseObject(snapshot);
 				})
 				.catch((error) => {
@@ -91,7 +93,8 @@ function mainController(
 			})
 			.then(() => getWidgetPromise(this.userUid))
 			.then((widgetsMeta) => {
-				$scope.userWidgetMeta = $firebaseObject(widgetsMeta)
+				$scope.userWidgetMeta = $firebaseObject(widgetsMeta);
+				toastr.success("message");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -131,7 +134,8 @@ mainController.$inject = [
 "$firebaseArray",
 "firebaseService",
 "backendService",
-"userService"
+"userService",
+"toastr"
 ];
 
 // send to main.js
