@@ -62,8 +62,9 @@ html, body {
   float: right;
   padding: 1%;
   transition: all 0.3s;
+  transition-timing-function: ease-out;
   background: none;
-  margin-right: -4%; }
+  margin-right: -6%; }
 
 .nudge {
   padding-right: 5%; }
@@ -78,7 +79,7 @@ html, body {
 .user-management label {
   margin-left: 11px;
   font-size: 0.7em;
-  letter-spacing: 5px; }
+  letter-spacing: 2px; }
 
 .user-authentication {
   transition: opacity 0.3s;
@@ -88,9 +89,9 @@ html, body {
   border: 0;
   background: rgba(33, 39, 74, 0.79);
   outline: none;
-  width: 77px;
+  width: 74px;
   height: 30px;
-  transition: 0.5s all;
+  transition: 0.3s all;
   margin: 19px;
   font-family: "Lato", sans-serif;
   color: rgba(172, 177, 209, 0.9); }
@@ -112,6 +113,23 @@ html, body {
 
 .colour-2 {
   color: rgba(82, 91, 146, 0.9); }
+
+.user-stats {
+  float: left; }
+
+.stat-item {
+  padding-top: 50%;
+  display: flex;
+  flex-direction: column; }
+
+.stat-number {
+  font-size: 2em;
+  color: rgba(172, 177, 209, 0.9);
+  text-align: center; }
+
+.stat-label {
+  position: inline;
+  color: rgba(64, 70, 113, 0.9); }
 
 /* 	
 

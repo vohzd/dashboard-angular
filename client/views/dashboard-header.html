@@ -10,9 +10,8 @@
 	<div class="user-stats">
 			
 		<div class="stat-item" ng-show="userManager.userWidgetMeta.todo">
-
-			{{ userManager.getObjectLength(userManager.userWidgetMeta.todo) }}
-
+			<span class="stat-number">{{ userManager.getObjectLength(userManager.userWidgetMeta.todo) }}</span>
+			<label class="stat-label">Todo</label>
 		</div>			
 
 	</div>

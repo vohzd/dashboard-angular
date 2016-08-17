@@ -91,8 +91,9 @@ html, body
 	float: right;
 	padding: 1%;
 	transition: all 0.3s;
+	transition-timing-function: ease-out;
 	background: none;
-	margin-right: -4%;
+	margin-right: -6%;
 }
 
 .nudge
@@ -115,7 +116,7 @@ html, body
 {
 	margin-left: 11px;
 	font-size: 0.7em;
-	letter-spacing: 5px;
+	letter-spacing: 2px;
 }
 
 .user-authentication
@@ -129,9 +130,9 @@ html, body
 	border: 0;
     background: $secondaryColour;
     outline: none;
-    width: 77px;
+    width: 74px;
     height: 30px;
-    transition: 0.5s all;
+    transition: 0.3s all;
     margin: 19px;
     font-family: $mainFont;
     color: $textColourLighten;
@@ -164,7 +165,30 @@ html, body
 	color: darken($textColourLighten, 30%);
 }
 
+.user-stats
+{
+	float: left;
+}
 
+.stat-item
+{
+	padding-top: 50%;
+	display:flex;
+	flex-direction: column;
+}
+
+.stat-number
+{
+	font-size: 2em;
+	color: $textColourLighten;
+	text-align: center;
+}
+
+.stat-label
+{
+	position: inline;
+	color: $textColourDarker;
+}
 
 
 /* 	
