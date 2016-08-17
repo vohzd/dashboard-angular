@@ -2,7 +2,7 @@
 
 import serverConfig from "../config/firebase-server.config.js";
 
-function firebaseService($firebaseAuth, userService){
+function firebaseService($firebaseAuth, $firebaseObject, userService){
 
 	return {
 		initialise: () => {
@@ -58,11 +58,28 @@ function firebaseService($firebaseAuth, userService){
 					return true;
 				})
 
+		},
+
+		deleteWidget: (widgetName, userId) => {
+
+			let ref = $firebaseObject(firebase.database().ref("userWidgets/" + userId + "/" + widgetName));
+
+			ref.$remove()
+				.then((res) => {
+					console.log(res);
+					return res;
+				})
+				.catch((err) => {
+					console.log(err);
+				})
+
+
+
 		}
 	}
 }
 
-firebaseService.$inject = ["$firebaseAuth", "userService"];
+firebaseService.$inject = ["$firebaseAuth", "$firebaseObject", "userService"];
 
 
 export default firebaseService;

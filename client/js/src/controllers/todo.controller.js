@@ -41,6 +41,12 @@ function todoController($scope, $rootScope, $firebaseObject){
 		$(".todo-options-menu").toggleClass("dimmed");
 	}
 
+	// allow the deletion of ALL todos
+	this.deleteAllTodos = () => {
+		// delete evvvveerrrrryyything
+		$rootScope.$emit("deleteWidgetMeta", "todo");
+	}
+
 }
 
 todoController.$inject = ["$scope", "$rootScope", "$firebaseObject"];

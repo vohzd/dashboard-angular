@@ -312,7 +312,14 @@ html, body
 	padding: 0.5%;
 	font-family: $mainFont;
 	background: rgba(160, 165, 231, 0.08);
+	opacity: 1;
+	transition: 0.4s opacity
+}
 
+.menu-item:hover
+{
+	cursor: pointer;
+	opacity: 0.5
 }
 
 .todo-list

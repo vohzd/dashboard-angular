@@ -83,10 +83,20 @@ function mainController(
 
 	});
 
+	// adds in a new widget record to db
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
 
 		let writePromise = firebaseService.updateWidget;
 		writePromise(whatToWrite, payload, this.userUid)
+
+	});
+
+	// deletes a widgets stuff
+	$rootScope.$on("deleteWidgetMeta", (event, widgetName) => {
+
+		let deletePromise = firebaseService.deleteWidget;
+		deletePromise(widgetName, this.userUid);
+
 
 	});
 
