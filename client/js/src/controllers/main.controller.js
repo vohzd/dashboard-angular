@@ -13,21 +13,27 @@ function mainController(
 	// ----------------------------------------------------------------
 	// BOOTSTRAPPING + VARS
 	// -------------
+
+	// connect to firebase
 	firebaseService.initialise();
+
+	// set my user metadata to null/undefined
 	this.userSignedIn = null;
 	this.username = userService.currentUsername();
 	this.displayImgSrc = userService.currentAvatar();
 	this.userUid = userService.currentUid();
 	$scope.userWidgetMeta = null;
 
+	// grab an instance of the firebase getAuth method
+	this.auth = firebaseService.getAuth();
+
 	// -----------------------------------------------------------------
 	// CHECK AND LOG IN PRIOR SESSION
 	// -----------------------------
-	this.auth = firebaseService.getAuth();
 
 	// listener which fires when the users state changes from null, guest, or logged in
 	this.auth.$onAuthStateChanged((userDetails) => {
-
+		// if user is an actually, previously logged in user
 		if (userDetails){
 
 			let firebaseAuthPromise = firebase.auth().getToken(true);
@@ -55,9 +61,13 @@ function mainController(
 				})
 		}
 
+		// if user is a guest
 		if (userDetails === null){
+
 			let guestPromise = firebaseService.logInAsGuest;
 			let getWidgetPromise = firebaseService.getWidgets;
+
+			// son, go over the hill and tell me if i can go fishing
 			guestPromise()
 				.then((response) => {
 					this.username = userService.currentUsername()
@@ -75,8 +85,10 @@ function mainController(
 
 
 	// ----------------------------------------------------------------------
-	// LISTENING EVENTS
-	// ------------
+	// BROADCAST / EMIT EVENTS
+	// -----------------------
+
+	// sign in button clicked, bring up google oAuth screen
 	$rootScope.$on("signUserIn", () => {
 
 		let googlePromise = firebaseService.logInWithGoogle;
@@ -101,41 +113,37 @@ function mainController(
 
 	});
 
+	// remove the user
 	$rootScope.$on("signUserOut", () => {
 		toastr.info("Signing out...");
 		this.auth.$signOut();
 	});
 
-	// adds in a new widget record to db
+	// write an update to the db (when user adds stuff)
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
-
 		let writePromise = firebaseService.updateWidget;
 		writePromise(whatToWrite, payload, this.userUid)
-
 	});
 
 	// deletes a widgets stuff
 	$rootScope.$on("deleteWidgetMeta", (event, widgetName) => {
-
 		let deletePromise = firebaseService.deleteWidget;
 		deletePromise(widgetName, this.userUid);
-
-
 	});
 
 }
 
 // Inject so when it's minified it doesn't go mental
 mainController.$inject = [
-"$scope",
-"$rootScope",
-"$firebaseAuth",
-"$firebaseObject",
-"$firebaseArray",
-"firebaseService",
-"backendService",
-"userService",
-"toastr"
+	"$scope",
+	"$rootScope",
+	"$firebaseAuth",
+	"$firebaseObject",
+	"$firebaseArray",
+	"firebaseService",
+	"backendService",
+	"userService",
+	"toastr"
 ];
 
 // send to main.js
