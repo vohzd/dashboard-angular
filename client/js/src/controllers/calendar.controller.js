@@ -26,6 +26,18 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	$(".interactive-calendar-wrapper").scrollLeft(350);
 
 
+	this.formShown = false;
+
+	this.showForm = (event) => {
+
+		if (!this.formShown){
+			this.formShown = true
+		}
+		else {
+			this.formShown = false;
+		}
+	}
+
 }
 
 calendarController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];

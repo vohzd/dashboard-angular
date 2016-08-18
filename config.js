@@ -28,6 +28,7 @@ System.config({
     "jquery-mousewheel": "npm:jquery-mousewheel@3.1.13",
     "moment": "npm:moment@2.14.1",
     "toastr": "github:Foxandxss/angular-toastr@2.0.0",
+    "tooltips": "github:iamceege/tooltipster@4.1.2",
     "github:angular-ui/angular-ui-router-bower@0.3.1": {
       "angular": "github:angular/bower-angular@1.5.8"
     },
