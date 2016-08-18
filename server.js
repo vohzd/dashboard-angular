@@ -26,6 +26,7 @@ require("./backend/routes.js")(app);
 
 // Expose the jspm packages + config as well as the client front-end
 app.use('/jspm_packages',  express.static(__dirname + '/jspm_packages'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use("/config.js", express.static(__dirname + "/config.js"));
 app.use(express.static(__dirname + "/client"));
 app.all("/*", (req, res, next) => {

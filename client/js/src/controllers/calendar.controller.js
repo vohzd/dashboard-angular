@@ -22,7 +22,6 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	$(".interactive-calendar-wrapper").scrollLeft(350);
 
 
-
 }
 
 calendarController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];

@@ -23,6 +23,20 @@ html, body {
   background-size: cover;
   overflow: hidden; }
 
+::-webkit-scrollbar-track {
+  background: none; }
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 3px;
+  background: none; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.14); }
+
 /* 	
 
 	-----------------------------------------------------------------------------
