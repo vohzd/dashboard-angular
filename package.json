@@ -6,6 +6,8 @@
       "angular-router": "npm:angular-router@^0.0.2",
       "angular-ui-router": "github:angular-ui/angular-ui-router-bower@^0.3.1",
       "angularfire": "github:firebase/angularfire@^2.0.1",
+      "asvd/dragscroll": "github:asvd/dragscroll@^0.0.6",
+      "dragscroll": "npm:angular-drag-scroll@^0.2.2",
       "firebase": "github:firebase/firebase-bower@^3.2.1",
       "jquery": "npm:jquery@^3.1.0",
       "moment": "npm:moment@^2.14.1",

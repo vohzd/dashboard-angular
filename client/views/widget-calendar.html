@@ -1,16 +1,28 @@
 <div class="widget-wrapper">
-	
 	<div id="calendar-app" class="center-padding calendar-app">
+		<div class="interactive-calendar-wrapper" drag-scroll="true">
+			<div class="scroll-x-container">
+				<!-- prev month -->
+				<div class="month-wrapper">
+					<div class="calendar-cell" ng-repeat="day in cal.prevMonthDays track by $index">
+						{{$index + 1}}
+					</div>
+				</div>
 
+				<!-- this month -->
+				<div class="month-wrapper">
+					<div class="calendar-cell" ng-repeat="day in cal.thisMonthDays track by $index">
+						{{$index + 1}}
+					</div>
+				</div>
 
-		<div class="interactive-calendar-wrapper">
-
-			<div class="calendar-cell" ng-repeat="day in calendar.thisMonth track by $index">{{$index}}</div>
-
+				<!-- next month -->
+				<div class="month-wrapper">
+					<div class="calendar-cell" ng-repeat="day in cal.nextMonthDays track by $index">
+						{{$index + 1}}
+					</div>
+				</div>
+			</div>
 		</div>
-
-
 	</div>
-
-
 </div>

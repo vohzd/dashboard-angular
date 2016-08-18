@@ -356,17 +356,18 @@ html, body {
 	calendar app
 	------------
 */
-.calendar-app {
-  overflow-x: scroll;
-  width: 3120px; }
-
 .interactive-calendar-wrapper {
-  width: 100%;
-  overflow-x: scroll;
-  float: left; }
+  margin: 2%;
+  width: 60%;
+  overflow-x: scroll; }
 
-.interactive-calendar-wrapper:nth-child(7n+1) {
-  clear: left; }
+.scroll-x-container {
+  width: 1400px;
+  height: 400px; }
+
+.month-wrapper {
+  float: left;
+  max-width: 600px; }
 
 .calendar-cell {
   display: inline-block;
@@ -374,6 +375,9 @@ html, body {
   width: 60px;
   height: 60px;
   float: left; }
+
+.calendar-cell:nth-child(7n + 1) {
+  clear: both; }
 
 /*
 	--------------------------

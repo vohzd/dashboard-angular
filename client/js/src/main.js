@@ -12,7 +12,8 @@ import uiRouter from "angular-ui-router";
 import firebase from "firebase";
 import angularFire from "angularfire";
 import toastr from "toastr";
-import toastrTemplate from "toastr/angular-toastr.tpls.js"
+import toastrTemplate from "toastr/angular-toastr.tpls.js";
+import dragscroll from "dragscroll";
 
 // Angular Stuff
 // -------------
@@ -33,7 +34,7 @@ import todoController from "./controllers/todo.controller.js";
 import calendarController from "./controllers/calendar.controller.js";
 
 // GO
-angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
+angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr", "ng-drag-scroll"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
@@ -66,7 +67,7 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr"])
 				url : "/calendar",
 				templateUrl: "../../views/widget-calendar.html",
 				controller: calendarController,
-				controllerAs: "calendar"
+				controllerAs: "cal"
 			})
 			.state("health",{
 				url : "/health",
