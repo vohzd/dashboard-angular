@@ -377,25 +377,37 @@ html, body {
   overflow-x: scroll; }
 
 .scroll-x-container {
-  width: 2200px;
+  width: 2600px;
   height: 400px; }
 
 .month-wrapper {
-  float: left;
-  margin-right: 0.5%; }
+  float: left; }
 
 .calendar-cell {
   color: rgba(64, 70, 113, 0.9);
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   float: left; }
 
-.calendar-cell:nth-child(odd) {
+.calendar-cell:nth-child(even) {
+  background: rgba(0, 0, 0, 0.1); }
+
+.month-wrapper:nth-child(even) .calendar-cell:nth-child(even) {
+  background: transparent; }
+
+.month-wrapper:nth-child(even) .calendar-cell:nth-child(odd) {
   background: rgba(0, 0, 0, 0.1); }
 
 .calendar-cell:nth-child(7n + 1) {
   clear: both; }
+
+.month-name {
+  float: left;
+  width: 100%;
+  color: rgba(64, 70, 113, 0.9);
+  font-size: 2em;
+  letter-spacing: 3px; }
 
 /*
 	--------------------------

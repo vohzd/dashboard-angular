@@ -4,22 +4,31 @@
 			<div class="scroll-x-container">
 				<!-- prev month -->
 				<div class="month-wrapper">
-					<div class="calendar-cell" ng-repeat="day in cal.prevMonthDays track by $index">
-						{{$index + 1}}
+					<div class="month-name">{{cal.prevMonthName}}</div>
+					<div class="checkerboard-wrapper">
+						<div class="calendar-cell" ng-repeat="day in cal.prevMonthDays track by $index">
+							{{$index + 1}}
+						</div>
 					</div>
 				</div>
 
 				<!-- this month -->
 				<div class="month-wrapper">
-					<div class="calendar-cell" ng-repeat="day in cal.thisMonthDays track by $index">
-						{{$index + 1}}
+					<div class="month-name">{{cal.thisMonthName}}</div>
+					<div class="checkerboard-wrapper">
+						<div class="calendar-cell" ng-repeat="day in cal.thisMonthDays track by $index">
+							{{$index + 1}}
+						</div>
 					</div>
 				</div>
 
 				<!-- next month -->
 				<div class="month-wrapper">
-					<div class="calendar-cell" ng-repeat="day in cal.nextMonthDays track by $index">
-						{{$index + 1}}
+					<div class="month-name">{{cal.nextMonthName}}</div>
+					<div class="checkerboard-wrapper">
+						<div class="calendar-cell" ng-repeat="day in cal.nextMonthDays track by $index">
+							{{$index + 1}}
+						</div>
 					</div>
 				</div>
 			</div>

@@ -18,6 +18,10 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.prevMonthDays			= new Array( this.prevMonth.daysInMonth() );
 	this.nextMonthDays			= new Array( this.nextMonth.daysInMonth() );
 
+	this.thisMonthName			= this.thisMonth.format("MMMM");
+	this.prevMonthName			= this.prevMonth.format("MMMM");
+	this.nextMonthName			= this.nextMonth.format("MMMM");
+
 	// init side scroll in the middle
 	$(".interactive-calendar-wrapper").scrollLeft(350);
 
