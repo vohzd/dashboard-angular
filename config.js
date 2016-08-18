@@ -25,6 +25,8 @@ System.config({
     "dragscroll": "npm:angular-drag-scroll@0.2.2",
     "firebase": "github:firebase/firebase-bower@3.2.1",
     "jquery": "npm:jquery@3.1.0",
+    "jquery-mousewheel": "npm:jquery-mousewheel@3.1.13",
+    "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@3.1.5",
     "moment": "npm:moment@2.14.1",
     "toastr": "github:Foxandxss/angular-toastr@2.0.0",
     "github:angular-ui/angular-ui-router-bower@0.3.1": {
@@ -86,6 +88,9 @@ System.config({
     },
     "npm:jquery@3.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:malihu-custom-scrollbar-plugin@3.1.5": {
+      "jquery-mousewheel": "npm:jquery-mousewheel@3.1.13"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"

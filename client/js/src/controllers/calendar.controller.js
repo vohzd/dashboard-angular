@@ -1,7 +1,8 @@
 import moment from "moment";
 import $ from "jquery";
 
-function todoController($scope, $rootScope, $firebaseObject, toastr){
+
+function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 	// ----------------------
 	// moment.js useful stuff
@@ -21,9 +22,10 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 	$(".interactive-calendar-wrapper").scrollLeft(350);
 
 
+
 }
 
-todoController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];
+calendarController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];
 
 
-export default todoController;
+export default calendarController;
