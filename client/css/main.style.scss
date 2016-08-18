@@ -525,30 +525,36 @@ html, body
 .interactive-calendar-wrapper
 {
 	margin: 2%;
-	width: 60%;
+	padding-bottom:1%;
+	width: 96%;
 	overflow-x:scroll;
 }
 
 .scroll-x-container
 {
-	width: 1400px;
+	width: 2200px;
 	height: 400px;
 }
 
 .month-wrapper
 {
 	float: left;
-	max-width:600px;
+	margin-right:0.5%;
 }
 
 
 .calendar-cell
 {
+	color: $textColourDarker;
 	display: inline-block;
-	border: 1px solid;
-	width: 60px;
-	height: 60px;
+	width: 100px;
+	height: 100px;
 	float: left;
+}
+
+.calendar-cell:nth-child(odd)
+{
+	background:rgba(0,0,0,0.1);
 }
 
 .calendar-cell:nth-child(7n + 1)
