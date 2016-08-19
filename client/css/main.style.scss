@@ -86,6 +86,12 @@ html, body
 
 }
 
+.app-wrapper
+{
+	float: left;
+	width: 100%;
+}
+
 
 
 
@@ -582,6 +588,75 @@ html, body
 	background: white;
 	width: 300px;
 	height: 300px;
+}
+
+
+.feeds input[type="text"]
+{
+	border: none;
+	padding: 3%;
+	background: rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+	color: $textColourLighten;
+	transition: all 0.6s;
+    font-size: 1em;
+	width: 100%;
+	box-sizing: border-box;
+	float: left;
+	margin-bottom: 2%;
+}
+
+.feeds input[type="text"]::-webkit-input-placeholder
+{
+	color: $textColourDarker;
+}
+
+.feeds input[type="text"]:hover
+{
+	background: rgba(0,0,0,0.2);
+}
+
+.feeds input[type="text"]:focus
+{
+	background: rgba(0,0,0,0.2);
+}
+
+
+.feeds button
+{
+	outline: none;
+	border: none;
+	padding: 4%;
+	background: rgba(0,0,0,0.15);
+   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+	color: $secondaryColour;
+	text-align: left;
+	transition: all 0.6s;
+	font-family: $mainFont;
+	font-size: 1.1em;
+	width: 100%;
+}
+
+.feeds button:hover
+{
+	background: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+
+.left
+{
+	float: left;
+	width: 70%;
+}
+
+.right
+{
+	float: left;
+	width: 30%
 }
 
 

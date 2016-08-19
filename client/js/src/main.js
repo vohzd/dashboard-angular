@@ -33,6 +33,8 @@ import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
 import mainController from "./controllers/main.controller.js";
 import todoController from "./controllers/todo.controller.js";
 import calendarController from "./controllers/calendar.controller.js";
+import feedController from "./controllers/feed.controller.js";
+
 
 // GO
 angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr", "ng-drag-scroll"])
