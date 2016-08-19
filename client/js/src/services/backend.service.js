@@ -27,17 +27,13 @@ function backendService (
 
 		requestNewsData: (sourceURL) => {
 
-			console.log(sourceURL);
 			return $http.get("/parseFeed/" + sourceURL)
 				.then((response) => {
-					console.log(response);
 					return response.data;
 				})
 				.catch((error) => {
-					console.log("went horribly wrong");
 					console.log(error);
 				});
-
 
 		}
 

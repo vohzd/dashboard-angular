@@ -55,7 +55,6 @@ function mainController(
 				})
 				.then((snapshot) => {
 					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(snapshot);
-					//$rootScope.$broadcast("widgetScopeUpdated");
 
 					// tell the child controllers they can access the scope data
 					$scope.userWidgetMeta.$loaded().then(() => {

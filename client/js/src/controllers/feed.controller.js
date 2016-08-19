@@ -73,20 +73,39 @@ function feedController($scope, $rootScope, $firebaseObject, backendService, toa
 		// if any other requests to this function are received (for which there will be about 5/6 because firebase is calling it lots)
 		// then discard them and only do a server request for one
 		if (!serverTransactionInProcess){
+
+			console.log("wat?");
+			// set server to be blocked
 			serverTransactionInProcess = true;
+
+			// get the urls
 			let dataToParse = $scope.$parent.userWidgetMeta.feed;
 
-			for (let keys in dataToParse){
-				let url = dataToParse[keys].url;
+			// loop through urls and get the server to grab the feed data they contain 
+			for (let key in dataToParse){
+
+				// shorthand
+				let url = dataToParse[key].url;
+
+				// a http promise from the server
 				backendService.requestNewsData(url)
 					.then((response) => {
-						console.log("server response here");
+
+						if (response.rss.channel){
+							dataToParse[key].parsed = response.rss.channel[0].item;
+						}
+						else {
+							console.log("something else.... not sure... take a look and handle");
+							console.log(response);
+						}
+
+						console.log(dataToParse[key]);
+
 					})
 					.catch((error) => {
-						console.log("fweiofgiogfwio");
+						console.log(error);
 					})
 			}
-
 
 		}
 		else {

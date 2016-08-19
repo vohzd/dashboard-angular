@@ -37,6 +37,8 @@ module.exports = function(app) {
 
 			if (!error && response.statusCode == 200){
 
+				// TODO -- error handling of dodgy xml!!!
+
 				// get headers for content type... might not always be xml thats retreived...
 				const dataType = response.headers["content-type"];
 
