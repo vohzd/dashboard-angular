@@ -2,8 +2,11 @@
 // set up firebase
 
 const Firebase 			= require("./firebase-connect.js");
-const mongoose 			= require('mongoose');
-const Profile			= require('./model.js');
+const mongoose 			= require("mongoose");
+const Profile			= require("./model.js");
+const request			= require("request");
+
+
 
 // Opens App Routes
 module.exports = function(app) {
@@ -21,7 +24,44 @@ module.exports = function(app) {
 				res.send(false);
 			})
 
+	});	
+
+
+	// GET
+	// ---
+
+	app.get("/parseFeed/*", (req, res) => {
+
+		const urlToFetch = req.params[0];
+
+		request(urlToFetch, (error, response, body) => {
+
+			if (!error && response.statusCode == 200){
+
+				// get headers for content type... might not always be xml thats retreived...
+				const dataType = response.headers["content-type"];
+
+				const isXml = new RegExp(/(xml)/g);
+
+				if (isXml.test(dataType)){
+
+				}
+				else {
+					console.log("nope");
+				}
+
+
+
+			}
+
+		});
+
+		res.json({"blarh":"weiofiowegf"});
+
 	});
+
+
+
 
 
 

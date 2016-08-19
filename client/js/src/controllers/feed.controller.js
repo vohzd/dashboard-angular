@@ -1,5 +1,5 @@
 
-function feedController($scope, $rootScope, $firebaseObject, toastr){
+function feedController($scope, $rootScope, $firebaseObject, backendService, toastr){
 
 	// -----------
 	// INIT
@@ -76,8 +76,18 @@ function feedController($scope, $rootScope, $firebaseObject, toastr){
 			serverTransactionInProcess = true;
 			let dataToParse = $scope.$parent.userWidgetMeta.feed;
 
-			console.log("go and parse");
-			console.log(dataToParse);
+			for (let keys in dataToParse){
+				let url = dataToParse[keys].url;
+				backendService.requestNewsData(url)
+					.then((response) => {
+						console.log("server response here");
+					})
+					.catch((error) => {
+						console.log("fweiofgiogfwio");
+					})
+			}
+
+
 		}
 		else {
 			return false;
@@ -89,7 +99,7 @@ function feedController($scope, $rootScope, $firebaseObject, toastr){
 
 }
 
-feedController.$inject = ["$scope", "$rootScope", "$firebaseObject", "toastr"];
+feedController.$inject = ["$scope", "$rootScope", "$firebaseObject", "backendService", "toastr"];
 
 
 export default feedController;
