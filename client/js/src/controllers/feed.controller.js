@@ -64,9 +64,24 @@ function feedController($scope, $rootScope, $firebaseObject, toastr){
 	// FEED PARSING
 	// ------------
 
+	let serverTransactionInProcess = false;
+
 	function parseExistingSources() {
 		// accesses the scope and gets the server to convert the url into a chunk of metadata
-		console.log($scope.$parent.userWidgetMeta.feed);
+
+		// because my own mongodb instance is now involved, throttle the connection to occur every 10 seconds
+		// if any other requests to this function are received (for which there will be about 5/6 because firebase is calling it lots)
+		// then discard them and only do a server request for one
+		if (!serverTransactionInProcess){
+			serverTransactionInProcess = true;
+			let dataToParse = $scope.$parent.userWidgetMeta.feed;
+
+			console.log("go and parse");
+			console.log(dataToParse);
+		}
+		else {
+			return false;
+		}
 
 	}
 
