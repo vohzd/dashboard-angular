@@ -1,5 +1,5 @@
 
-function feedController($scope, $rootScope, $firebaseObject, backendService, toastr){
+function feedController($q, $scope, $rootScope, $firebaseObject, backendService, toastr){
 
 	// -----------
 	// INIT
@@ -74,7 +74,6 @@ function feedController($scope, $rootScope, $firebaseObject, backendService, toa
 		// then discard them and only do a server request for one
 		if (!serverTransactionInProcess){
 
-			console.log("wat?");
 			// set server to be blocked
 			serverTransactionInProcess = true;
 
@@ -88,24 +87,33 @@ function feedController($scope, $rootScope, $firebaseObject, backendService, toa
 				let url = dataToParse[key].url;
 
 				// a http promise from the server
-				backendService.requestNewsData(url)
+				let requestNewsPromise = backendService.requestNewsData;
+
+				// promise for async getting rss data from foreign servers
+				requestNewsPromise(url)
 					.then((response) => {
 
 						if (response.rss.channel){
-							dataToParse[key].parsed = response.rss.channel[0].item;
+							// set on the parent items scope
+							// fingers crossed the view layer will react to changes
+							$scope.$parent.userWidgetMeta.feed[key].parsed = response.rss.channel[0].item;
 						}
 						else {
 							console.log("something else.... not sure... take a look and handle");
 							console.log(response);
 						}
 
-						console.log(dataToParse[key]);
+						console.log($scope.$parent.userWidgetMeta.feed[key]);
+
+						return true;
 
 					})
 					.catch((error) => {
 						console.log(error);
 					})
+
 			}
+
 
 		}
 		else {
@@ -118,7 +126,7 @@ function feedController($scope, $rootScope, $firebaseObject, backendService, toa
 
 }
 
-feedController.$inject = ["$scope", "$rootScope", "$firebaseObject", "backendService", "toastr"];
+feedController.$inject = ["$q", "$scope", "$rootScope", "$firebaseObject", "backendService", "toastr"];
 
 
 export default feedController;

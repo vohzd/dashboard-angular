@@ -8,7 +8,11 @@
 
 		<li ng-repeat="feedItem in userWidgetMeta.feed">
 			<h4>{{ feedItem.title }}</h4>
-			<time>{{ feedItem.url }}</time>
+			<ol>
+				<li ng-repeat="article in feedItem.parsed | limitTo:7">
+					<a href="{{article.link[0]}}">{{ article.title[0] }}</a>
+				</li>
+			</ol>
 		</li>
 
 
