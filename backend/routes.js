@@ -5,8 +5,7 @@ const Firebase 			= require("./firebase-connect.js");
 const mongoose 			= require("mongoose");
 const Profile			= require("./model.js");
 const request			= require("request");
-
-
+const parseString		= require("xml2js").parseString;
 
 // Opens App Routes
 module.exports = function(app) {
@@ -41,13 +40,25 @@ module.exports = function(app) {
 				// get headers for content type... might not always be xml thats retreived...
 				const dataType = response.headers["content-type"];
 
+				// regex to check
 				const isXml = new RegExp(/(xml)/g);
 
+				// check content type is xml with regex
 				if (isXml.test(dataType)){
+
+					// convert xml to javascript with plugin
+					parseString(body, (err, result) => {
+
+						// send result back to frontend
+						if (!err){
+							res.json(result)
+						}
+
+					});
 
 				}
 				else {
-					console.log("nope");
+					console.log("not xml, something else");
 				}
 
 
