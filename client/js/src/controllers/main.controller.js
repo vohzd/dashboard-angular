@@ -55,6 +55,14 @@ function mainController(
 				})
 				.then((snapshot) => {
 					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(snapshot);
+					//$rootScope.$broadcast("widgetScopeUpdated");
+
+					// tell the child controllers they can access the scope data
+					$scope.userWidgetMeta.$loaded().then(() => {
+						$rootScope.$broadcast("widgetScopeUpdated");
+					});
+
+					// front-end a notification
 					toastr.success("Welcome back  " + this.username, "Signed in");
 				})
 				.catch((error) => {
@@ -76,7 +84,7 @@ function mainController(
 				})
 				.then(() => getWidgetPromise(this.userUid))
 				.then((widgetsMeta) => {
-					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(widgetsMeta)
+					this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(widgetsMeta);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -102,7 +110,6 @@ function mainController(
 				this.username = userService.currentUsername(response.user.displayName);
 				this.displayImgSrc = userService.currentUsername(response.user.photoURL);
 				this.userUid = userService.currentUsername(response.user.uid);
-
 			})
 			.then(() => getWidgetPromise(this.userUid))
 			.then((widgetsMeta) => {

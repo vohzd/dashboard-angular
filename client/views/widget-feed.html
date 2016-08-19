@@ -1,16 +1,28 @@
 <div class="widget-wrapper">
 	<div id="feed-app" class="app-wrapper feeds">
-		<section class="feed-list left">blargh</section>
+		<section class="feed-list left">
+			
+		<li ng-hide="userWidgetMeta.feed">
+			<h4>Nothing here!</h4>
+		</li>
+
+		<li ng-repeat="feedItem in userWidgetMeta.feed">
+			<h4>{{ feedItem.title }}</h4>
+			<time>{{ feedItem.url }}</time>
+		</li>
+
+
+		</section>
 		<section class="feed-manager right">
 			
-			<h2>Current sources</h2>
+			<h3>Current sources</h3>
 
-			<h2>Add source</h2>
+			<h3>Add source</h3>
 
 			<form>
-				<input type="text" placeholder="Source name" />
-				<input type="text" placeholder="Source url" />
-				<button>Add</button>
+				<input type="text" placeholder="Source name" ng-model="feed.sourceName" />
+				<input type="text" placeholder="Source url"  ng-model="feed.sourceURL"/>
+				<button ng-click="feed.addNewFeedSource()">Add</button>
 			</form>
 
 		</section>

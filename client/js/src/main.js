@@ -61,6 +61,8 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr", 
 			.state("feed",{
 				url : "/feed",
 				templateUrl: "../../views/widget-feed.html",
+				controller: feedController,
+				controllerAs: "feed"
 			})
 			/* on hold. spotify don't allow full track streaming
 			.state("media",{
