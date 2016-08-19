@@ -60,10 +60,12 @@ angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr", 
 				url : "/feed",
 				templateUrl: "../../views/widget-feed.html",
 			})
+			/* on hold. spotify don't allow full track streaming
 			.state("media",{
 				url : "/media",
 				templateUrl: "../../views/widget-media.html",
 			})
+			*/
 			.state("calendar",{
 				url : "/calendar",
 				templateUrl: "../../views/widget-calendar.html",
