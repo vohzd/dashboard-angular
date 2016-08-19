@@ -46,10 +46,8 @@ module.exports = function(app) {
 				// check content type is xml with regex
 				if (isXml.test(dataType)){
 
-					// convert xml to javascript with plugin
 					parseString(body, (err, result) => {
 
-						// send result back to frontend
 						if (!err){
 							res.json(result)
 						}
@@ -66,8 +64,6 @@ module.exports = function(app) {
 			}
 
 		});
-
-		res.json({"blarh":"weiofiowegf"});
 
 	});
 
