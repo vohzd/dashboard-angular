@@ -128,14 +128,30 @@ function mainController(
 
 	// write an update to the db (when user adds stuff)
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
+		console.log("writing...");
 		let writePromise = firebaseService.updateWidget;
 		writePromise(whatToWrite, payload, this.userUid)
+			.then(() => {
+				setTimeout(() => {
+					console.log("fuck you");
+					// best i can do!
+					$rootScope.$broadcast("widgetScopeUpdated");
+				}, 300)
+			})
 	});
 
 	// deletes a widgets stuff
 	$rootScope.$on("deleteWidgetMeta", (event, widgetName) => {
 		let deletePromise = firebaseService.deleteWidget;
 		deletePromise(widgetName, this.userUid);
+	});
+
+	// updates master scope
+	$rootScope.$on("updateLocalParentScope", (event, keyName, keyId, newItem) => {
+
+		$scope.userWidgetMeta[keyName][keyId].parsed = newItem;
+		this.userWidgetMeta[keyName][keyId].parsed = newItem;
+
 	});
 
 }
