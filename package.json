@@ -46,6 +46,7 @@
     "method-override": "2.3.6",
     "mongoose": "4.5.5",
     "morgan": "1.7.0",
+    "request": "^2.74.0",
     "xml2js": "0.4.17"
   },
   "devDependencies": {

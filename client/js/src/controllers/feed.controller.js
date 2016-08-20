@@ -6,6 +6,8 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 	// ----
 	$rootScope.$on("widgetScopeUpdated", () => {
 
+		console.log("called");
+		console.log($scope.$parent)
 		initiateDataGrab();
 
 	});

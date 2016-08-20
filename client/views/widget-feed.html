@@ -1,34 +1,41 @@
 <div class="widget-wrapper">
 	<div id="feed-app" class="app-wrapper feeds">
-		<section class="feed-list left">
-			
-		<li ng-hide="userWidgetMeta.feed">
-			<h4>Nothing here!</h4>
-		</li>
 
-		<li ng-repeat="feedItem in userWidgetMeta.feed">
-			<h4>{{ feedItem.title }}</h4>
-			<ol>
-				<li ng-repeat="article in feedItem.parsed | limitTo:7">
-					<a href="{{article.link[0]}}">{{ article.title[0] }}</a>
-				</li>
-			</ol>
-		</li>
+		<section class="feed-list left">	
+			<li ng-hide="userWidgetMeta.feed">
+				<h4>Nothing here!</h4>
+			</li>
 
-
+			<li ng-repeat="feedItem in userWidgetMeta.feed" class="feed-item-cell">
+				<h4>{{ feedItem.title }}</h4>
+				<ol>
+					<li ng-repeat="article in feedItem.parsed | limitTo:7">
+						<a href="{{article.link[0]}}" target="_blank">{{ article.title[0] }}</a>
+					</li>
+				</ol>
+			</li>
 		</section>
+
 		<section class="feed-manager right">
-			
-			<h3>Current sources</h3>
-
-			<h3>Add source</h3>
-
-			<form>
-				<input type="text" placeholder="Source name" ng-model="feed.sourceName" />
-				<input type="text" placeholder="Source url"  ng-model="feed.sourceURL"/>
-				<button ng-click="feed.addNewFeedSource()">Add</button>
-			</form>
-
+			<div class="current-source row">
+				<h3>Current sources</h3>
+				<ol>
+					<li ng-repeat="source in userWidgetMeta.feed">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+						<h4>{{source.title}}</h4>
+						<a href="{{source.url}}" target="_blank">{{ source.url }}</a>
+					</li>
+				</ol>
+			</div>
+			<div class="add-new-source row">
+				<h3>Add source</h3>
+				<form>
+					<input type="text" placeholder="Source name" ng-model="feed.sourceName" />
+					<input type="text" placeholder="Source url"  ng-model="feed.sourceURL"/>
+					<button ng-click="feed.addNewFeedSource()">Add</button>
+				</form>
+			</div>
 		</section>
+		
 	</div>
 </div>
