@@ -28,16 +28,20 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 	this.formShown = false;
 
+	this.newEventLabel = "";
+	this.newSpendLabel = "";
+	this.newSpendAmount = 0;
+
 	this.formDom = $("<div class='popup'>\
 		<form class='calendar-add-form'>\
 			<h3>Add new</h3>\
 			<p>New Event</p>\
-			<input type='text' placeholder='New Event label' \>\
+			<input type='text' placeholder='New Event label' ng-model='cal.newEventLabel' \>\
 			<p>New Spend</p>\
-			<input type='text' placeholder='New spend (label)' \>\
-			<input type='text' placeholder='New spend (amount)' \>\
+			<input type='text' placeholder='New spend (label)' ng-model='cal.newSpendLabel' \>\
+			<input type='text' placeholder='New spend (amount)' ng-model='cal.newSpendAmount' \>\
 			<p>Submit</p>\
-			<input type='button' value='add'\>\
+			<input type='button' value='add' ng-click='cal.submitNewCalItem()'\>\
 		</form>\
 	</div>");
 	
@@ -46,7 +50,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 		if (!this.formShown){
 			this.formShown = true;
-			$("body").append(this.formDom);
+			$("#calendar-app").prepend(this.formDom);
 			$(".popup").css({"margin-top": event.y, "margin-left": event.x});
 
 		}
@@ -56,7 +60,10 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 		}
 	}
 
-	// jquery version for now...
+	this.submitNewCalItem = () => {
+		console.log("this was clicked");
+
+	}
 
 
 
