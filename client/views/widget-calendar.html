@@ -34,6 +34,20 @@
 			</div>
 		</div>
 
+	<div class='popup' ng-if="cal.formShown">
+		<form class='calendar-add-form'>
+			<h3>Add new</h3>
+			<p>New Event</p>
+			<input type='text' placeholder='New Event label' ng-model='cal.newEventLabel' \>
+			<p>New Spend</p>
+			<input type='text' placeholder='New spend (label)' ng-model='cal.newSpendLabel' \>
+			<input type='text' placeholder='New spend (amount)' ng-model='cal.newSpendAmount' \>
+			<p>Submit</p>
+			<input type='button' value='add' ng-click='cal.submitNewCalItem()'\>
+		</form>
+	</div>
+
+
 	</div>
 
 </div>

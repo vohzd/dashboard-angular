@@ -50,12 +50,10 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 		if (!this.formShown){
 			this.formShown = true;
-			$("#calendar-app").prepend(this.formDom);
-			$(".popup").css({"margin-top": event.y, "margin-left": event.x});
+			//$(".popup").css({"margin-top": event.y, "margin-left": event.x});
 
 		}
 		else {
-			$(".popup").remove();
 			this.formShown = false;
 		}
 	}
