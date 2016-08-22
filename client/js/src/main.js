@@ -15,7 +15,6 @@ import toastr from "toastr";
 import toastrTemplate from "toastr/angular-toastr.tpls.js";
 import dragscroll from "dragscroll";
 
-
 // Angular Stuff
 // -------------
 

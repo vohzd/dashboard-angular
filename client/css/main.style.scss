@@ -583,12 +583,14 @@ html, body
 	letter-spacing: 3px;
 }
 
-.popup-form
+.popup
 {
-	background: white;
-	width: 300px;
-	height: 300px;
+    position: absolute;
+    background: rgba(255,255,255,0.4);
+    padding: 1%;
 }
+
+
 
 
 // ----------

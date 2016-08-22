@@ -28,15 +28,29 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 	this.formShown = false;
 
+	this.formDom = $("<div class='popup'>\
+		<h1>hai2u</h1>\
+		<p>wowzers</p>\
+	</div>");
+	
+
 	this.showForm = (event) => {
 
 		if (!this.formShown){
-			this.formShown = true
+			this.formShown = true;
+			$("body").append(this.formDom);
+			$(".popup").css({"margin-top": event.y, "margin-left": event.x});
+
 		}
 		else {
+			$(".popup").remove();
 			this.formShown = false;
 		}
 	}
+
+	// jquery version for now...
+
+
 
 }
 

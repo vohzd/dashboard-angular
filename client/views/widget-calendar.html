@@ -6,7 +6,7 @@
 				<div class="month-wrapper">
 					<div class="month-name">{{cal.prevMonthName}}</div>
 					<div class="checkerboard-wrapper">
-						<div class="calendar-cell" ng-repeat="day in cal.prevMonthDays track by $index" ng-Dblclick="cal.showForm($event)">
+						<div class="calendar-cell"  ng-repeat="day in cal.prevMonthDays track by $index" ng-Dblclick="cal.showForm($event)">
 							{{$index + 1}}
 						</div>
 					</div>
@@ -16,7 +16,7 @@
 				<div class="month-wrapper">
 					<div class="month-name">{{cal.thisMonthName}}</div>
 					<div class="checkerboard-wrapper">
-						<div class="calendar-cell" ng-repeat="day in cal.thisMonthDays track by $index" ng-Dblclick="cal.showForm($event)">
+						<div class="calendar-cell"  ng-repeat="day in cal.thisMonthDays track by $index" ng-Dblclick="cal.showForm($event)">
 							{{$index + 1}}
 						</div>
 					</div>
@@ -32,11 +32,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="popup-form" ng-hide="{{cal.formShown}}">
-			<h3>hello!</h3>
-			<p>i am a popup form</p>
 		</div>
 
 	</div>
