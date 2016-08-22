@@ -459,7 +459,7 @@ html, body
 	flex-direction: column;
 }
 
-.todo-form textarea
+textarea
 {
 	resize: none;
 	outline: none;
@@ -493,7 +493,7 @@ html, body
 	background: rgba(0,0,0,0.2);
 }
 
-.todo-form button
+button
 {
 	outline: none;
 	border: none;
@@ -591,6 +591,12 @@ html, body
     padding: 1%;
 }
 
+.calendar-add-form h4
+{
+	font-weight: normal;
+	color: $textColourDarker;
+}
+
 
 
 
@@ -654,9 +660,12 @@ html, body
 
 .feeds h3
 {
-	color: $primaryColour;
+	color: $textColourDarker;
 	font-weight: normal;
-	font-size: 1.2em;
+	font-size: 1.1em;
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 .current-source i, h4, a
 {
@@ -668,11 +677,17 @@ html, body
 	color: $textColourDarker;
 	transition: all 0.8s;
 	opacity: 1;
+	float: left;
+    width: 5%;
+    margin-right: 2%;
+    padding-top: 2%;
+    height: 100%;
 }
 
 .current-source i:hover
 {
 	opacity:0.4;
+	cursor: pointer;
 }
 .current-source ol
 {
@@ -689,25 +704,24 @@ html, body
 
 .current-source h4
 {
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: normal;
 	float: left;
-	width:40%;
+	width: 90%;
 	margin: 0;
 	padding: 0;
+	padding-left:2%;
 }
 
 .current-source a
 {
 	float: left;
-	width: 55%;
-	font-size: 0.7em;
+	width: 100%;
+	font-size: 0.6em;
+	margin-left:9%;
+
 }
-.current-source i
-{
-	float: left;
-	width: 5%;
-}
+
 
 .add-new-source
 {
@@ -751,6 +765,7 @@ html, body
 	list-style-type: none;
 	margin-bottom: 2%;
 	float:left;
+	box-shadow: none;
 }
 
 .feed-item-cell h4
@@ -789,7 +804,7 @@ html, body
 
 .feed-manager
 {
-	padding-top: 2%;
+	padding-top: 1%;
 	padding-left: 2%;
 
 	background: rgba(0,0,0,0.1);
@@ -860,7 +875,13 @@ html, body
 	{
 		height: 100%;
 	}
+
+	.feed-item-cell h4
+	{
+    	font-size: 1.35em;
+	}
 }
+
 
 @media ( max-width: 950px )
 {
@@ -869,6 +890,28 @@ html, body
 		margin-left: 5px;
 		font-size: 0.8em;
 	}
+
+	.current-source li
+	{
+		
+	}
+
+	.current-source h4
+	{
+		font-size: 0.8em;
+	}
+
+	.current-source a
+	{
+		font-size: 0.6em;
+
+	}
+	.current-source i
+	{
+		float: left;
+		width: 5%;
+	}
+
 }
 
 @media ( max-width: 750px )

@@ -21,7 +21,7 @@
 				<h3>Current sources</h3>
 				<ol>
 					<li ng-repeat="source in userWidgetMeta.feed">
-						<i class="fa fa-trash" aria-hidden="true"></i>
+						<i class="fa fa-trash" aria-hidden="true" ng-click="feed.removeNewsSource($event, source)"></i>
 						<h4>{{source.title}}</h4>
 						<a href="{{source.url}}" target="_blank">{{ source.url }}</a>
 					</li>
