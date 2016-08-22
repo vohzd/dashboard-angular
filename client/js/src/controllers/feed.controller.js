@@ -1,15 +1,18 @@
 
 function feedController($q, $scope, $rootScope, $firebaseObject, backendService, toastr){
 
+	this.hasPageLoaded = false;
+
+	if (!this.hasPageLoaded){
+		initiateDataGrab();
+		this.hasPageLoaded = true;
+	}
+
 	// -----------
 	// INIT
 	// ----
 	$rootScope.$on("widgetScopeUpdated", () => {
-
-		console.log("called");
-		console.log($scope.$parent)
 		initiateDataGrab();
-
 	});
 
 	// ---------------
