@@ -29,8 +29,16 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.formShown = false;
 
 	this.formDom = $("<div class='popup'>\
-		<h1>hai2u</h1>\
-		<p>wowzers</p>\
+		<form class='calendar-add-form'>\
+			<h3>Add new</h3>\
+			<p>New Event</p>\
+			<input type='text' placeholder='New Event label' \>\
+			<p>New Spend</p>\
+			<input type='text' placeholder='New spend (label)' \>\
+			<input type='text' placeholder='New spend (amount)' \>\
+			<p>Submit</p>\
+			<input type='button' value='add'\>\
+		</form>\
 	</div>");
 	
 
