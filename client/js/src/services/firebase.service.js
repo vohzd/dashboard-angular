@@ -57,6 +57,15 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 			userWidgets.$remove();
 			widgetsMeta.$remove();
 
+		},
+
+		deleteSpecificRecord: (widgetName, userId, recordKey) => {
+
+			let userWidgets = $firebaseObject(firebase.database().ref("userWidgets/" + userId + "/" + widgetName + "/" + recordKey));
+			let widgetsMeta = $firebaseObject(firebase.database().ref(widgetName + "Meta/" + userId + "/" + recordKey));
+
+			userWidgets.$remove();
+			widgetsMeta.$remove();
 
 		}
 	}

@@ -154,6 +154,15 @@ function mainController(
 
 	});
 
+	// deletes a specific record
+	$rootScope.$on("deleteElementFromFirebase", (event, widgetName, recordKey) => {
+
+		let deleteRecordPromise = firebaseService.deleteSpecificRecord;
+		deleteRecordPromise(widgetName, this.userUid, recordKey);
+
+	});
+
+
 
 }
 

@@ -1,12 +1,6 @@
 
 function feedController($q, $scope, $rootScope, $firebaseObject, backendService, toastr){
 
-	this.hasPageLoaded = false;
-
-	if (!this.hasPageLoaded){
-		initiateDataGrab();
-		this.hasPageLoaded = true;
-	}
 
 	// -----------
 	// INIT
@@ -87,14 +81,21 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 		// because my own mongodb instance is now involved, throttle the connection to occur every 10 seconds
 		// if any other requests to this function are received (for which there will be about 5/6 because firebase is calling it lots)
 		// then discard them and only do a server request for one
+
 		if (!serverTransactionInProcess){
 			// set server to be blocked
 			serverTransactionInProcess = true;
-			// loop through urls and get the server to grab the feed data they contain 
-			for (let key in $scope.$parent.userWidgetMeta.feed){
-				let url = $scope.$parent.userWidgetMeta.feed[key].url;
-				getFromServer(url, key);
-			}
+
+			$scope.$parent.userWidgetMeta.$loaded().then(() => {
+
+				// loop through urls and get the server to grab the feed data they contain 
+				for (let key in $scope.$parent.userWidgetMeta.feed){
+					let url = $scope.$parent.userWidgetMeta.feed[key].url;
+					getFromServer(url, key);
+				}
+
+			})
+
 		}
 		else {
 			setTimeout(() => {
