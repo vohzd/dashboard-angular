@@ -1,18 +1,18 @@
 <div class="dashboard-full-height-sidebar">
-	<ul class="sidebar-menu-items">
+	<ul class="sidebar-menu-items" ng-mouseleave="sidebar.resetHighlight()">
 
 		<!-- wrap each menu nav item in an <a> -->
-		<a ui-sref="todo">
-			<li>
+		<a ui-sref="todo" ng-mouseenter="sidebar.moveHighlight($event, 1)" ng-click="sidebar.applyActiveLink($event)">
+			<li class="menu-item todo">
 				<i class="fa fa-check" aria-hidden="true"></i>
-				<label>Current Todo</label>
+				<label class="sidebar-link">Current Todo</label>
 			</li>
 		</a>
 
-		<a ui-sref="feed">
-			<li>
+		<a ui-sref="feed" ng-mouseenter="sidebar.moveHighlight($event, 2)" ng-click="sidebar.applyActiveLink($event)">
+			<li class="menu-item feed">
 				<i class="fa fa-rss" aria-hidden="true"></i>
-				<label>News feed</label>
+				<label class="sidebar-link">News feed</label>
 			</li>
 		</a>
 
@@ -25,20 +25,22 @@
 		</a>
 		-->
 
-		<a ui-sref="calendar">
-			<li>
+		<a ui-sref="calendar" ng-mouseenter="sidebar.moveHighlight($event, 3)" ng-click="sidebar.applyActiveLink($event)">
+			<li class="menu-item calendar">
 				<i class="fa fa-calendar-times-o" aria-hidden="true"></i>
-				<label>Calendar &amp; Events</label>
+				<label class="sidebar-link">Calendar &amp; Events</label>
 			</li>
 		</a>
 
-		<a ui-sref="health">
-			<li>
+		<a ui-sref="health" ng-mouseenter="sidebar.moveHighlight($event, 4)" ng-click="sidebar.applyActiveLink($event)">
+			<li class="menu-item health">
 				<i class="fa fa-medkit" aria-hidden="true"></i>
-				<label>Health &amp; Workout</label>
+				<label class="sidebar-link">Health &amp; Workout</label>
 			</li>
 		</a>
 		
+
+		<div class="hover-highlighter"></div>
 	</ul>
 </div>
 

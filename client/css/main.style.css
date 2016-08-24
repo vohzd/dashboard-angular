@@ -182,15 +182,25 @@ html, body {
   text-align: center; }
 
 .sidebar-menu-items li {
-  transition: 0.2s all;
+  transition: 0.9s all;
   border: none;
   color: rgba(107, 116, 172, 0.9); }
 
 .sidebar-menu-items li:hover {
-  padding-left: 10%;
-  border-left: 7px solid #A9A4C9;
+  background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   color: #A9A4C9; }
+
+.hover-highlighter {
+  width: 3px;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  transition: 0.3s all; }
+
+.active-link * {
+  transition: 0.8s all;
+  color: rgba(172, 177, 209, 0.9); }
 
 /*
 	-----------------------------------------------------------------------------
@@ -259,11 +269,9 @@ html, body {
   left: 0; }
 
 .menu-item {
-  margin-left: 1.5%;
   float: left;
   padding: 0.5%;
   font-family: "Lato", sans-serif;
-  background: rgba(160, 165, 231, 0.08);
   opacity: 1;
   transition: 0.4s opacity; }
 

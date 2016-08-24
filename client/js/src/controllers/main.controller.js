@@ -154,6 +154,7 @@ function mainController(
 
 	});
 
+
 }
 
 // Inject so when it's minified it doesn't go mental

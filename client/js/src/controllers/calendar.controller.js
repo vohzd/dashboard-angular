@@ -32,38 +32,35 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.newSpendLabel = "";
 	this.newSpendAmount = 0;
 
-	this.formDom = $("<div class='popup'>\
-		<form class='calendar-add-form'>\
-			<h3>Add new</h3>\
-			<p>New Event</p>\
-			<input type='text' placeholder='New Event label' ng-model='cal.newEventLabel' \>\
-			<p>New Spend</p>\
-			<input type='text' placeholder='New spend (label)' ng-model='cal.newSpendLabel' \>\
-			<input type='text' placeholder='New spend (amount)' ng-model='cal.newSpendAmount' \>\
-			<p>Submit</p>\
-			<input type='button' value='add' ng-click='cal.submitNewCalItem()'\>\
-		</form>\
-	</div>");
-	
-
 	this.showForm = (event) => {
 
 		if (!this.formShown){
 			this.formShown = true;
 			//$(".popup").css({"margin-top": event.y, "margin-left": event.x});
-
 		}
 		else {
 			this.formShown = false;
 		}
 	}
 
-	this.submitNewCalItem = () => {
-		console.log("this was clicked");
+	this.submitNewCalItem = (event) => {
 
+		/* 
+			Needs to do the following;
+			grab event label (if it exists)
+			grab spending amount & quantity (if it exists)
+			find out which cell of which month was clicked
+			submit to db under the associated key
+		*/
+
+		if (!this.newEventLabel || !this.newSpendAmount || !this.newSpendLabel){
+			toastr("Please fill out the fields", "Info");
+			return;
+		}
+		else {
+
+		}
 	}
-
-
 
 }
 
