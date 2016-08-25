@@ -1,7 +1,7 @@
 <div class="widget-wrapper">
 	<div id="feed-app" class="app-wrapper feeds">
 
-		<section class="feed-list left">	
+		<section class="feed-list">	
 			<li ng-hide="userWidgetMeta.feed">
 				<h4>Nothing here!</h4>
 			</li>
@@ -16,24 +16,33 @@
 			</li>
 		</section>
 
-		<section class="feed-manager right">
-			<div class="current-source row">
-				<h3>Current sources</h3>
-				<ol>
-					<li ng-repeat="source in userWidgetMeta.feed">
-						<i class="fa fa-trash" aria-hidden="true" ng-click="feed.removeNewsSource($event, source)"></i>
-						<h4>{{source.title}}</h4>
-						<a href="{{source.url}}" target="_blank">{{ source.url }}</a>
-					</li>
-				</ol>
+		<section class="feed-manager closed">
+
+			<div class="panel-visibility" ng-click="feed.toggleSidepanelVisibility()">
+				<i class="fa fa-arrow-left open-feed-sources toggle-button" aria-hidden="true"></i>
 			</div>
-			<div class="add-new-source row">
-				<h3>Add source</h3>
-				<form>
-					<input type="text" placeholder="Source name" ng-model="feed.sourceName" />
-					<input type="text" placeholder="Source url"  ng-model="feed.sourceURL"/>
-					<button ng-click="feed.addNewFeedSource()">Add</button>
-				</form>
+
+			<div class="pad inner-contents">
+
+				<div class="current-source row">
+					<h3>Current sources</h3>
+					<ol>
+						<li ng-repeat="source in userWidgetMeta.feed">
+							<i class="fa fa-trash" aria-hidden="true" ng-click="feed.removeNewsSource($event, source)"></i>
+							<h4>{{source.title}}</h4>
+							<a href="{{source.url}}" target="_blank">{{ source.url }}</a>
+						</li>
+					</ol>
+				</div>
+				<div class="add-new-source row">
+					<h3>Add source</h3>
+					<form>
+						<input type="text" placeholder="Source name" ng-model="feed.sourceName" />
+						<input type="text" placeholder="Source url"  ng-model="feed.sourceURL"/>
+						<button ng-click="feed.addNewFeedSource()">Add</button>
+					</form>
+				</div>
+
 			</div>
 		</section>
 		

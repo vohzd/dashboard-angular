@@ -10,7 +10,6 @@
 
 	root styles 
 	-----------
-
 */
 html, body {
   margin: 0;
@@ -36,6 +35,18 @@ html, body {
   width: 4px;
   height: 4px;
   background: rgba(0, 0, 0, 0.14); }
+
+.fa {
+  transition: opacity 0.4s;
+  opacity: 1; }
+
+.fa:hover {
+  cursor: pointer;
+  opacity: 0.4; }
+
+.pad {
+  padding: 2%;
+  padding-top: 4%; }
 
 /* 	
 
@@ -350,7 +361,8 @@ textarea {
   box-sizing: border-box; }
 
 .todo-form textarea::-webkit-input-placeholder {
-  color: rgba(201, 201, 209, 0.8); }
+  color: rgba(201, 201, 209, 0.8);
+  font-family: "Lato", sans-serif; }
 
 .todo-form textarea:hover {
   background: rgba(0, 0, 0, 0.2); }
@@ -433,7 +445,7 @@ button {
 
 .feeds input[type="text"] {
   border: none;
-  padding: 3%;
+  padding: 2%;
   background: rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
@@ -447,7 +459,8 @@ button {
   margin-bottom: 2%; }
 
 .feeds input[type="text"]::-webkit-input-placeholder {
-  color: rgba(64, 70, 113, 0.9); }
+  color: rgba(64, 70, 113, 0.9);
+  font-family: "Lato", sans-serif; }
 
 .feeds input[type="text"]:hover {
   background: rgba(0, 0, 0, 0.2); }
@@ -472,12 +485,12 @@ button {
   border-bottom: 1px dashed rgba(60, 60, 70, 0.8); }
 
 .feeds h3 {
-  color: rgba(64, 70, 113, 0.9);
+  color: rgba(172, 177, 209, 0.9);
   font-weight: normal;
   font-size: 1.1em;
   margin: 0;
   padding: 0;
-  text-align: center; }
+  margin-bottom: 1%; }
 
 .current-source i, h4, a {
   display: inline; }
@@ -490,7 +503,7 @@ button {
   width: 5%;
   margin-right: 2%;
   padding-top: 2%;
-  height: 100%; }
+  height: 28px; }
 
 .current-source i:hover {
   opacity: 0.4;
@@ -502,6 +515,7 @@ button {
 .current-source li {
   width: 100%;
   float: left;
+  margin-top: 2%;
   margin-bottom: 2%; }
 
 .current-source h4 {
@@ -515,9 +529,8 @@ button {
 
 .current-source a {
   float: left;
-  width: 100%;
   font-size: 0.6em;
-  margin-left: 9%; }
+  margin-left: 2%; }
 
 .add-new-source {
   float: left;
@@ -530,9 +543,10 @@ button {
   float: left; }
 
 .feed-list {
-  height: 88vh;
   overflow-y: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  width: 100%;
+  position: absolute; }
 
 .feed-list li {
   list-style-type: none; }
@@ -541,7 +555,8 @@ button {
   background: rgba(160, 165, 231, 0.08);
   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+  width: 20%; }
 
 .feed-list ol li {
   background: none; }
@@ -550,7 +565,8 @@ button {
   list-style-type: none;
   margin-bottom: 2%;
   float: left;
-  box-shadow: none; }
+  box-shadow: none;
+  width: 100%; }
 
 .feed-item-cell h4 {
   font-size: 1.65em;
@@ -562,7 +578,7 @@ button {
 .feeds button {
   outline: none;
   border: none;
-  padding: 4%;
+  padding: 2%;
   background: rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
@@ -571,7 +587,6 @@ button {
   text-align: left;
   transition: all 0.6s;
   font-family: "Lato", sans-serif;
-  font-size: 1.1em;
   width: 100%; }
 
 .feeds button:hover {
@@ -579,14 +594,22 @@ button {
   cursor: pointer; }
 
 .feed-manager {
-  padding-top: 1%;
-  padding-left: 2%;
   background: rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  height: 90vh; }
+  height: 90vh;
+  position: absolute;
+  right: 0;
+  width: 0%;
+  transition: 0.9s all; }
+
+.opened {
+  width: 30%; }
+
+.closed {
+  width: 0%; }
 
 .left {
   float: left;
@@ -595,6 +618,13 @@ button {
 .right {
   float: left;
   width: 30%; }
+
+.panel-visibility {
+  position: absolute;
+  right: 0;
+  padding: 5px;
+  color: rgba(64, 70, 113, 0.9);
+  font-size: 24px; }
 
 /*
 	--------------------------
