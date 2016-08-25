@@ -133,7 +133,6 @@ function mainController(
 		writePromise(whatToWrite, payload, this.userUid)
 			.then(() => {
 				setTimeout(() => {
-					console.log("fuck you");
 					// best i can do!
 					$rootScope.$broadcast("widgetScopeUpdated");
 				}, 300)

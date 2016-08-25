@@ -81,7 +81,7 @@ input[type="text"]
 {
 	border: none;
 	padding: 2%;
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,0.25);
     -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
@@ -96,19 +96,42 @@ input[type="text"]
 
 input[type="text"]::-webkit-input-placeholder
 {
-	color: $textColourDarker;
+	color: $textColourLighten;
 	font-family: $mainFont;
 }
 
 input[type="text"]:hover
 {
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.5);
 }
 
 input[type="text"]:focus
 {
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.5);
+	outline: none;
 	
+}
+
+input[type="button"]
+{
+	outline: none;
+	border: none;
+	padding: 2%;
+	background: rgba(0,0,0,0.15);
+   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+	color: $textColourLighten;
+	transition: all 0.6s;
+	font-family: $mainFont;
+	width: 100%;
+	text-align: center;
+}
+
+input[type="button"]:hover
+{
+	cursor: pointer;
+	opacity: 0.8;
 }
 
 
@@ -580,7 +603,7 @@ button
 	height: 20%;
 }
 
-.todo-form button:hover
+button:hover
 {
 	background: rgba(0,0,0,0.3);
 	cursor: pointer;
@@ -666,10 +689,11 @@ button
 .popup
 {
     position: absolute;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.3);
     padding: 1%;
     transition: all 1s;
     margin: 0;
+    width: 22%;
 }
 
 .hide-form

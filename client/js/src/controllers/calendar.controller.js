@@ -28,21 +28,24 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.formShown = false;
 	this.formStyle = "hide-form";
 
-	
+
 
 	this.newEventLabel = "";
 	this.newSpendLabel = "";
-	this.newSpendAmount = 0;
+	this.newSpendAmount = null;
+	this.selectedCell = null;
 
 	this.showForm = (event) => {
 
 		if (!this.formShown){
 			this.formShown = true;
 			this.formStyle = "show-form";
+			this.selectedCell = event;
 		}
 		else {
 			this.formStyle = "hide-form";
 			this.formShown = false;
+			this.selectedCell = null;
 		}
 	}
 
@@ -55,13 +58,17 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 			find out which cell of which month was clicked
 			submit to db under the associated key
 		*/
+		console.log("event label ", this.newEventLabel);
+		console.log("spend label ", this.newSpendLabel);
+		console.log("spend amount ", this.newSpendAmount);
 
-		if (!this.newEventLabel || !this.newSpendAmount || !this.newSpendLabel){
-			toastr("Please fill out the fields", "Info");
-			return;
+		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
+
+			console.log(this.selectedCell);
+
 		}
 		else {
-
+			toastr.info("Please fill out the form");
 		}
 	}
 
