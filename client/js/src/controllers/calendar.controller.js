@@ -23,8 +23,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.nextMonthName			= this.nextMonth.format("MMMM");
 
 	// init side scroll in the middle
-	$(".interactive-calendar-wrapper").scrollLeft(350);
-
+	$(".interactive-calendar-wrapper").scrollLeft(375);
 
 	this.formShown = false;
 

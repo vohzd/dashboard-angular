@@ -99,7 +99,8 @@ html, body {
   padding-right: 5%; }
 
 .user-management div {
-  float: left; }
+  float: left;
+  margin-right: 10px; }
 
 .user-management:hover {
   cursor: pointer;
@@ -118,12 +119,14 @@ html, body {
   border: 0;
   background: rgba(33, 39, 74, 0.79);
   outline: none;
-  width: 74px;
+  width: 67px;
   height: 30px;
   transition: 0.3s all;
-  margin: 19px;
+  margin-right: 19px;
+  margin-left: 10px;
   font-family: "Lato", sans-serif;
-  color: rgba(172, 177, 209, 0.9); }
+  color: rgba(172, 177, 209, 0.9);
+  font-size: 0.75em; }
 
 .user-authentication button:hover {
   background: rgba(255, 255, 255, 0.46);
@@ -406,6 +409,10 @@ button {
 
 .month-wrapper {
   float: left; }
+
+.month-wrapper:hover {
+  cursor: -webkit-grab;
+  cursor: -moz-grab; }
 
 .calendar-cell {
   color: rgba(64, 70, 113, 0.9);
