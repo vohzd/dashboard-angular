@@ -28,6 +28,8 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.formShown = false;
 	this.formStyle = "hide-form";
 
+	
+
 	this.newEventLabel = "";
 	this.newSpendLabel = "";
 	this.newSpendAmount = 0;
