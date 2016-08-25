@@ -26,6 +26,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	$(".interactive-calendar-wrapper").scrollLeft(375);
 
 	this.formShown = false;
+	this.formStyle = "hide-form";
 
 	this.newEventLabel = "";
 	this.newSpendLabel = "";
@@ -35,9 +36,10 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 		if (!this.formShown){
 			this.formShown = true;
-			//$(".popup").css({"margin-top": event.y, "margin-left": event.x});
+			this.formStyle = "show-form";
 		}
 		else {
+			this.formStyle = "hide-form";
 			this.formShown = false;
 		}
 	}
