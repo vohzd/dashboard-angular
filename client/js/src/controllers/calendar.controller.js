@@ -14,6 +14,12 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.prevMonth 				= moment(this.thisMonthAsInt - 1,"M");
 	this.nextMonth 				= moment(this.thisMonthAsInt + 1,"M");
 
+
+	this.thisMonthId 			= moment(this.thisMonth).format("YYYY-MM");
+	this.prevMonthId 			= moment(this.prevMonth).format("YYYY-MM");
+	this.nextMonthId 			= moment(this.nextMonthId).format("YYYY-MM");
+
+
 	this.thisMonthDays			= new Array( this.thisMonth.daysInMonth() );
 	this.prevMonthDays			= new Array( this.prevMonth.daysInMonth() );
 	this.nextMonthDays			= new Array( this.nextMonth.daysInMonth() );
