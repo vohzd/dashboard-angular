@@ -41,6 +41,9 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.newSpendAmount = null;
 	this.selectedCell = null;
 
+
+	console.log($scope.$parent);
+
 	this.showForm = (event) => {
 
 		if (!this.formShown){
@@ -79,7 +82,14 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 				}
 			}
 
+			// todo, clear form and dismiss
+
+			console.log("ready to submit");
 			console.log(payload);
+
+			console.log($scope.$parent);
+
+			$rootScope.$emit("writeToFirebase", "calendar", payload);
 
 		}
 		else {

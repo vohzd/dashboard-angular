@@ -129,6 +129,8 @@ function mainController(
 	// write an update to the db (when user adds stuff)
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
 		console.log("writing...");
+		console.log(whatToWrite);
+		console.log(payload);
 		let writePromise = firebaseService.updateWidget;
 		writePromise(whatToWrite, payload, this.userUid)
 			.then(() => {
@@ -147,6 +149,8 @@ function mainController(
 
 	// updates master scope
 	$rootScope.$on("updateLocalParentScope", (event, keyName, keyId, newItem) => {
+
+		console.log("updateLocalParentScope:" , keyName, keyId, newItem);
 
 		$scope.userWidgetMeta[keyName][keyId].parsed = newItem;
 		this.userWidgetMeta[keyName][keyId].parsed = newItem;
