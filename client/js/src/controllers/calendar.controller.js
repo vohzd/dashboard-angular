@@ -46,7 +46,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 		if (!this.formShown){
 			this.formShown = true;
 			this.formStyle = "show-form";
-			this.selectedCell = event;
+			this.selectedCell = event.target.id;
 		}
 		else {
 			this.formStyle = "hide-form";
@@ -55,7 +55,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 		}
 	}
 
-	this.submitNewCalItem = (event) => {
+	this.submitNewCalItem = () => {
 
 		/* 
 			Needs to do the following;
@@ -64,13 +64,22 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 			find out which cell of which month was clicked
 			submit to db under the associated key
 		*/
-		console.log("event label ", this.newEventLabel);
-		console.log("spend label ", this.newSpendLabel);
-		console.log("spend amount ", this.newSpendAmount);
 
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
-			console.log(this.selectedCell);
+			const payload = {
+				[this.selectedCell] : {
+					event: {
+						label: this.newEventLabel ? this.newEventLabel : null
+					},
+					spend: {
+						label: this.newSpendLabel ? this.newSpendLabel : null,
+						amount: this.newSpendAmount ? this.newSpendAmount : null
+					}
+				}
+			}
+
+			console.log(payload);
 
 		}
 		else {
