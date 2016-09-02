@@ -2,6 +2,16 @@
 	
 	<div id="todo-app">
 
+
+		<!-- initially hidden - ui to add new todos -->
+		<section class="todo-form">
+			<form>
+				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
+				<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
+			</form>
+		</section>
+
+
 		<section class="todo-list">
 
 			<!-- initially hidden - tools -->
@@ -15,13 +25,6 @@
 					<label>View Archived</label>
 				</div>
 			</section>
-
-			<!-- initially hidden - ui to add new todos -->
-			<form class="todo-form">
-				<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
-				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
-			</form>
-
 
 			<!-- options to show hidden tools or hidden add new -->
 			<section class="todo-options-menu">

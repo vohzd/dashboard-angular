@@ -54,9 +54,11 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 
 	// show the add new todo form
 	this.revealTodoAddForm = () => {
-		$(".all-todos-list").toggleClass("nudge-top");
-		$(".todo-revealed-options").toggleClass("reveal-element");
-		$(".todo-options-menu").toggleClass("dimmed");
+
+		$(".todo-form form").fadeToggle();
+		$(".todo-form").toggleClass("wide-form");
+		$(".todo-list").toggleClass("todo-list-smaller");
+
 	}
 
 
