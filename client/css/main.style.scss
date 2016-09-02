@@ -639,7 +639,7 @@ textarea
 	transition: all 0.6s;
 	font-family: $handwritingFont;
     font-size: 1em;
-    height: 50vh;
+    height: 82vh;
 	box-sizing: border-box; 
 	float:left;
 	width: 100%;
@@ -666,16 +666,13 @@ button
 {
 	outline: none;
 	border: none;
-	padding: 4%;
-	background: rgba(0,0,0,0.15);
-   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
-	color: $secondaryColour;
+	padding: 4.5%;
+	background: rgba(0,0,0,0.4);
+	color: $textColourLighten;
 	text-align: left;
 	transition: all 0.6s;
 	font-family: $mainFont;
-	font-size: 1.1em;
+	font-size: 1em;
 	float:left;
 	width: 100%;
 }
