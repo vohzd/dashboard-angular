@@ -36,9 +36,20 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 
 	// make the little toolbar icon clickable
 	this.revealContextMenu = () => {
-		$(".all-todos-list").toggleClass("nudge-top");
 		$(".todo-revealed-options").toggleClass("reveal-element");
 		$(".todo-options-menu").toggleClass("dimmed");
+
+		// toggle between open and close font
+		if ($("#toggleTodoToolsIcon").hasClass("fa-wrench")){
+			$("#toggleTodoToolsIcon").removeClass("fa-wrench");
+			$("#toggleTodoTools").addClass("tool-circle-active");
+			$("#toggleTodoToolsIcon").addClass("fa-times");
+		}
+		else {
+			$("#toggleTodoToolsIcon").removeClass("fa-times");
+			$("#toggleTodoTools").removeClass("tool-circle-active");
+			$("#toggleTodoToolsIcon").addClass("fa-wrench");
+		}
 	}
 
 	// show the add new todo form

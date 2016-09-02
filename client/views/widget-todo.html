@@ -6,17 +6,35 @@
 
 			<!-- initially hidden - tools -->
 			<section class="todo-revealed-options">
-				<div class="menu-item" ng-click="todo.deleteAllTodos()">
+				<div class="menu-item-todo" ng-click="todo.deleteAllTodos()">
 					<i class="fa fa-trash" aria-hidden="true"></i>
 					<label>Delete all</label>
 				</div>
+				<div class="menu-item-todo" ng-click="todo.deleteAllTodos()">
+					<i class="fa fa-archive" aria-hidden="true"></i>
+					<label>View Archived</label>
+				</div>
 			</section>
 
-			<!-- little spanner icon to show the above -->
-			<section class="todo-options-menu" ng-click="todo.revealContextMenu()">
-				<i class="fa fa-wrench" aria-hidden="true"></i>
-			</section>
+			<!-- initially hidden - ui to add new todos -->
+			<form class="todo-form">
+				<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
+				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
+			</form>
 
+
+			<!-- options to show hidden tools or hidden add new -->
+			<section class="todo-options-menu">
+
+				<span ng-click="todo.revealContextMenu()" id="toggleTodoTools">
+					<i class="fa fa-wrench" aria-hidden="true" id="toggleTodoToolsIcon"></i>
+				</span>
+
+				<span ng-click="todo.revealTodoAddForm()">
+					<i class="fa fa-plus" aria-hidden="true" ></i>
+				</span>
+
+			</section>
 
 
 			<!-- the rendered todos -->
@@ -26,25 +44,16 @@
 					<h4>Nothing here!</h4>
 				</li>
 
-				<li  ng-repeat="todoItem in userWidgetMeta.todo">
-					<h4 ng-bind-html="todoItem.title | linky:'_blank'"></h4>
+				<li ng-repeat="todoItem in userWidgetMeta.todo">
+					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
 					<time>{{ todoItem.added | date }}</time>
 				</li>
 
-
 			</ol>
+
 		</section>
 
-		<!-- little spanner icon to show the above -->
-		<section class="todo-options-menu" ng-click="todo.revealTodoAddForm()">
-			<i class="fa fa-plus" aria-hidden="true"></i>
-		</section>
 
-		<!-- initially hidden - ui to add new todos -->
-		<form class="todo-form">
-			<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
-			<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
-		</form>
 
 	</div>
 
