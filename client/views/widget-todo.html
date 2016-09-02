@@ -29,12 +29,12 @@
 			<!-- options to show hidden tools or hidden add new -->
 			<section class="todo-options-menu">
 
-				<span ng-click="todo.revealContextMenu()" id="toggleTodoTools">
-					<i class="fa fa-wrench" aria-hidden="true" id="toggleTodoToolsIcon"></i>
-				</span>
-
 				<span ng-click="todo.revealTodoAddForm()" id="toggleTodoAddForm">
 					<i class="fa fa-plus" aria-hidden="true" id="toggleTodoAddFormIcon"></i>
+				</span>
+
+				<span ng-click="todo.revealContextMenu()" id="toggleTodoTools">
+					<i class="fa fa-wrench" aria-hidden="true" id="toggleTodoToolsIcon"></i>
 				</span>
 
 			</section>
@@ -50,7 +50,12 @@
 				<li ng-repeat="todoItem in userWidgetMeta.todo">
 					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
 					<time>{{ todoItem.added | date }}</time>
+					<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
+						<i class="fa fa-archive" aria-hidden="true"></i>
+					</span>
 				</li>
+
+
 
 			</ol>
 

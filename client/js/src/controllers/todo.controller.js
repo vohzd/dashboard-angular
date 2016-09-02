@@ -21,7 +21,8 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 
 			const newTodo = {
 				title: this.addNewTodoTitle,
-				added: Date.now()
+				added: Date.now(),
+				archived: false
 			};
 
 			// reset
@@ -70,6 +71,16 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 			$("#toggleTodoAddForm").removeClass("tool-circle-active");
 			$("#toggleTodoAddFormIcon").addClass("fa-plus");
 		}
+
+	}
+
+	// allow an icon to be archivable
+	this.archiveItem = (event, clickedItem) => {
+
+		clickedItem.archived = true;
+
+		// write todo to db, angularfire will take care of the rest
+		$rootScope.$emit("updateFirebaseScopeTotally");
 
 
 	}

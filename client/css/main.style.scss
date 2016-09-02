@@ -625,6 +625,15 @@ input[type="button"]:hover
 	color: $textColourLighten;
 }
 
+.todoItem__archive
+{
+    position: relative;
+    top: -7px;
+    right: 10%;
+	color: darken($textColourLighten, 10%);
+    font-size: 12px;
+}
+
 textarea
 {
 	resize: none;

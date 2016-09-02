@@ -165,6 +165,14 @@ function mainController(
 
 	});
 
+	$rootScope.$on("updateFirebaseScopeTotally", (event) => {
+
+		$scope.userWidgetMeta.$save();
+
+
+
+	});
+
 
 
 }

@@ -439,6 +439,13 @@ input[type="button"]:hover {
 .todoItem__title a:hover {
   color: rgba(172, 177, 209, 0.9); }
 
+.todoItem__archive {
+  position: relative;
+  top: -7px;
+  right: 10%;
+  color: rgba(140, 147, 190, 0.9);
+  font-size: 12px; }
+
 textarea {
   resize: none;
   outline: none;

@@ -39,13 +39,9 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 		},
 		updateWidget: (widgetName, payload, userId) => {
 
-			let key = firebase.database().ref(widgetName + "Meta/" + userId).push().key;
+			let key = firebase.database().ref("userWidgets/" + userId + "/" + widgetName).push().key;
 
-			return firebase.database().ref(widgetName + "Meta/" + userId + "/" + key).set(payload)
-				.then(() => {
-					firebase.database().ref("userWidgets/" + userId + "/" + widgetName + "/" + key).set(payload)
-					return true;
-				})
+			return firebase.database().ref("userWidgets/" + userId + "/" + widgetName + "/" + key).set(payload)
 
 		},
 
