@@ -1,4 +1,5 @@
 import $ from "jquery";
+import linkify from "linkify";
 
 function todoController($scope, $rootScope, $firebaseObject, toastr){
 
@@ -39,6 +40,14 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 		$(".todo-revealed-options").toggleClass("reveal-element");
 		$(".todo-options-menu").toggleClass("dimmed");
 	}
+
+	// show the add new todo form
+	this.revealTodoAddForm = () => {
+		$(".all-todos-list").toggleClass("nudge-top");
+		$(".todo-revealed-options").toggleClass("reveal-element");
+		$(".todo-options-menu").toggleClass("dimmed");
+	}
+
 
 	// allow the deletion of ALL todos
 	this.deleteAllTodos = () => {

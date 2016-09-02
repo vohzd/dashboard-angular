@@ -17,6 +17,7 @@ System.config({
     "angular": "github:angular/bower-angular@1.5.8",
     "angular-animate": "npm:angular-animate@1.5.8",
     "angular-router": "npm:angular-router@0.0.2",
+    "angular-sanitize": "npm:angular-sanitize@1.5.8",
     "angular-ui-router": "github:angular-ui/angular-ui-router-bower@0.3.1",
     "angularfire": "github:firebase/angularfire@2.0.1",
     "asvd/dragscroll": "github:asvd/dragscroll@0.0.6",
@@ -27,6 +28,7 @@ System.config({
     "firebase": "github:firebase/firebase-bower@3.2.1",
     "jquery": "npm:jquery@3.1.0",
     "jquery-mousewheel": "npm:jquery-mousewheel@3.1.13",
+    "linkify": "npm:linkify@0.2.1",
     "moment": "npm:moment@2.14.1",
     "toastr": "github:Foxandxss/angular-toastr@2.0.0",
     "tooltips": "github:iamceege/tooltipster@4.1.2",
@@ -43,7 +45,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.8"
+      "process": "npm:process@0.11.9"
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
@@ -90,10 +92,14 @@ System.config({
     "npm:jquery@3.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:linkify@0.2.1": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2"
+    },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:process@0.11.8": {
+    "npm:process@0.11.9": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"

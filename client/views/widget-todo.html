@@ -3,7 +3,8 @@
 	<div id="todo-app">
 
 		<section class="todo-list">
-			<!-- initially hidden, is tools -->
+
+			<!-- initially hidden - tools -->
 			<section class="todo-revealed-options">
 				<div class="menu-item" ng-click="todo.deleteAllTodos()">
 					<i class="fa fa-trash" aria-hidden="true"></i>
@@ -16,6 +17,8 @@
 				<i class="fa fa-wrench" aria-hidden="true"></i>
 			</section>
 
+
+
 			<!-- the rendered todos -->
 			<ol class="all-todos-list">
 
@@ -24,7 +27,7 @@
 				</li>
 
 				<li  ng-repeat="todoItem in userWidgetMeta.todo">
-					<h4>{{ todoItem.title }}</h4>
+					<h4 ng-bind-html="todoItem.title | linky:'_blank'"></h4>
 					<time>{{ todoItem.added | date }}</time>
 				</li>
 
@@ -32,7 +35,12 @@
 			</ol>
 		</section>
 
-		<!-- the ui to add new todos -->
+		<!-- little spanner icon to show the above -->
+		<section class="todo-options-menu" ng-click="todo.revealTodoAddForm()">
+			<i class="fa fa-plus" aria-hidden="true"></i>
+		</section>
+
+		<!-- initially hidden - ui to add new todos -->
 		<form class="todo-form">
 			<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
 			<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
