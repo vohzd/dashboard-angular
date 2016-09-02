@@ -59,6 +59,19 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 		$(".todo-form").toggleClass("wide-form");
 		$(".todo-list").toggleClass("todo-list-smaller");
 
+		// toggle between open and close font
+		if ($("#toggleTodoAddFormIcon").hasClass("fa-plus")){
+			$("#toggleTodoAddFormIcon").removeClass("fa-plus");
+			$("#toggleTodoAddForm").addClass("tool-circle-active");
+			$("#toggleTodoAddFormIcon").addClass("fa-times");
+		}
+		else {
+			$("#toggleTodoAddFormIcon").removeClass("fa-times");
+			$("#toggleTodoAddForm").removeClass("tool-circle-active");
+			$("#toggleTodoAddFormIcon").addClass("fa-plus");
+		}
+
+
 	}
 
 
