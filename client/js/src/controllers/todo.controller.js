@@ -82,6 +82,8 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 		// write todo to db, angularfire will take care of the rest
 		$rootScope.$emit("updateFirebaseScopeTotally");
 
+		// separates out the todos into its own obj prop because several views are listening to it
+		$rootScope.$emit("separateArchivedTodos");
 
 	}
 

@@ -23,11 +23,23 @@ function dashboardHeader($rootScope){
 			},
 			this.signUserOut = () => {
 				$rootScope.$emit("signUserOut");
-			},
+			}
 			this.getObjectLength = (obj) => {
-				if (obj){
-					return Object.keys(obj).length;
+
+				if (!this.userWidgetMeta){
+					return 0;
 				}
+				else {
+					if (!this.userWidgetMeta.archivedTodos){
+						return 0;
+					}
+					else {
+						console.log(obj);
+						//console.log(Object.keys(obj).length);
+						//return Object.keys(obj).length;
+					}
+				}
+
 			}
 
 
