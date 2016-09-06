@@ -122,8 +122,8 @@ function mainController(
 	// A request to go and create a *brand new* record, with it's own id
 	// under the currently logged in user, and matching widget
 	$rootScope.$on("createNewWidgetRecordForUser", (event, widgetName, itemToAdd) => {
-		let newPromise = firebaseService.createOneNewRecordForWidget;
-		newPromise(this.userUid, widgetName, itemToAdd)
+		let createPromise = firebaseService.createOneNewRecordForWidget;
+		createPromise(this.userUid, widgetName, itemToAdd)
 	});
 
 
@@ -136,7 +136,10 @@ function mainController(
 
 
 	// DELETE
-
+	$rootScope.$on("deleteOneExistingRecordForWidget", (event, widgetName, widgetRecordId) => {
+		let deletePromise = firebaseService.deleteOneExistingRecordForWidget;
+		deletePromise(this.userUid, widgetName, widgetRecordId)
+	});
 
 
 	// sign in button clicked, bring up google oAuth screen

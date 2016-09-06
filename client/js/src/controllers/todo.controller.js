@@ -32,15 +32,9 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 
 	// allow an icon to be archivable
 	this.archiveItem = (event, clickedItem) => {
-
 		clickedItem.archived = true;
-
-		// write todo to db, angularfire will take care of the rest
-		$rootScope.$emit("updateFirebaseScopeTotally");
-
-		// separates out the todos into its own obj prop because several views are listening to it
-		$rootScope.$emit("separateArchivedTodos");
-
+		$rootScope.$emit("deleteOneExistingRecordForWidget", "todo", clickedItem.id);
+		$rootScope.$emit("createNewWidgetRecordForUser", "todoArchive", clickedItem);
 	}
 
 	// allow the deletion of ALL todos

@@ -36,6 +36,7 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 		},
 		createOneNewRecordForWidget: (uid, widgetName, whatToAdd) => {
 			let newKeyId = firebase.database().ref("userWidgets/" + uid + "/" + widgetName).push().key;
+			whatToAdd.id = newKeyId;
 			return firebase.database().ref("userWidgets/" + uid + "/" + widgetName + "/" + newKeyId).set(whatToAdd)
 		},
 
