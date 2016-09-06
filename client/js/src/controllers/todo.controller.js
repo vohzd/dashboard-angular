@@ -11,29 +11,43 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 	// ------------
 	// EVENTS
 	// ------
-	
-	this.addNewTodoSubmit = () => {
 
+	// Add a brand new todo
+	this.addNewTodoSubmit = () => {
 		if (!this.addNewTodoTitle){
 			toastr.info("Please enter something :)", "Empty");
 		} 
 		else {
-
 			const newTodo = {
 				title: this.addNewTodoTitle,
 				added: Date.now(),
 				archived: false
 			};
-
 			// reset
 			this.addNewTodoTitle = "";
-
 			// write todo to db, angularfire will take care of the rest
-			$rootScope.$emit("writeToFirebase", "todo", newTodo);
-
+			$rootScope.$emit("createNewWidgetRecordForUser", "todo", newTodo);
 		}
-
 	};
+
+	// allow an icon to be archivable
+	this.archiveItem = (event, clickedItem) => {
+
+		clickedItem.archived = true;
+
+		// write todo to db, angularfire will take care of the rest
+		$rootScope.$emit("updateFirebaseScopeTotally");
+
+		// separates out the todos into its own obj prop because several views are listening to it
+		$rootScope.$emit("separateArchivedTodos");
+
+	}
+
+	// allow the deletion of ALL todos
+	this.deleteAllTodos = () => {
+		// delete evvvveerrrrryyything
+		$rootScope.$emit("deleteWidgetMeta", "todo");
+	}
 
 	// make the little toolbar icon clickable
 	this.revealContextMenu = () => {
@@ -72,26 +86,6 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 			$("#toggleTodoAddFormIcon").addClass("fa-plus");
 		}
 
-	}
-
-	// allow an icon to be archivable
-	this.archiveItem = (event, clickedItem) => {
-
-		clickedItem.archived = true;
-
-		// write todo to db, angularfire will take care of the rest
-		$rootScope.$emit("updateFirebaseScopeTotally");
-
-		// separates out the todos into its own obj prop because several views are listening to it
-		$rootScope.$emit("separateArchivedTodos");
-
-	}
-
-
-	// allow the deletion of ALL todos
-	this.deleteAllTodos = () => {
-		// delete evvvveerrrrryyything
-		$rootScope.$emit("deleteWidgetMeta", "todo");
 	}
 
 }

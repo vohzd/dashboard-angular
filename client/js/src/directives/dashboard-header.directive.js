@@ -25,23 +25,8 @@ function dashboardHeader($rootScope){
 				$rootScope.$emit("signUserOut");
 			}
 			this.getObjectLength = (obj) => {
-
-				if (!this.userWidgetMeta){
-					return 0;
-				}
-				else {
-					if (!this.userWidgetMeta.archivedTodos){
-						return 0;
-					}
-					else {
-						console.log(obj);
-						//console.log(Object.keys(obj).length);
-						//return Object.keys(obj).length;
-					}
-				}
-
+				return Object.keys(obj).length;
 			}
-
 
 		},
 		controllerAs: "userManager"

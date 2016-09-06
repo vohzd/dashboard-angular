@@ -6,11 +6,11 @@
 		<!-- initially hidden - ui to add new todos -->
 		<section class="todo-form">
 			<form>
-				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
 				<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
+				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
 			</form>
 		</section>
-
+ 
 
 		<section class="todo-list">
 
@@ -47,14 +47,13 @@
 					<h4>Nothing here!</h4>
 				</li>
 
+				<li ng-repeat="todoItem in userWidgetMeta.todo">
 
-				<li ng-repeat="todoItem in userWidgetMeta.todo" ng-if="todoItem.archived === false">
-
-						<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
-						<time>{{ todoItem.added | date }}</time>
-						<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
-							<i class="fa fa-archive" aria-hidden="true"></i>
-						</span>
+					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
+					<time>{{ todoItem.added | date }}</time>
+					<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
+						<i class="fa fa-archive" aria-hidden="true"></i>
+					</span>
 
 				</li>
 

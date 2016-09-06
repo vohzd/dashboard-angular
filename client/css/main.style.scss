@@ -511,7 +511,7 @@ input[type="button"]:hover
 	position: relative;
 	float: left;
 	width: 96%;
-	transition: 1s all;
+	transition: 0.5s all;
 }
 
 .todo-list-smaller 
@@ -600,7 +600,7 @@ input[type="button"]:hover
 	width: 0%;
 	float:left;
 	position: absolute;
-	transition: 1s all;
+	transition: 0.5s all;
 }
 
 .todo-form form
@@ -663,12 +663,12 @@ textarea::-webkit-input-placeholder
 
 .todo-form textarea:hover
 {
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.5);
 }
 
 .todo-form textarea:focus
 {
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.5);
 }
 
 button
