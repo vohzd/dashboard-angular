@@ -627,11 +627,12 @@ input[type="button"]:hover
 
 .todoItem__archive
 {
-    position: relative;
-    top: -7px;
-    right: 10%;
+	position: relative;
+	top: -12px;
+	right: 10%;
 	color: darken($textColourLighten, 10%);
-    font-size: 12px;
+	font-size: 12px;
+	opacity: 0.4;
 }
 
 textarea

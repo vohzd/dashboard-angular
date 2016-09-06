@@ -441,10 +441,11 @@ input[type="button"]:hover {
 
 .todoItem__archive {
   position: relative;
-  top: -7px;
+  top: -12px;
   right: 10%;
   color: rgba(140, 147, 190, 0.9);
-  font-size: 12px; }
+  font-size: 12px;
+  opacity: 0.4; }
 
 textarea {
   resize: none;
