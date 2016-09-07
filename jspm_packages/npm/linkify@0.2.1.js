@@ -1,0 +1,1 @@
+module.exports = require("npm:linkify@0.2.1/index");

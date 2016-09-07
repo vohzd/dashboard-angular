@@ -1,0 +1,17 @@
+{
+  "name": "angular-router",
+  "version": "0.0.2",
+  "description": "Express router for angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CamShaft/angular-router.git"
+  },
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "36f95b5e9d2c283b2c52a2ea0f56e38975711f0f"
+}

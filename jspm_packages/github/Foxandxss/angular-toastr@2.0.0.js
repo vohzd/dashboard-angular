@@ -1,0 +1,1 @@
+module.exports = require("github:Foxandxss/angular-toastr@2.0.0/angular-toastr");

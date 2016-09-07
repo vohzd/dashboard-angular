@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-drag-scroll@0.2.2/dist/ng-drag-scroll.min.js");
