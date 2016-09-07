@@ -63,9 +63,6 @@
 
 					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
 					<time>{{ todoItem.added | date }}</time>
-					<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
-						<i class="fa fa-folder-open" aria-hidden="true"></i>
-					</span>
 
 				</li>
 

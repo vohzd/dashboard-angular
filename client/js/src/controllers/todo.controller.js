@@ -47,6 +47,8 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 	this.deleteAllTodos = () => {
 		// delete evvvveerrrrryyything
 		$rootScope.$emit("deleteWidgetMeta", "todo");
+		$rootScope.$emit("deleteWidgetMeta", "todoArchive");
+
 	}
 
 	// make the little toolbar icon clickable
