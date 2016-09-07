@@ -2,41 +2,80 @@
 	
 	<div id="todo-app">
 
+
+		<!-- initially hidden - ui to add new todos -->
+		<section class="todo-form">
+			<form>
+				<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
+				<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
+			</form>
+		</section>
+ 
+
 		<section class="todo-list">
-			<!-- initially hidden, is tools -->
+
+			<!-- initially hidden - tools -->
 			<section class="todo-revealed-options">
-				<div class="menu-item" ng-click="todo.deleteAllTodos()">
+				<div class="menu-item-todo" ng-click="todo.deleteAllTodos()">
 					<i class="fa fa-trash" aria-hidden="true"></i>
 					<label>Delete all</label>
 				</div>
+				<div class="menu-item-todo" ng-click="todo.showArchivedTodos()">
+					<i class="fa fa-folder-open" aria-hidden="true"></i>
+					<label ng-if="todo.isCurrent">View Archived</label>
+					<label ng-if="!todo.isCurrent">View Current</label>
+				</div>
 			</section>
 
-			<!-- little spanner icon to show the above -->
-			<section class="todo-options-menu" ng-click="todo.revealContextMenu()">
-				<i class="fa fa-wrench" aria-hidden="true"></i>
+			<!-- options to show hidden tools or hidden add new -->
+			<section class="todo-options-menu">
+
+				<span ng-click="todo.revealTodoAddForm()" id="toggleTodoAddForm">
+					<i class="fa fa-plus" aria-hidden="true" id="toggleTodoAddFormIcon"></i>
+				</span>
+
+				<span ng-click="todo.revealContextMenu()" id="toggleTodoTools">
+					<i class="fa fa-wrench" aria-hidden="true" id="toggleTodoToolsIcon"></i>
+				</span>
+
 			</section>
+
 
 			<!-- the rendered todos -->
 			<ol class="all-todos-list">
 
-				<li ng-hide="userWidgetMeta.todo">
+
+				<li ng-if="todo.isCurrent" ng-hide="userWidgetMeta.todo">
 					<h4>Nothing here!</h4>
 				</li>
 
-				<li  ng-repeat="todoItem in userWidgetMeta.todo">
-					<h4>{{ todoItem.title }}</h4>
+				<li ng-repeat="todoItem in userWidgetMeta.todo" ng-if="todo.isCurrent">
+
+					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
 					<time>{{ todoItem.added | date }}</time>
+					<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
+						<i class="fa fa-folder-open" aria-hidden="true"></i>
+					</span>
+
+				</li>
+
+				<li ng-repeat="todoItem in userWidgetMeta.todoArchive" ng-if="!todo.isCurrent">
+
+					<h4 ng-bind-html="todoItem.title | linky:'_blank'" class="todoItem__title"></h4>
+					<time>{{ todoItem.added | date }}</time>
+					<span ng-click="todo.archiveItem($event, todoItem)" class="todoItem__archive">
+						<i class="fa fa-folder-open" aria-hidden="true"></i>
+					</span>
+
 				</li>
 
 
+
 			</ol>
+
 		</section>
 
-		<!-- the ui to add new todos -->
-		<form class="todo-form">
-			<textarea name="todo-item-title" placeholder="Add something next..." ng-model="todo.addNewTodoTitle"></textarea>
-			<button ng-click="todo.addNewTodoSubmit()">Add todo</button>
-		</form>
+
 
 	</div>
 

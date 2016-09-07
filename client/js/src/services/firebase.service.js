@@ -34,18 +34,37 @@ function firebaseService($firebaseAuth, $firebaseObject, userService){
 			})
 
 		},
-		getWidgets: (uid) => {
+		createOneNewRecordForWidget: (uid, widgetName, whatToAdd) => {
+			let newKeyId = firebase.database().ref("userWidgets/" + uid + "/" + widgetName).push().key;
+			whatToAdd.id = newKeyId;
+			return firebase.database().ref("userWidgets/" + uid + "/" + widgetName + "/" + newKeyId).set(whatToAdd)
+		},
+
+		readOneExistingRecordForWidget: (uid, widgetName, widgetRecordId) => {
+			return firebase.database().ref("userWidgets/" + uid + "/" + widgetName + "/" + widgetRecordId).val();
+		},
+
+		updateOneExistingRecordForWidget: (uid, widgetName, widgetRecordId, overwriteData) => {
+			return firebase.database().ref("userWidgets/" + uid + "/" + widgetName + "/" + widgetRecordId).set(overwriteData)
+		},
+
+		deleteOneExistingRecordForWidget: (uid, widgetName, widgetRecordId) => {
+			return firebase.database().ref("userWidgets/" + uid + "/" + widgetName + "/" + widgetRecordId).remove();
+		},
+
+		// retreive the entire payload for a particular user
+		getUsersWidgets: (uid) => {
 			return firebase.database().ref("/userWidgets/" + uid)
 		},
+
+
+		/* BIT WAZZY THESE */
+
 		updateWidget: (widgetName, payload, userId) => {
 
-			let key = firebase.database().ref(widgetName + "Meta/" + userId).push().key;
+			let key = firebase.database().ref("userWidgets/" + userId + "/" + widgetName).push().key;
 
-			return firebase.database().ref(widgetName + "Meta/" + userId + "/" + key).set(payload)
-				.then(() => {
-					firebase.database().ref("userWidgets/" + userId + "/" + widgetName + "/" + key).set(payload)
-					return true;
-				})
+			return firebase.database().ref("userWidgets/" + userId + "/" + widgetName + "/" + key).set(payload)
 
 		},
 

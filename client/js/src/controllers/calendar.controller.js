@@ -35,14 +35,11 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.formStyle = "hide-form";
 
 
-
 	this.newEventLabel = "";
 	this.newSpendLabel = "";
 	this.newSpendAmount = null;
 	this.selectedCell = null;
 
-
-	console.log($scope.$parent);
 
 	this.showForm = (event) => {
 

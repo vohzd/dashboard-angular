@@ -23,13 +23,10 @@ function dashboardHeader($rootScope){
 			},
 			this.signUserOut = () => {
 				$rootScope.$emit("signUserOut");
-			},
-			this.getObjectLength = (obj) => {
-				if (obj){
-					return Object.keys(obj).length;
-				}
 			}
-
+			this.getObjectLength = (obj) => {
+				return Object.keys(obj).length;
+			}
 
 		},
 		controllerAs: "userManager"

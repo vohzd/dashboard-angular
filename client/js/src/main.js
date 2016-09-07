@@ -8,6 +8,7 @@
 import $ from "jquery";
 import angular from "angular";
 import animate from "angular-animate";
+import sanitise from "angular-sanitize";
 import uiRouter from "angular-ui-router";
 import firebase from "firebase";
 import angularFire from "angularfire";
@@ -36,7 +37,7 @@ import feedController from "./controllers/feed.controller.js";
 
 
 // GO
-angular.module("dashboardApp", ["ngAnimate", "ui.router", "firebase", "toastr", "ng-drag-scroll"])
+angular.module("dashboardApp", ["ngAnimate", "ngSanitize", "ui.router", "firebase", "toastr", "ng-drag-scroll"])
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
