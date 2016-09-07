@@ -7,6 +7,7 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 	// INIT
 	// ----
 	this.addNewTodoTitle = "";
+	this.isCurrent = true;
 
 	// ------------
 	// EVENTS
@@ -35,6 +36,11 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 		clickedItem.archived = true;
 		$rootScope.$emit("deleteOneExistingRecordForWidget", "todo", clickedItem.id);
 		$rootScope.$emit("createNewWidgetRecordForUser", "todoArchive", clickedItem);
+	}
+
+	// show the archived todos
+	this.showArchivedTodos = () => {
+		this.isCurrent = !this.isCurrent;
 	}
 
 	// allow the deletion of ALL todos
