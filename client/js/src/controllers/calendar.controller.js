@@ -29,7 +29,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	this.nextMonthName			= this.nextMonth.format("MMMM");
 
 	// init side scroll in the middle
-	$(".interactive-calendar-wrapper").scrollLeft(375);
+	$(".interactive-calendar-wrapper").scrollLeft(420);
 
 	this.formShown = false;
 	this.formStyle = "hide-form";
@@ -67,6 +67,12 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
+			if (this.newEventLabel){
+				$rootScope.$emit("createNewWidgetRecordForUser", "calendarEvent", this.newEventLabel);
+			}
+
+			/*
+
 			const payload = {
 				[this.selectedCell] : {
 					event: {
@@ -81,12 +87,11 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 			// todo, clear form and dismiss
 
-			console.log("ready to submit");
 			console.log(payload);
 
-			console.log($scope.$parent);
-
 			$rootScope.$emit("writeToFirebase", "calendar", payload);
+
+			*/
 
 		}
 		else {

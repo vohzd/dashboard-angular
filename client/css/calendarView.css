@@ -2,7 +2,9 @@
   margin: 2%;
   padding-bottom: 1%;
   width: 96%;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 69vh; }
 
 .scroll-x-container {
   width: 2600px;

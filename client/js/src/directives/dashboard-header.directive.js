@@ -25,8 +25,7 @@ function dashboardHeader($rootScope){
 				$rootScope.$emit("signUserOut");
 			}
 			this.getObjectLength = (obj) => {
-				console.log("i am here");
-				console.log(obj);
+				if (!obj) return;
 				return Object.keys(obj).length;
 			}
 

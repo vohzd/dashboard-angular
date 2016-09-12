@@ -1,6 +1,6 @@
 <div>
 	<div ng-show="this.allData">Loading....</div>
-	<li ng-repeat="item in feedParser.allData.items track by $index">
+	<li ng-repeat="item in feedParser.allData.items track by $index  | limitTo: 8">
 		<a href="{{item.link}}" target="_blank">{{ item.title }}</a>
 	</li>
 </div>

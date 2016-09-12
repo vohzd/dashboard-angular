@@ -8,25 +8,6 @@
 					<div class="checkerboard-wrapper">
 						<div class="calendar-cell"  ng-repeat="day in cal.prevMonthDays track by $index" ng-Dblclick="cal.showForm($event)" ng-attr-id="{{ 'cell-' + cal.prevMonthId + '-' + ($index + 1) }}">
 							<label class="day-number-label">{{$index + 1}}</label>
-
-							<div ng-repeat="(itemKey, itemVal) in $parent.userWidgetMeta.calendar">
-
-								<div ng-repeat="(cellKey, cellVal) in itemVal">
-
-
-								<div ng-show="'cell-' + cal.prevMonthId + '-' + ($index + 1) == cellKey">
-									Match
-									{{ cellVal }}
-									</div>
-	
-
-								<!--
-									<label>Event: {{ item.event.label }}</label>
-									<label>Spend: {{ item.spend.label }}</label>
-								-->
-
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

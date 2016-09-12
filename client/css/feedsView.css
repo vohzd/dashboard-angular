@@ -87,7 +87,9 @@
   position: relative;
   float: left;
   width: 96%;
-  transition: 0.5s all; }
+  transition: 0.5s all;
+  overflow-x: scroll;
+  height: 75vh; }
 
 .feed-list li {
   list-style-type: none; }
