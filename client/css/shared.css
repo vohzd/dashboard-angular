@@ -1,0 +1,46 @@
+.options-menu {
+  margin-top: 0%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1%;
+  padding-left: 2%;
+  color: rgba(172, 177, 209, 0.9);
+  transition: 0.5s all;
+  opacity: 1;
+  width: 97%; }
+
+.options-menu span {
+  height: 16px;
+  width: 16px;
+  background: rgba(29, 33, 65, 0.61);
+  border-radius: 26px;
+  padding: 0px;
+  opacity: 1;
+  margin-right: 2%;
+  padding: 8px;
+  float: left; }
+
+.options-menu span:hover {
+  cursor: pointer;
+  opacity: 0.8; }
+
+.options-menu i {
+  margin-left: 2px;
+  margin-top: 0px !important;
+  font-size: 16px;
+  font-size: 15px;
+  position: absolute; }
+
+.revealed-options {
+  position: absolute;
+  display: none;
+  top: 0;
+  margin-left: 9%;
+  width: 50%; }
+
+.list-smaller {
+  width: 79% !important;
+  margin-left: 17% !important; }
+
+/*# sourceMappingURL=shared.css.map */

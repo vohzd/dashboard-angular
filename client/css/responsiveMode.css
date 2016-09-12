@@ -1,0 +1,78 @@
+/*
+	--------------------------
+	responsive media selectors
+	--------------------------
+*/
+@media (max-width: 1450px) {
+  .dashboard-full-height-sidebar {
+    height: 6vh;
+    width: 100%; }
+
+  .dashboard-full-height-sidebar ul {
+    text-align: center;
+    display: inline;
+    float: left;
+    width: 100%; }
+
+  .dashboard-full-height-sidebar a {
+    float: left;
+    width: 18.5%; }
+
+  .sidebar-menu-items li:hover {
+    border-left: 0px solid #A9A4C9;
+    cursor: pointer;
+    color: #A9A4C9; }
+
+  .widget-view {
+    width: 100%; }
+
+  html, body {
+    height: 100%; }
+
+  .feed-item-cell h4 {
+    font-size: 1.35em; } }
+@media (max-width: 950px) {
+  .sidebar-menu-items li label {
+    margin-left: 5px;
+    font-size: 0.8em; }
+
+  .current-source h4 {
+    font-size: 0.8em; }
+
+  .current-source a {
+    font-size: 0.6em; }
+
+  .current-source i {
+    float: left;
+    width: 5%; } }
+@media (max-width: 750px) {
+  .sidebar-menu-items li label {
+    font-size: 0.6em; }
+
+  .todo-list ol li h4 {
+    font-size: 0.7em; }
+
+  .sidebar-menu-items li label {
+    margin-left: 5px;
+    font-size: 0.8em; }
+
+  .todo-form {
+    width: 100%;
+    float: left;
+    display: block; }
+
+  .todo-form textarea {
+    height: 100%;
+    width: 80%;
+    float: left;
+    font-family: 1.15em; }
+
+  .todo-form button {
+    height: 100%;
+    width: 20%;
+    float: left; } }
+@media (max-width: 650px) {
+  .sidebar-menu-items li label {
+    display: none; } }
+
+/*# sourceMappingURL=responsiveMode.css.map */

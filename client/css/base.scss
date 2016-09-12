@@ -1,0 +1,133 @@
+@import "variables.scss";
+
+
+html, body
+{
+	margin: 0;
+	padding: 0;
+	font-family: $mainFont;
+	color: $textColour;
+	float:left;
+	width: 100%;
+    background: url("../img/dashboard-background.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar-track
+{
+	background: none;
+}
+
+::-webkit-scrollbar
+{
+	height: 4px;
+	width: 3px;
+	background: none;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	width:4px;
+	height: 4px;
+	background: rgba(0,0,0,0.14)
+}
+
+.fa
+{
+	transition: opacity 0.4s;
+	opacity: 1;
+}
+
+.fa:hover
+{
+    cursor:pointer;
+    opacity: 0.4;
+}
+
+.pad 
+{
+	padding: 2%;
+	padding-top:4%;
+}
+
+input[type="text"]
+{
+	border: none;
+	padding: 2%;
+	background: rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+	color: $textColourLighten;
+	transition: all 0.6s;
+    font-size: 1em;
+	width: 100%;
+	box-sizing: border-box;
+	float: left;
+	margin-bottom: 2%;
+}
+
+input[type="text"]::-webkit-input-placeholder
+{
+	color: $textColourLighten;
+	font-family: $mainFont;
+}
+
+input[type="text"]:hover
+{
+	background: rgba(0,0,0,0.5);
+}
+
+input[type="text"]:focus
+{
+	background: rgba(0,0,0,0.5);
+	outline: none;
+	
+}
+
+input[type="button"]
+{
+	outline: none;
+	border: none;
+	padding: 2%;
+	background: rgba(0,0,0,0.15);
+   -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
+	color: $textColourLighten;
+	transition: all 0.6s;
+	font-family: $mainFont;
+	width: 100%;
+	text-align: center;
+}
+
+input[type="button"]:hover
+{
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.nudge-top
+{
+	padding-top: 5%;
+}
+
+.reveal-element
+{
+	opacity: 1;
+	display: block !important;
+	transition: all 1.2s;
+}
+
+.center-padding
+{
+
+}
+
+.app-wrapper
+{
+	float: left;
+	width: 100%;
+}

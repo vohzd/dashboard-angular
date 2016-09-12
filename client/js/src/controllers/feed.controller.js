@@ -2,7 +2,7 @@ import $ from "jquery";
 
 function feedController($q, $scope, $rootScope, $firebaseObject, backendService, toastr){
 
-
+ 
 	// -----------
 	// INIT
 	// ----

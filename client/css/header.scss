@@ -1,0 +1,122 @@
+@import "variables.scss";
+.dashboard-header
+{
+	float:left;
+	width: 100%;
+	background: rgba(0,0,0,0.3);
+	font-size: 1.3em;
+}
+
+.site-name
+{
+    float: left;
+    padding-top: 0.5%;
+}
+
+.user-management
+{
+	float: right;
+	padding: 1%;
+	transition: all 0.3s;
+	transition-timing-function: ease-out;
+	background: none;
+	margin-right: -6%;
+}
+
+.nudge
+{
+	padding-right: 5%;
+}
+
+.user-management div
+{
+	float: left;
+	margin-right: 10px;
+}
+
+.user-management:hover
+{
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.user-management label
+{
+	margin-left: 11px;
+	font-size: 0.7em;
+	letter-spacing: 2px;
+}
+
+.user-authentication
+{
+	transition: opacity 0.3s;
+	opacity: 0;
+}
+
+.user-authentication button
+{
+    border: 0;
+    background: rgba(33, 39, 74, 0.79);
+    outline: none;
+    width: 67px;
+    height: 30px;
+    transition: 0.3s all;
+    margin-right: 19px;
+    margin-left: 10px;
+    font-family: "Lato", sans-serif;
+    color: rgba(172, 177, 209, 0.9);
+    font-size: 0.75em;
+}
+.user-authentication button:hover
+{
+	background: rgba(255, 255, 255, 0.46);
+	cursor: pointer;
+}
+
+.show-user-authentication
+{
+	opacity: 1;
+}
+
+.avatar-image
+{
+	display: block;
+	width: 64px;
+	border-radius: 50%;
+}
+
+.colour-1
+{
+	color: $textColourLighten;
+}
+
+.colour-2
+{
+	color: darken($textColourLighten, 30%);
+}
+
+.user-stats
+{
+	float: left;
+}
+
+.stat-item
+{
+	padding-top: 50%;
+	display:flex;
+	flex-direction: column;
+}
+
+.stat-number
+{
+	font-size: 2em;
+	color: $textColourLighten;
+	text-align: center;
+}
+
+.stat-label
+{
+	position: inline;
+	color: $textColourDarker;
+}
+

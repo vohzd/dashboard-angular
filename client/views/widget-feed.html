@@ -1,6 +1,22 @@
 <div class="widget-wrapper">
-	<div id="feed-app" class="app-wrapper feeds">
 
+	<!-- main app injection point -->
+	<div id="feed-app">
+		
+		<!-- initially hidden - ui to add new feed url sources -->
+		<section class="feed-add-form" id="feed-add-form">
+			<form>
+				<input type="text" name="feed-item-sitename" placeholder="Add something next..." ng-model="feed.addNewFeedTitle"></textarea>
+				<input type="text" name="feed-item-url" placeholder="Add something next..." ng-model="feed.addNewFeedURL"></textarea>
+				<button ng-click="todo.addNewFeedSubmit()">Add source</button>
+			</form>
+		</section>
+
+	</div>
+<!--
+
+	<div id="feed-app" class="app-wrapper feeds">
+ 
 		<section class="feed-list">	
 			<li ng-hide="userWidgetMeta.feed">
 				<h4>Nothing here!</h4>
@@ -47,4 +63,6 @@
 		</section>
 		
 	</div>
+
+	-->
 </div>

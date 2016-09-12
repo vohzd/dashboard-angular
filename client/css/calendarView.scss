@@ -1,0 +1,100 @@
+@import "variables.scss";
+
+
+.calendar-app  
+{
+
+}
+
+.interactive-calendar-wrapper
+{
+	margin: 2%;
+	padding-bottom:1%;
+	width: 96%;
+	overflow-x:scroll;
+}
+
+.scroll-x-container
+{
+	width: 2600px;
+	height: 400px;
+}
+
+.month-wrapper
+{
+	float: left;
+}
+
+.month-wrapper:hover
+{
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
+
+
+
+.calendar-cell
+{
+	color: $textColourDarker;
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+
+.calendar-cell:nth-child(even)
+{
+	background:rgba(0,0,0,0.1);
+}
+.month-wrapper:nth-child(even) .calendar-cell:nth-child(even)
+{
+	background:rgba(0,0,0,0);
+}
+.month-wrapper:nth-child(even) .calendar-cell:nth-child(odd)
+{
+	background:rgba(0,0,0,0.1);
+}
+.calendar-cell:nth-child(7n + 1)
+{
+	clear:both;
+}
+
+.month-name
+{
+	float: left;
+	width: 100%;
+	color: $textColourDarker;
+	font-size: 2em;
+	letter-spacing: 3px;
+}
+
+
+
+
+.popup
+{
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    padding: 1%;
+    transition: all 1s;
+    margin: 0;
+    width: 22%;
+}
+
+.hide-form
+{
+	bottom: -100%;
+}
+
+.show-form
+{
+	bottom: 0%;
+}
+
+.calendar-add-form h4
+{
+	font-weight: normal;
+	color: $textColourDarker;
+}
+
+

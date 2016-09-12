@@ -1,0 +1,76 @@
+@import "variables.scss";
+
+
+.dashboard-full-height-sidebar
+{
+	float:left;
+	height: 100vh;
+	width: 12%;
+	background: rgba(0,0,0,0.3);
+}
+
+.dashboard-full-height-sidebar ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.dashboard-full-height-sidebar li
+{
+    list-style-type: none;
+    float: left;
+    width: 90%;
+    padding: 5%;
+}
+
+.dashboard-full-height-sidebar li i
+{
+	width: 10%;
+}
+
+.dashboard-full-height-sidebar li a
+{
+	color: $textColour;
+	text-decoration: none;
+    text-align: center;
+}
+
+.dashboard-full-height-sidebar a
+{
+
+}
+
+.sidebar-menu-items
+{
+
+}
+
+.sidebar-menu-items li
+{
+	transition: 0.9s all;
+	border: none;
+	color: $textColour;
+}
+
+.sidebar-menu-items li:hover
+{
+	background: rgba(255,255,255,0.1);
+	cursor: pointer;
+	color: $text--hover;
+}
+
+.hover-highlighter
+{
+	width: 3px;
+	height: 0px;
+	background: rgba(255,255,255,0.5);
+	position: absolute;
+	transition: 0.3s all;
+
+}
+
+.active-link *
+{
+	transition: 0.8s all;
+	color: $textColourLighten;
+}

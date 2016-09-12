@@ -49,12 +49,12 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 		$rootScope.$emit("deleteWidgetMeta", "todo");
 		$rootScope.$emit("deleteWidgetMeta", "todoArchive");
 
-	}
+	} 
 
 	// make the little toolbar icon clickable
 	this.revealContextMenu = () => {
-		$(".todo-revealed-options").toggleClass("reveal-element");
-		$(".todo-options-menu").toggleClass("dimmed");
+		$(".revealed-options").toggleClass("reveal-element");
+		$(".options-menu").toggleClass("dimmed");
 
 		// toggle between open and close font
 		if ($("#toggleTodoToolsIcon").hasClass("fa-wrench")){
@@ -68,13 +68,13 @@ function todoController($scope, $rootScope, $firebaseObject, toastr){
 			$("#toggleTodoToolsIcon").addClass("fa-wrench");
 		}
 	}
-
+ 
 	// show the add new todo form
 	this.revealTodoAddForm = () => {
 
 		$(".todo-form form").fadeToggle();
 		$(".todo-form").toggleClass("wide-form");
-		$(".todo-list").toggleClass("todo-list-smaller");
+		$(".todo-list").toggleClass("list-smaller");
 
 		// toggle between open and close font
 		if ($("#toggleTodoAddFormIcon").hasClass("fa-plus")){
