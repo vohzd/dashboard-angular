@@ -635,6 +635,7 @@ button:hover {
   margin-bottom: 1%; }
 
 .current-source i, h4, a {
+  position: relative;
   display: inline; }
 
 .current-source i {

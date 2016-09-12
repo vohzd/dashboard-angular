@@ -35,6 +35,12 @@ function backendService (
 					console.log(error);
 				});
 
+		},
+
+		requestRss: (url) => {
+
+			return $http.get("http://rss2json.com/api.json?rss_url=" + url)
+
 		}
 
 

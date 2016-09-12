@@ -15,7 +15,7 @@ function mainController(
 	// -------------
 
 	// connect to firebase
-	firebaseService.initialise();
+	firebaseService.initialise(); 
 
 	// set my user metadata to null/undefined
 	this.userSignedIn = null;
@@ -174,12 +174,12 @@ function mainController(
 
 	// write an update to the db (when user adds stuff)
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {
+		console.log("DEPRECATED");
 		console.log("writing...");
 		console.log(whatToWrite);
 		console.log(payload);
 
-
-		$scope.userWidgetMeta.todo = payload
+		//$scope.userWidgetMeta.todo = payload
 
 		/*
 
@@ -187,20 +187,8 @@ function mainController(
 
 		*/
 
-		console.log($scope.userWidgetMeta);
 
-		$scope.userWidgetMeta.$save();
-		/*
-		let writePromise = firebaseService.updateWidget;
-		writePromise(whatToWrite, payload, this.userUid)
-			.then(() => {
-				setTimeout(() => {
-					// best i can do!
-					$rootScope.$broadcast("widgetScopeUpdated");
-				}, 300)
-			})
 
-			*/
 	});
 
 	// deletes a widgets stuff

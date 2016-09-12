@@ -28,6 +28,8 @@ import userService from "./services/user.service.js";
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
 import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
+import feedParser from "./directives/feed-parser.directive.js";
+
 
 // controllers
 import mainController from "./controllers/main.controller.js";
@@ -41,6 +43,7 @@ angular.module("dashboardApp", ["ngAnimate", "ngSanitize", "ui.router", "firebas
 	.controller("mainController", mainController)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
+	.directive("feedParser", feedParser)
 	.service("firebaseService", firebaseService)
 	.service("backendService", backendService)
 	.service("userService", userService)

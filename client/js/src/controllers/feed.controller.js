@@ -7,10 +7,9 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 	// INIT
 	// ----
 	$rootScope.$on("widgetScopeUpdated", () => {
+		console.log("not sure when this gets fired?");
 		initiateDataGrab();
 	});
-
-	this.sidebarVisible = false;
 
 	// ---------------
 	// MODEL
@@ -61,7 +60,7 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 
 
 	this.addNewFeedSource = () => {
-
+		// TODO, UNIT TEST THE SHIT OUTTA THIS
 		if (!this.sourceName || !this.sourceURL){
 			toastr.info("Please enter something :)", "Empty");
 		}
@@ -80,12 +79,15 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 				this.sourceURL = "";
 
 				// write todo to db, angularfire will take care of the rest
-				$rootScope.$emit("writeToFirebase", "feed", newSource);
+				$rootScope.$emit("createNewWidgetRecordForUser", "feedSource", newSource);
 
 			}
 		}
 	}
 
+	
+
+	/*
 	this.removeNewsSource = (event, source) => {
 
 		for (let obj in $scope.$parent.userWidgetMeta.feed){
@@ -98,40 +100,8 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 
 	}
 
-	this.toggleSidepanelVisibility = () => {
+	*/
 
-		const $contents = $(".inner-contents");
-
-		if (!this.sidebarVisible){
-
-			$(".feed-manager").removeClass("closed");
-			$(".feed-manager").addClass("opened");
-
-			$contents.fadeIn(() => {
-				$(".panel-visibility").html('<i class="fa fa-arrow-right close-feed-sources toggle-button" aria-hidden="true"></i>');
-				$(".close-feed-sources").show();
-				$(".open-feed-sources").hide();
-			});
-
-			this.sidebarVisible = true;
-		}
-		else {
-
-			$(".panel-visibility").html('<i class="fa fa-arrow-left open-feed-sources toggle-button" aria-hidden="true"></i>');
-
-			$(".inner-contents").fadeOut(() => {
-				$(".close-feed-sources").hide();
-				$(".open-feed-sources").show();
-				$(".feed-manager").removeClass("opened");
-				$(".feed-manager").addClass("closed");
-				$contents.hide();
-
-			});
-
-			this.sidebarVisible = false;
-		}
-
-	}
 
 	// ---------------- 
 	// FEED PARSING

@@ -1,14 +1,24 @@
 <div class="widget-wrapper">
 
 	<!-- main app injection point -->
-	<div id="feed-app">
+	<div id="feed-app" class="feeds">
 		
 		<!-- initially hidden - ui to add new feed url sources -->
 		<section class="hidden-form" id="feed-add-form">
 			<form>
-				<input type="text" name="feed-item-sitename" placeholder="Add something next..." ng-model="feed.addNewFeedTitle"></textarea>
-				<input type="text" name="feed-item-url" placeholder="Add something next..." ng-model="feed.addNewFeedURL"></textarea>
-				<button ng-click="feed.addNewFeedSubmit()">Add source</button>
+				<div class="current-source">
+					<span>Current sources</span>
+					<ol>
+						<li ng-repeat="source in userWidgetMeta.feedSource">
+							<i class="fa fa-trash" aria-hidden="true" ng-click="feed.removeNewsSource($event, source)"></i>
+							<h4>{{source.title}}</h4>
+							<a href="{{source.url}}" target="_blank">{{ source.url }}</a>
+						</li>
+					</ol>
+				</div>
+				<input type="text" name="feed-item-sitename" placeholder="Feed name" ng-model="feed.sourceName"></textarea>
+				<input type="text" name="feed-item-url" placeholder="Feed URL" ng-model="feed.sourceURL"></textarea>
+				<button ng-click="feed.addNewFeedSource()">Add source</button>
 			</form>
 		</section>
 
@@ -26,20 +36,26 @@
 
 
 			<!-- show when there's nothing -->
-			<li ng-hide="userWidgetMeta.feed">
+			<li ng-hide="userWidgetMeta.feedSource">
 				<h4>Nothing here!</h4>
 			</li>
 
 			<!-- loop of items -->
-			<li ng-repeat="feedItem in userWidgetMeta.feed" class="feed-item-cell">
-				<h4>{{ feedItem.title }}</h4>
+			<li ng-repeat="feedItem in userWidgetMeta.feedSource" class="feed-item-cell">
+				<h5>{{ feedItem.title }}</h5>
+
+				<feed-parser url="feedItem.url" />
+
+				<!--
 				<ol>
 					<li ng-repeat="article in feedItem.parsed | limitTo:7">
 						<a href="{{article.link[0]}}" target="_blank">{{ article.title[0] }}</a>
 					</li>
 				</ol>
+
+				-->
 			</li>
-			
+
 		</section>
 
 
