@@ -92,19 +92,6 @@
   cursor: pointer !important;
   opacity: 0.7; }
 
-.todo-form {
-  width: 0%;
-  float: left;
-  position: absolute;
-  transition: 0.5s all; }
-
-.todo-form form {
-  display: none; }
-
-.wide-form {
-  display: block;
-  width: 15%; }
-
 .todoItem__title a {
   text-decoration: none;
   color: rgba(146, 153, 194, 0.9); }
@@ -119,50 +106,5 @@
   color: rgba(140, 147, 190, 0.9);
   font-size: 12px;
   opacity: 0.4; }
-
-textarea {
-  resize: none;
-  outline: none;
-  border: none;
-  padding: 3%;
-  background: rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.4);
-  color: rgba(201, 201, 209, 0.8);
-  transition: all 0.6s;
-  font-family: "Coming Soon", cursive;
-  font-size: 1em;
-  height: 28vh;
-  box-sizing: border-box;
-  float: left;
-  width: 100%; }
-
-textarea::-webkit-input-placeholder {
-  color: rgba(201, 201, 209, 0.8);
-  font-family: "Lato", sans-serif; }
-
-.todo-form textarea:hover {
-  background: rgba(0, 0, 0, 0.5); }
-
-.todo-form textarea:focus {
-  background: rgba(0, 0, 0, 0.5); }
-
-button {
-  outline: none;
-  border: none;
-  padding: 4.5%;
-  background: rgba(0, 0, 0, 0.4);
-  color: rgba(172, 177, 209, 0.9);
-  text-align: left;
-  transition: all 0.6s;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  float: left;
-  width: 100%; }
-
-button:hover {
-  background: rgba(0, 0, 0, 0.3);
-  cursor: pointer; }
 
 /*# sourceMappingURL=todoView.css.map */

@@ -5,7 +5,8 @@
 .widget-wrapper {
   float: left;
   color: rgba(172, 177, 209, 0.9);
-  width: 100%; }
+  width: 100%;
+  position: relative; }
 
 .list-view {
   padding: 2%;

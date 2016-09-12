@@ -15,7 +15,6 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 	// ---------------
 	// MODEL
 	// -----
-
 	this.sourceName = "";
 	this.sourceURL = "";
 
@@ -37,6 +36,29 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 	// -----------------------------
 	// LISTENERS
 	// ---------
+
+	// show the add new feed source form at the side
+
+	this.revealFeedAddForm = () => {
+
+		$(".hidden-form form").fadeToggle();
+		$(".hidden-form").toggleClass("wide-form");
+		$(".feed-list").toggleClass("list-smaller");
+
+		// toggle between open and close font
+		if ($("#toggleFeedAddFormIcon").hasClass("fa-plus")){
+			$("#toggleFeedAddFormIcon").removeClass("fa-plus");
+			$("#toggleFeedAddForm").addClass("tool-circle-active");
+			$("#toggleFeedAddFormIcon").addClass("fa-times");
+		}
+		else {
+			$("#toggleFeedAddFormIcon").removeClass("fa-times");
+			$("#toggleFeedAddForm").removeClass("tool-circle-active");
+			$("#toggleFeedAddFormIcon").addClass("fa-plus");
+		}
+
+	}
+
 
 	this.addNewFeedSource = () => {
 

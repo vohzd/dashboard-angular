@@ -4,15 +4,47 @@
 	<div id="feed-app">
 		
 		<!-- initially hidden - ui to add new feed url sources -->
-		<section class="feed-add-form" id="feed-add-form">
+		<section class="hidden-form" id="feed-add-form">
 			<form>
 				<input type="text" name="feed-item-sitename" placeholder="Add something next..." ng-model="feed.addNewFeedTitle"></textarea>
 				<input type="text" name="feed-item-url" placeholder="Add something next..." ng-model="feed.addNewFeedURL"></textarea>
-				<button ng-click="todo.addNewFeedSubmit()">Add source</button>
+				<button ng-click="feed.addNewFeedSubmit()">Add source</button>
 			</form>
 		</section>
 
-	</div>
+
+
+		<!-- the actual feeds as they are displayed -->
+		<section class="feed-list">	
+
+			<!-- options to show hidden tools or hidden add new -->
+			<section class="options-menu">
+				<span ng-click="feed.revealFeedAddForm()" id="toggleFeedAddForm">
+					<i class="fa fa-plus" aria-hidden="true" id="toggleFeedAddFormIcon"></i>
+				</span>
+			</section>
+
+
+			<!-- show when there's nothing -->
+			<li ng-hide="userWidgetMeta.feed">
+				<h4>Nothing here!</h4>
+			</li>
+
+			<!-- loop of items -->
+			<li ng-repeat="feedItem in userWidgetMeta.feed" class="feed-item-cell">
+				<h4>{{ feedItem.title }}</h4>
+				<ol>
+					<li ng-repeat="article in feedItem.parsed | limitTo:7">
+						<a href="{{article.link[0]}}" target="_blank">{{ article.title[0] }}</a>
+					</li>
+				</ol>
+			</li>
+			
+		</section>
+
+
+
+	</div>  
 <!--
 
 	<div id="feed-app" class="app-wrapper feeds">
