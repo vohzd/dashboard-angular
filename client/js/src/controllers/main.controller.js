@@ -92,14 +92,6 @@ function mainController(
 			.then((snapshot) => {
 				this.userWidgetMeta = $scope.userWidgetMeta = $firebaseObject(snapshot);
 
-				// tell the child controllers they can access the scope data
-
-				/*
-				$scope.userWidgetMeta.$loaded().then(() => {
-					$rootScope.$broadcast("widgetScopeUpdated");
-				});
-				*/
-
 				// front-end a notification
 				toastr.success("Welcome back  " + this.username, "Signed in");
 
@@ -221,47 +213,6 @@ function mainController(
 
 	});
 
-	$rootScope.$on("separateArchivedTodos", (event) => {
-
-		console.log("fail");
-
-		/*
-
-		// THIS IS HOOOOORRRRRIBBLLLE
-		// TODO.... sort out schema to store these two separate values
-
-		if (!this.loopInProg){
-			this.loopInProg = true;
-
-			setTimeout(() => {
-
-				for (let todoKey in $scope.userWidgetMeta.todo){
-					if ($scope.userWidgetMeta.todo[todoKey].archived === true){
-
-						if (!$scope.userWidgetMeta.archivedTodos){
-							$scope.userWidgetMeta.archivedTodos = {};
-						}
-
-						$scope.userWidgetMeta.archivedTodos[todoKey] = $scope.userWidgetMeta.todo[todoKey]
-					}
-
-					this.userWidgetMeta.archivedTodos = $scope.userWidgetMeta.archivedTodos;
-
-				}
-
-
-			}, 100)
-
-			setTimeout(() => {
-				this.loopInProg = false;
-			}, 4000)
-
-		}
-
-*/
-
-
-	});
 
 }
 
