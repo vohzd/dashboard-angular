@@ -11,8 +11,7 @@
   transition: all 0.6s; }
 
 .feeds a:hover {
-  color: rgba(60, 60, 70, 0.8);
-  border-bottom: 1px dashed rgba(60, 60, 70, 0.8); }
+  color: rgba(100, 110, 168, 0.9); }
 
 .feeds h3 {
   color: rgba(172, 177, 209, 0.9);
@@ -22,19 +21,22 @@
   padding: 0;
   margin-bottom: 1%; }
 
+.current-source {
+  padding: 4%; }
+
 .current-source i, h4, a {
   position: relative;
   display: inline; }
 
 .current-source i {
-  color: rgba(64, 70, 113, 0.9);
+  color: rgba(172, 177, 209, 0.9);
   transition: all 0.8s;
   opacity: 1;
   float: left;
   width: 5%;
   margin-right: 2%;
   padding-top: 2%;
-  height: 28px; }
+  height: 55px; }
 
 .current-source i:hover {
   opacity: 0.4;
@@ -50,18 +52,19 @@
   margin-bottom: 2%; }
 
 .current-source h4 {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: normal;
+  color: rgba(140, 147, 190, 0.9);
   float: left;
-  width: 90%;
   margin: 0;
   padding: 0;
-  padding-left: 2%; }
+  width: 90%; }
 
 .current-source a {
   float: left;
-  font-size: 0.6em;
-  margin-left: 2%; }
+  width: 60%;
+  word-wrap: break-word;
+  color: rgba(91, 101, 162, 0.9); }
 
 .add-new-source {
   float: left;
@@ -73,12 +76,14 @@
   width: 43%;
   float: left; }
 
+.feed-item-cell li {
+  background: none !important; }
+
 .feed-add-form form {
   display: none; }
 
 .feed-list {
-  padding: 2%;
-  padding-top: 4%;
+  padding-top: 2%;
   position: relative;
   float: left;
   width: 96%;
@@ -135,25 +140,7 @@
   -moz-box-shadow: 0px 7px 20px -4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  height: 90vh;
-  position: absolute;
-  right: 0;
-  width: 0%;
-  transition: 0.9s all; }
-
-.opened {
-  width: 30%; }
-
-.closed {
-  width: 0%; }
-
-.left {
-  float: left;
-  width: 70%; }
-
-.right {
-  float: left;
-  width: 30%; }
+  height: 90vh; }
 
 .panel-visibility {
   position: absolute;

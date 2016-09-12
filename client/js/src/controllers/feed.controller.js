@@ -85,23 +85,6 @@ function feedController($q, $scope, $rootScope, $firebaseObject, backendService,
 		}
 	}
 
-	
-
-	/*
-	this.removeNewsSource = (event, source) => {
-
-		for (let obj in $scope.$parent.userWidgetMeta.feed){
-
-			if ($scope.$parent.userWidgetMeta.feed[obj].url == source.url){
-				delete $scope.$parent.userWidgetMeta.feed[obj];
-				$rootScope.$emit("deleteElementFromFirebase", "feed", obj);
-			}
-		}
-
-	}
-
-	*/
-
 
 	// ---------------- 
 	// FEED PARSING

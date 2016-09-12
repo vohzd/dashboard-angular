@@ -18,8 +18,7 @@
 
 .feeds a:hover
 {
-	color: darken($primaryColour, 55%);
-	border-bottom: 1px dashed darken($primaryColour, 55%);
+	color: darken($textColourLighten, 22%);
 }
 
 .feeds h3
@@ -31,6 +30,12 @@
 	padding: 0;
 	margin-bottom: 1%;
 }
+
+.current-source
+{
+	padding: 4%;
+}
+
 .current-source i, h4, a
 {
 	position: relative;
@@ -39,14 +44,14 @@
 
 .current-source i 
 {
-	color: $textColourDarker;
+	color: $textColourLighten;
 	transition: all 0.8s;
 	opacity: 1;
 	float: left;
     width: 5%;
     margin-right: 2%;
     padding-top: 2%;
-    height: 28px;;
+    height: 55px;
 }
 
 .current-source i:hover
@@ -70,20 +75,21 @@
 
 .current-source h4
 {
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: normal;
+	color: darken($textColourLighten, 10%);
 	float: left;
-	width: 90%;
 	margin: 0;
 	padding: 0;
-	padding-left:2%;
+	width: 90%;
 }
 
 .current-source a
 {
 	float: left;
-	font-size: 0.6em;
-	margin-left:2%;
+	width: 60%;
+	word-wrap: break-word;
+	color: darken($textColourLighten, 25%);
 }
 
 .add-new-source
@@ -99,6 +105,11 @@
     float: left;
 }
 
+.feed-item-cell li
+{
+    background: none !important;
+}
+
 .feed-add-form form 
 {
 	display: none;
@@ -106,8 +117,7 @@
 
 .feed-list
 {
-	padding: 2%;
-	padding-top: 4%;
+	padding-top: 2%;
 	position: relative;
 	float: left;
 	width: 96%;
@@ -185,35 +195,8 @@
     box-shadow: 0px 7px 20px -6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     height: 90vh;
-    position: absolute;
-    right: 0;
-    width: 0%;
-    transition: 0.9s all; 
 }
 
-.opened
-{
-	width: 30%
-}
-
-.closed
-{
-	width: 0%;
-}
-
-
-
-.left
-{
-	float: left;
-	width: 70%;
-}
-
-.right
-{
-	float: left;
-	width: 30%
-}
 
 .panel-visibility
 {
@@ -222,9 +205,4 @@
 	padding: 5px;
 	color: $textColourDarker;
 	font-size: 24px;
-}
-
-.inner-contents
-{
-
 }
