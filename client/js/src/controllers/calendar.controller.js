@@ -71,6 +71,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 			submit to db under the associated key
 		*/
 
+		// TODO VALIDATION
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
 			let payload = {};
