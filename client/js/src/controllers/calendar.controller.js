@@ -9,16 +9,15 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	// ----------------------
 
 	this.thisMonthAsInt 		= parseInt(moment().format("M"));
+	this.isoDateToday 			= moment().format("YYYY-MM-DD");
 
 	this.thisMonth 				= moment();
 	this.prevMonth 				= moment(this.thisMonthAsInt - 1,"M");
 	this.nextMonth 				= moment(this.thisMonthAsInt + 1,"M");
 
-
 	this.thisMonthId 			= moment(this.thisMonth).format("YYYY-MM");
 	this.prevMonthId 			= moment(this.prevMonth).format("YYYY-MM");
 	this.nextMonthId 			= moment(this.nextMonthId).format("YYYY-MM");
-
 
 	this.thisMonthDays			= new Array( this.thisMonth.daysInMonth() );
 	this.prevMonthDays			= new Array( this.prevMonth.daysInMonth() );
@@ -31,16 +30,28 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 	// init side scroll in the middle
 	$(".interactive-calendar-wrapper").scrollLeft(420);
 
+	// view state variables
 	this.formShown = false;
 	this.formStyle = "hide-form";
 
-
+	// model stores
 	this.newEventLabel = "";
 	this.newSpendLabel = "";
 	this.newSpendAmount = null;
 	this.selectedCell = null;
 
+	// highlight todays date
+	this.isTodaysDate = (cellToCheck) => {
 
+		if (this.isoDateToday === cellToCheck){
+			return "todays-cell";
+		}
+
+
+	}
+
+
+	// fired when double clicked on the view
 	this.showForm = (event) => {
 
 		if (!this.formShown){
@@ -68,6 +79,7 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
 			if (this.newEventLabel){
+				console.log("here");
 				$rootScope.$emit("createNewWidgetRecordForUser", "calendarEvent", this.newEventLabel);
 			}
 

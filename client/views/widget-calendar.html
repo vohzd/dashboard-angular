@@ -2,23 +2,45 @@
 	<div id="calendar-app" class="center-padding calendar-app">
 		<div class="interactive-calendar-wrapper" drag-scroll="true">
 			<div class="scroll-x-container">
-				<!-- prev month -->
+
+				<!-- PREV MONTH -->
 				<div class="month-wrapper">
 					<div class="month-name">{{cal.prevMonthName}}</div>
 					<div class="checkerboard-wrapper">
-						<div class="calendar-cell"  ng-repeat="day in cal.prevMonthDays track by $index" ng-Dblclick="cal.showForm($event)" ng-attr-id="{{ 'cell-' + cal.prevMonthId + '-' + ($index + 1) }}">
-							<label class="day-number-label">{{$index + 1}}</label>
+
+						<!-- BEGIN CELL -->
+						<div
+							class="calendar-cell" 
+							ng-repeat="day in cal.prevMonthDays track by $index"
+							ng-Dblclick="cal.showForm($event)"
+							ng-attr-id="{{ 'cell-' + cal.prevMonthId + '-' + ($index + 1) }}">
+
+								<!-- INNER -->
+								<label class="day-number-label">{{$index + 1}}</label>
 						</div>
+						<!-- END CELL -->
+
 					</div>
 				</div>
-
-				<!-- this month -->
+ 
+				<!-- THIS MONTH -->
 				<div class="month-wrapper">
 					<div class="month-name">{{cal.thisMonthName}}</div>
 					<div class="checkerboard-wrapper">
-						<div class="calendar-cell"  ng-repeat="day in cal.thisMonthDays track by $index" ng-Dblclick="cal.showForm($event)" ng-attr-id="{{ 'cell-' + cal.thisMonthId + '-' + ($index + 1) }}">
+
+						<!-- BEGIN CELL -->
+						<div 
+							class="calendar-cell"
+							ng-repeat="day in cal.thisMonthDays track by $index"
+							ng-Dblclick="cal.showForm($event)"
+							ng-attr-id="{{ 'cell-' + cal.thisMonthId + '-' + ($index + 1) }}" 
+							ng-class="cal.isTodaysDate(cal.thisMonthId + '-' + ($index + 1))">
+
+							<!-- INNER -->
 							<label class="day-number-label">{{$index + 1}}</label>
+
 						</div>
+						<!-- END CELL -->
 					</div>
 				</div>
 
@@ -26,9 +48,18 @@
 				<div class="month-wrapper">
 					<div class="month-name">{{cal.nextMonthName}}</div>
 					<div class="checkerboard-wrapper">
-						<div class="calendar-cell" ng-repeat="day in cal.nextMonthDays track by $index" ng-Dblclick="cal.showForm($event)" ng-attr-id="{{ 'cell-' + cal.nextMonthId + '-' + ($index + 1) }}">
+
+						<!-- BEGIN CELL -->
+						<div 
+							class="calendar-cell"
+							ng-repeat="day in cal.nextMonthDays track by $index"
+							ng-Dblclick="cal.showForm($event)"
+							ng-attr-id="{{ 'cell-' + cal.nextMonthId + '-' + ($index + 1) }}">
+
+							<!-- INNER -->
 							<label class="day-number-label">{{$index + 1}}</label>
 						</div>
+						<!-- END CELL -->
 					</div>
 				</div>
 			</div> 

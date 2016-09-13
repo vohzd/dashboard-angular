@@ -61,6 +61,16 @@
 	clear:both;
 }
 
+.calendar-cell:hover 
+{
+	opacity: 0.8;
+}
+
+.todays-cell
+{
+	background: rgba(255,255,255,0.3) !important;
+}
+
 .month-name
 {
 	float: left;
@@ -98,5 +108,7 @@
 	font-weight: normal;
 	color: $textColourDarker;
 }
+
+
 
 
