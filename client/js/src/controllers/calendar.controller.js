@@ -73,38 +73,26 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
-			if (this.newEventLabel){
+			let payload = {};
 
-				let payload = {
+			if (this.newEventLabel){
+				payload = {
 					added: Date.now(),
 					cell: this.selectedCell,
 					title: this.newEventLabel
 				}
-
 				$rootScope.$emit("createNewWidgetRecordForUser", "calendarEvent", payload);
 			}
 
-			/*
-
-			const payload = {
-				[this.selectedCell] : {
-					event: {
-						label: this.newEventLabel ? this.newEventLabel : null
-					},
-					spend: {
-						label: this.newSpendLabel ? this.newSpendLabel : null,
-						amount: this.newSpendAmount ? this.newSpendAmount : null
-					}
+			if (this.newSpendLabel && this.newSpendAmount){
+				payload = {
+					added: Date.now(),
+					cell: this.selectedCell,
+					title: this.newSpendLabel,
+					amount: this.newSpendAmount
 				}
+				$rootScope.$emit("createNewWidgetRecordForUser", "calendarSpend", payload);
 			}
-
-			// todo, clear form and dismiss
-
-			console.log(payload);
-
-			$rootScope.$emit("writeToFirebase", "calendar", payload);
-
-			*/
 
 		}
 		else {
