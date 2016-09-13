@@ -7,7 +7,7 @@ function mainController(
 	firebaseService,
 	backendService,
 	userService,
-	toastr
+	toastr 
 	){
 
 	// ----------------------------------------------------------------
@@ -27,8 +27,6 @@ function mainController(
 
 	// grab an instance of the firebase getAuth method
 	this.auth = firebaseService.getAuth();
-
-	this.loopInProg = false;
 
 	// -----------------------------------------------------------------
 	// CHECK AND LOG IN PRIOR SESSION
@@ -134,7 +132,7 @@ function mainController(
 	});
 
 
-	// sign in button clicked, bring up google oAuth screen
+	// BOUND TO A SIGN IN BUTTON ON THE VIEW
 	$rootScope.$on("signUserIn", () => {
 
 		let googlePromise = firebaseService.logInWithGoogle;
@@ -158,11 +156,16 @@ function mainController(
 
 	});
 
-	// remove the user
+	// SIGN THE USER OUT
 	$rootScope.$on("signUserOut", () => {
 		toastr.info("Signing out...");
 		this.auth.$signOut();
 	});
+
+
+	// *******************************
+	// DEPRECATED
+	//
 
 	// write an update to the db (when user adds stuff)
 	$rootScope.$on("writeToFirebase", (event, whatToWrite, payload) => {

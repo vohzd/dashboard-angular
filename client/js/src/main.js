@@ -28,6 +28,7 @@ import userService from "./services/user.service.js";
 // directives
 import dashboardHeader from "./directives/dashboard-header.directive.js";
 import dashboardSidebar from "./directives/dashboard-sidebar.directive.js";
+import calendarCellDetailer from "./directives/calendar-cell-detailer.directive.js";
 import feedParser from "./directives/feed-parser.directive.js";
 
 
@@ -41,9 +42,10 @@ import feedController from "./controllers/feed.controller.js";
 // GO
 angular.module("dashboardApp", ["ngAnimate", "ngSanitize", "ui.router", "firebase", "toastr", "ng-drag-scroll"])
 	.controller("mainController", mainController)
+	.directive("feedParser", feedParser)
 	.directive("dashboardHeader", dashboardHeader)
 	.directive("dashboardSidebar", dashboardSidebar)
-	.directive("feedParser", feedParser)
+	.directive("calendarCellDetailer", calendarCellDetailer)
 	.service("firebaseService", firebaseService)
 	.service("backendService", backendService)
 	.service("userService", userService)

@@ -36,8 +36,11 @@
 							ng-attr-id="{{ 'cell-' + cal.thisMonthId + '-' + ($index + 1) }}" 
 							ng-class="cal.isTodaysDate(cal.thisMonthId + '-' + ($index + 1))">
 
-							<!-- INNER -->
-							<label class="day-number-label">{{$index + 1}}</label>
+								<!-- INNER -->
+								<label class="day-number-label">{{$index + 1}}</label>
+
+								<calendar-cell-detailer meta="main.userWidgetMeta"></calendar-cell-detailer>
+
 
 						</div>
 						<!-- END CELL -->

@@ -42,18 +42,13 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 
 	// highlight todays date
 	this.isTodaysDate = (cellToCheck) => {
-
 		if (this.isoDateToday === cellToCheck){
 			return "todays-cell";
 		}
-
-
 	}
-
 
 	// fired when double clicked on the view
 	this.showForm = (event) => {
-
 		if (!this.formShown){
 			this.formShown = true;
 			this.formStyle = "show-form";
@@ -79,8 +74,14 @@ function calendarController($scope, $rootScope, $firebaseObject, toastr){
 		if (this.newEventLabel || (this.newSpendLabel && this.newSpendAmount)){
 
 			if (this.newEventLabel){
-				console.log("here");
-				$rootScope.$emit("createNewWidgetRecordForUser", "calendarEvent", this.newEventLabel);
+
+				let payload = {
+					added: Date.now(),
+					cell: this.selectedCell,
+					title: this.newEventLabel
+				}
+
+				$rootScope.$emit("createNewWidgetRecordForUser", "calendarEvent", payload);
 			}
 
 			/*
